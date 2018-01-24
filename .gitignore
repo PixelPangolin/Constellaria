@@ -4,7 +4,6 @@
 /[Bb]uild/
 /[Bb]uilds/
 /Assets/AssetStoreTools*
-/ProjectSettings* #changed line
 
 # Visual Studio 2015 cache directory
 /.vs/
@@ -33,3 +32,5 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+Test Unity Project/Test Unity Project/ProjectSettings/
