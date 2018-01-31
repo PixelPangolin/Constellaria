@@ -20,6 +20,11 @@ public class Node : MonoBehaviour {
 
 	}
 
+	// If the player collids with a node
+	// 1. Check what was the last node they collided with
+	// 2. Activate the apporiate connecting line between the two nodes 
+	// 3. Set current Node of the nodeManager to be this node
+
 	void OnTriggerEnter2D (Collider2D other)
 	{
 		if (other.gameObject.CompareTag("Player")){
@@ -27,17 +32,13 @@ public class Node : MonoBehaviour {
 			GameObject currentNode;
 			currentNode = nodeManager.getCurrent();
 			if(currentNode == adjNodeA){
-				//Destroy(gameObject);
 				connectA.SetActive(true);
 			}
 
 			if(currentNode == adjNodeB){
-				//Destroy(gameObject);
 				connectB.SetActive(true);
 			}
-			// // else if(nodeManager.getCurrent == adjNodeA){
 				
-			// // }
 			nodeManager.setCurrent(gameObject);
 			//NodeHandler handler = other.GetComponent(typeof(NodeHandler));
 			//Destroy(gameObject);
