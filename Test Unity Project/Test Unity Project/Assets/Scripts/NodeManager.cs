@@ -31,8 +31,8 @@ public class NodeManager : MonoBehaviour {
 		if (connected) 
 		{
 			line.SetPosition(0, transform.position);
-			GameObject node = getCurrent();
-			line.SetPosition(1, node.transform.position);
+			GameObject nodee = getCurrent();
+			line.SetPosition(1, nodee.transform.position);
 		}
 
 	}
@@ -48,7 +48,7 @@ public class NodeManager : MonoBehaviour {
 
 	public void setGrapplingHook(GameObject node){
 		hook.enabled = true;
-		//hook.anchor = node.transform.position;
+		hook.connectedAnchor = node.transform.position;
 		hook.connectedBody = node.GetComponent<Rigidbody2D>();
 
 		//line.SetVertexCount(2); //may need this later for handling corners
@@ -59,6 +59,6 @@ public class NodeManager : MonoBehaviour {
 		connected = true;
 
 		// If we ever want to set the distance of the grappling hook
-		hook.distance = Vector2.Distance(transform.position,node.transform.position);
+		//hook.distance = Vector2.Distance(transform.position,node.transform.position);
 	}
 }
