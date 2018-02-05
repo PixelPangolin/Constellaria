@@ -8,11 +8,16 @@ public class NodeManager : MonoBehaviour {
 	public DistanceJoint2D hook;
 	public bool connected = false;
 	public LineRenderer line;
+	public GameObject lineA;
+	public GameObject lineB;
+	public GameObject endImage;
+	public Camera mainCamera;
 
 	// Use this for initialization
 	void Start () {
 		hook = GetComponent<DistanceJoint2D>();
 		hook.enabled = false;
+
 	}
 	
 	// Update is called once per frame
@@ -35,6 +40,11 @@ public class NodeManager : MonoBehaviour {
 			line.SetPosition(1, nodee.transform.position);
 		}
 
+		if (lineA.activeInHierarchy && lineB.activeInHierarchy)
+		{
+			endImage.SetActive(true);
+			mainCamera.orthographicSize = (mainCamera.orthographicSize + 0.01f);
+		}
 	}
 
 	public void setCurrent(GameObject node){

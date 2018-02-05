@@ -20,7 +20,7 @@ public class GoodLine : MonoBehaviour {
 	{
 		onLine = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Lines"));
 
-		if (Input.GetButtonDown("Down") && onLine) 
+		if (Input.GetKey("down") && onLine) 
 		{
 			StartCoroutine("Fall");
 		}
