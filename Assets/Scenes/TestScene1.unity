@@ -1152,6 +1152,8 @@ GameObject:
   - component: {fileID: 1027401361}
   - component: {fileID: 1027401362}
   - component: {fileID: 1027401363}
+  - component: {fileID: 1027401364}
+  - component: {fileID: 1027401365}
   m_Layer: 9
   m_Name: hero
   m_TagString: Player
@@ -1368,14 +1370,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 285be1d6e829f4490a88fcb09880b3be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentNode: {fileID: 0}
-  hook: {fileID: 0}
-  connected: 0
-  line: {fileID: 1027401363}
   lineA: {fileID: 2016219898}
   lineB: {fileID: 98106629}
   endImage: {fileID: 1553902419}
   mainCamera: {fileID: 245664514}
+  correctLines: []
 --- !u!232 &1027401362
 DistanceJoint2D:
   m_ObjectHideFlags: 0
@@ -1494,6 +1493,37 @@ LineRenderer:
     generateLightingData: 1
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &1027401364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1027401353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6619e967967acb4438a3fa5fd860958d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentNode: {fileID: 0}
+  line: {fileID: 1027401363}
+  hook: {fileID: 0}
+  connected: 0
+--- !u!114 &1027401365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1027401353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285be1d6e829f4490a88fcb09880b3be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lineA: {fileID: 2016219898}
+  lineB: {fileID: 98106629}
+  endImage: {fileID: 1553902419}
+  mainCamera: {fileID: 245664514}
+  correctLines: []
 --- !u!1 &1082205951
 GameObject:
   m_ObjectHideFlags: 0
