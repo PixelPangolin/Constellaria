@@ -20,7 +20,7 @@ public class BadLine : MonoBehaviour {
 	{
 		onLine = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Lines"));
 
-		if (Input.GetKey ("down") && onLine) 
+		if ((Input.GetKey ("down")||Input.GetKey ("s")) && onLine) 
 		{
 			StartCoroutine("Fall");
 		}
