@@ -28,9 +28,9 @@ public class Node : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D other)
 	{
 		if (other.gameObject.CompareTag("Player")){
-			NodeManager nodeManager = other.GetComponent(typeof(NodeManager)) as NodeManager;
+			GrapplingHook grapplingHook = other.GetComponent(typeof(GrapplingHook)) as GrapplingHook;
 			GameObject currentNode;
-			currentNode = nodeManager.getCurrent();
+			currentNode = grapplingHook.getCurrent();
 			if(currentNode == adjNodeA){
 				connectA.SetActive(true);
 			}
@@ -39,7 +39,7 @@ public class Node : MonoBehaviour {
 				connectB.SetActive(true);
 			}
 				
-			nodeManager.setCurrent(gameObject);
+			grapplingHook.setCurrent(gameObject);
 			//NodeHandler handler = other.GetComponent(typeof(NodeHandler));
 			//Destroy(gameObject);
 		}
