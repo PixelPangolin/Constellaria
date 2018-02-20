@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class GoodLine : MonoBehaviour {
+public class TwoWayLine : MonoBehaviour {
 
 	public Transform groundCheck;
 
@@ -12,7 +12,7 @@ public class GoodLine : MonoBehaviour {
 
 	void Awake () 
 	{
-		boxCollider = GetComponent<BoxCollider2D>();
+		boxCollider = GameObject.Find("hero").GetComponent<BoxCollider2D>();
 	}
 
 	// Update is called once per frame
