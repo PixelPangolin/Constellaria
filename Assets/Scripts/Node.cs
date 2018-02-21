@@ -22,9 +22,9 @@ public class Node : MonoBehaviour
 		c.enabled = on;
 	}
 
-	void OnTriggerEnter(Collider other)
+	void OnTriggerEnter2D(Collider2D other)
 	{
-		print ("Collision");
+		Debug.Log("Collision");
 		pc = other.gameObject.GetComponent<GrapplingHook>();
 		Node playerNode = pc.getCurrent ();
 		if ((playerNode != null) && (!playerNode.Equals(this)))
@@ -38,7 +38,7 @@ public class Node : MonoBehaviour
 			pc.setCurrent(this);
 			this.on = true;
 		}
-	}
+    }
 
 	public GameObject GetGameObject(){
 		return gameObject;
