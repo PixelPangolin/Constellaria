@@ -17,7 +17,7 @@ public class GrapplingHook : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		
 		if (Input.GetKey("up")||Input.GetKey("w"))
         {
@@ -34,16 +34,19 @@ public class GrapplingHook : MonoBehaviour {
             line.SetPosition(0, transform.position);
 			GameObject node = getCurrent();
 			line.SetPosition(1, node.transform.position);
-			rope.nodes[0] = transform.position;
+			//rope.nodes[0] = transform.position;
 			//Rope.ResetRope (rope, false);
-			if (rope.transform.childCount*rope.transform.GetChild(0).GetComponent<SpriteRenderer>().bounds.size.y < Vector3.Distance(transform.position,node.transform.position))
+			if (rope.transform.childCount*rope.linkSpriteLength-0.5f < rope.lengthenBound*Vector3.Distance(transform.position,node.transform.position))
 			{
 				Rope.Lengthen(rope);
+				//Rope.ResetRope(rope, false);
+				//print ("lengthen");
 			}
-			if (rope.transform.childCount*rope.transform.GetChild(0).GetComponent<SpriteRenderer>().bounds.size.y > 2*Vector3.Distance(transform.position,node.transform.position))
+			if (rope.transform.childCount*rope.linkSpriteLength-0.5f > rope.shortenBound*Vector3.Distance(transform.position,node.transform.position))
 			{
 				Rope.Shorten(rope, node);
 				//Rope.ResetRope(rope, false);
+				//print ("shorten");
 			}
 			//print ((rope.transform.childCount*rope.transform.GetChild(0).GetComponent<SpriteRenderer>().bounds.size.y).ToString() + " " + (Vector3.Distance(transform.position,node.transform.position)).ToString());
 
@@ -69,6 +72,7 @@ public class GrapplingHook : MonoBehaviour {
 
     public void setGrapplingHook(GameObject node)
 	{
+
         hook.enabled = true;
 		//hook.connectedAnchor = node.transform.position;
         hook.connectedBody = node.GetComponent<Rigidbody2D>();
@@ -84,13 +88,13 @@ public class GrapplingHook : MonoBehaviour {
         connected = true;
 		rope.nodes[0] = transform.position;
 		rope.nodes[1] = node.transform.position;
-		rope.firstSegmenthook = playerRigidBody;
+		//rope.firstSegmenthook = playerRigidBody;
 		rope.secondSegmenthook = node.GetComponent<Rigidbody2D>();
-		//Rope.DestroyChildren (rope, false);
-		Rope.ResetRope (rope, false);
+		Rope.DestroyChildren (rope, false);
+		Rope.ResetRope (rope, false);}
 		//rope.LastSegmentConnectionAnchor.x = node.transform.position.x;
 		//rope.LastSegmentConnectionAnchor.y = node.transform.position.y;
         // If we ever want to set the distance of the grappling hook
         //hook.distance = Vector2.Distance(transform.position,node.transform.position);
-    }
+    
 }

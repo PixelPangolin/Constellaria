@@ -759,6 +759,14 @@ Prefab:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 4389667351961696, guid: e94f009470d8e406b80afaaffe58e474, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389667351961696, guid: e94f009470d8e406b80afaaffe58e474, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 50292751693216404, guid: e94f009470d8e406b80afaaffe58e474, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e94f009470d8e406b80afaaffe58e474, type: 2}
@@ -904,6 +912,14 @@ Prefab:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 4105261008241920, guid: 1b9dd01a95a0747ebbfcd44dd3c1f6fa, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105261008241920, guid: 1b9dd01a95a0747ebbfcd44dd3c1f6fa, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1b9dd01a95a0747ebbfcd44dd3c1f6fa, type: 2}
   m_IsPrefabParent: 0
@@ -963,15 +979,17 @@ MonoBehaviour:
   - {fileID: 1733263568}
   SegmentsMode: 0
   OverflowMode: 0
-  useSetLength: 0
-  length: 0
+  linkSpriteLength: 0.1
+  linkJointLength: 0.1
+  shortenBound: 0.5
+  lengthenBound: 0.3
   firstSegmenthook: {fileID: 1027401359}
   secondSegmenthook: {fileID: 145319625}
   useBendLimit: 0
   bendLimit: 180
   HangFirstSegment: 1
   HangLastSegment: 1
-  overlapFactor: -0.15
+  overlapFactor: -0.5
   nodes:
   - {x: -17.243137, y: 2.925778, z: 0}
   - {x: -13.134034, y: 3.2505767, z: 0}
@@ -1223,6 +1241,14 @@ Prefab:
     - target: {fileID: 1710077913921666, guid: 1b9dd01a95a0747ebbfcd44dd3c1f6fa, type: 2}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105261008241920, guid: 1b9dd01a95a0747ebbfcd44dd3c1f6fa, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105261008241920, guid: 1b9dd01a95a0747ebbfcd44dd3c1f6fa, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1b9dd01a95a0747ebbfcd44dd3c1f6fa, type: 2}
@@ -2741,7 +2767,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300008, guid: 9b1ff65a2b241ea49bde76a57b93316c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2ad98e655c95bd444bbaaa5d67f821a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2758,7 +2784,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1733263567}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2818,14 +2844,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.54, y: 0.96}
+    oldSize: {x: 0.33, y: 0.33}
     newSize: {x: 18.43, y: 18.43}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.54, y: 0.96}
+  m_Size: {x: 0.3, y: 0.3}
   m_EdgeRadius: 0
 --- !u!232 &1733263573
 DistanceJoint2D:
@@ -2843,7 +2869,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 0
-  m_Distance: 0.1
+  m_Distance: 1
   m_MaxDistanceOnly: 1
 --- !u!1 &1939564569
 GameObject:

@@ -15,8 +15,10 @@ public class Rope : MonoBehaviour {
     public SpriteRenderer[] SegmentsPrefabs;
     public SegmentSelectionMode SegmentsMode;
     public LineOverflowMode OverflowMode; 
-	public bool useSetLength = false;
-	public float length;
+	public float linkSpriteLength = 1;
+	public float linkJointLength = 0.05f;
+	public float shortenBound = 1;
+	public float lengthenBound = 1;
 	public Rigidbody2D firstSegmenthook;
 
 	public Rigidbody2D secondSegmenthook;
@@ -39,7 +41,7 @@ public class Rope : MonoBehaviour {
     [HideInInspector]
     public float BreakForce = 100;
 #endif
-    [Range(-0.5f,0.5f)]
+    [Range(-0.9f,0.9f)]
     public float overlapFactor;
     public List<Vector3> nodes = new List<Vector3>(new Vector3[] {new Vector3(-3,0,0),new Vector3(3,0,0) });
     public bool WithPhysics=true;
@@ -75,7 +77,8 @@ public class Rope : MonoBehaviour {
 		joint.connectedAnchor = new Vector2(0, segmentHeight / 2);
 		joint.maxDistanceOnly = true;
 		joint.autoConfigureDistance = false;
-		joint.distance = 0.1f;
+		joint.distance = rope.linkJointLength;
+
 		//if (rope.useBendLimit)
 		//{
 			//joint.useLimits = true;
@@ -130,11 +133,11 @@ public class Rope : MonoBehaviour {
 		rope.transform.GetChild(rope.transform.childCount - 2).gameObject.AddComponent<DistanceJoint2D>();
 		DistanceJoint2D joint = rope.transform.GetChild (rope.transform.childCount - 2).GetComponents<DistanceJoint2D> ()[1];
 		joint.connectedBody = node.GetComponent<Rigidbody2D>();
-		joint.anchor = new Vector2(0, -rope.SegmentsPrefabs[0].bounds.size.y * (1 + rope.overlapFactor) / 2);
-		joint.connectedAnchor = new Vector2(0, rope.SegmentsPrefabs[0].bounds.size.y * (1 + rope.overlapFactor) / 2);
+		//joint.anchor = new Vector2(0, -rope.SegmentsPrefabs[0].bounds.size.y * (1 + rope.overlapFactor) / 2);
+		joint.connectedAnchor = new Vector2(0, 0);//rope.SegmentsPrefabs[0].bounds.size.y * (1 + rope.overlapFactor) / 2);
 		joint.maxDistanceOnly = true;
 		joint.autoConfigureDistance = false;
-		joint.distance = 0.1f;
+		joint.distance = rope.linkJointLength;
 		//UpdateEndsJoints(rope);
 	}
 
@@ -163,10 +166,12 @@ public class Rope : MonoBehaviour {
 			if(!joint)
 				joint = firstSegment.gameObject.AddComponent<DistanceJoint2D>();
 			Vector2 hingePositionInWorldSpace = rope.firstSegmenthook.transform.position;
-			joint.connectedAnchor = hingePositionInWorldSpace;
-			joint.anchor = firstSegment.transform.InverseTransformPoint(hingePositionInWorldSpace);
-			//joint.connectedBody = GetConnectedObject(hingePositionInWorldSpace, firstSegment.GetComponent<Rigidbody2D>());
+//			joint.connectedBody = GetConnectedObject(hingePositionInWorldSpace, firstSegment.GetComponent<Rigidbody2D>());
 			joint.connectedBody = rope.firstSegmenthook;
+			joint.connectedAnchor = hingePositionInWorldSpace;
+			//joint.anchor = firstSegment.transform.InverseTransformPoint(hingePositionInWorldSpace);
+			joint.distance = rope.linkJointLength;
+
 			if(joint.connectedBody)
 			{
 				joint.connectedAnchor = joint.connectedBody.transform.InverseTransformPoint(hingePositionInWorldSpace);
@@ -187,10 +192,11 @@ public class Rope : MonoBehaviour {
 			else
 				joint = lastSegment.gameObject.AddComponent<DistanceJoint2D>();
 			Vector2 hingePositionInWorldSpace = rope.secondSegmenthook.transform.position;
-			joint.connectedAnchor = hingePositionInWorldSpace;
-			joint.anchor = lastSegment.transform.InverseTransformPoint(hingePositionInWorldSpace) ;
-			//joint.connectedBody = GetConnectedObject(hingePositionInWorldSpace, lastSegment.GetComponent<Rigidbody2D>());
+//			joint.connectedBody = GetConnectedObject(hingePositionInWorldSpace, lastSegment.GetComponent<Rigidbody2D>());
 			joint.connectedBody = rope.secondSegmenthook;
+			joint.connectedAnchor = hingePositionInWorldSpace;
+			//joint.anchor = lastSegment.transform.InverseTransformPoint(hingePositionInWorldSpace) ;
+			joint.distance = rope.linkJointLength;
 			if (joint.connectedBody)
 			{
 				joint.connectedAnchor = joint.connectedBody.transform.InverseTransformPoint(hingePositionInWorldSpace);
