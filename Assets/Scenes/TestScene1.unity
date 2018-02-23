@@ -1403,6 +1403,8 @@ MonoBehaviour:
   line: {fileID: 1027401363}
   hook: {fileID: 0}
   connected: 0
+  rope: {fileID: 1409399553}
+  playerRigidBody: {fileID: 1027401359}
 --- !u!1 &1082205951
 GameObject:
   m_ObjectHideFlags: 0
@@ -1434,6 +1436,53 @@ Transform:
   m_Father: {fileID: 1684997204}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1114239989
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4238274495700128, guid: c33f6218484eca04c88eea5f7e005d6b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238274495700128, guid: c33f6218484eca04c88eea5f7e005d6b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238274495700128, guid: c33f6218484eca04c88eea5f7e005d6b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238274495700128, guid: c33f6218484eca04c88eea5f7e005d6b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238274495700128, guid: c33f6218484eca04c88eea5f7e005d6b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238274495700128, guid: c33f6218484eca04c88eea5f7e005d6b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238274495700128, guid: c33f6218484eca04c88eea5f7e005d6b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238274495700128, guid: c33f6218484eca04c88eea5f7e005d6b, type: 2}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 114596131265965958, guid: c33f6218484eca04c88eea5f7e005d6b,
+        type: 2}
+      propertyPath: firstSegmenthook
+      value: 
+      objectReference: {fileID: 1027401359}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c33f6218484eca04c88eea5f7e005d6b, type: 2}
+  m_IsPrefabParent: 0
 --- !u!114 &1161358634 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114459674132474894, guid: 0c43fd3db08336a4fa59cfa81fe2ae13,
@@ -1638,6 +1687,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1409399553 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114596131265965958, guid: c33f6218484eca04c88eea5f7e005d6b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1114239989}
+  m_Script: {fileID: 11500000, guid: 548add69c3febb74fac7d0a73f1036c9, type: 3}
 --- !u!1 &1417274861
 GameObject:
   m_ObjectHideFlags: 0
