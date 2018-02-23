@@ -5,15 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - ground
-  - Crate
   - Enemy
-  - Wall
-  - Obstacle
-  - Bullet
-  - BombPickup
-  - ExplosionFX
-  - HealthBar
   - Node
+  - ShowOnPause
+  - Placeholder1
+  - Placeholder2
+  - Placeholder3
+  - Placeholder4
+  - Placeholder5
   layers:
   - Default
   - TransparentFX
@@ -29,11 +28,11 @@ TagManager:
   - Nodes
   - Ground
   - Lines
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Unused1
+  - Unused2
+  - Unused3
+  - Unused4
+  - Unused5
   - 
   - 
   - 

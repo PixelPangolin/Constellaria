@@ -5,12 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Scenes/StartScreen.unity
+    guid: 97b7f6abf23ec6e48a4ee5e72306e792
+  - enabled: 1
     path: Assets/Scenes/TestScene1.unity
     guid: d3f303eb2beb024438b0d8f90815dc61
-  - enabled: 1
-    path: Assets/Scenes/DArcyGrapplingScene.unity
-    guid: 0605179442595364d889b4d0bdbf4fbd
