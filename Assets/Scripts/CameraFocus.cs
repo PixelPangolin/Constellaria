@@ -14,8 +14,8 @@ public class CameraFocus : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        // initializes teh camera to the player position
-        transform.position = player.transform.position;
+        // initializes the camera to the player position
+        //transform.position = player.transform;
 	}
 	
 	// Update is called once per frame
@@ -37,7 +37,7 @@ public class CameraFocus : MonoBehaviour {
             // if only x needs to move then the y will not change
             if (shouldMovey == false)
             {
-                playerPos = new Vector3(playerPos.x, selfPos.y, playerPos.z);
+                playerPos = new Vector3(playerPos.x, selfPos.y, -10); //Moving in Z is bad, and should be static
             }
        
             float step = speed * Time.deltaTime;

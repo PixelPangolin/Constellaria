@@ -42,7 +42,7 @@ public class ConnectionsManager : MonoBehaviour {
 			}
 */
 			RemoveExtraConnection (a);
-            RemoveExtraConnection (b);
+			RemoveExtraConnection (b);
 			GameObject beam = new GameObject ("beamOLight");
 			beam.transform.parent = transform;
 			beam.AddComponent<Connection> ();
@@ -69,7 +69,7 @@ public class ConnectionsManager : MonoBehaviour {
 		List<Connection> NodeAConnections = new List<Connection>();
 		for (int i = 0; i < playerConnections.Count; i++){
 			Connection c = playerConnections[i];
-			if (((c.start == a) || (c.end) == a))
+			if (((c.start == a) || (c.end == a)))
 			{
 				NodeAConnections.Add (c);
 			}
