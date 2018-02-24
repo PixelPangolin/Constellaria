@@ -42,6 +42,7 @@ public class ConnectionsManager : MonoBehaviour {
 			}
 */
 			RemoveExtraConnection (a);
+            RemoveExtraConnection (b);
 			GameObject beam = new GameObject ("beamOLight");
 			beam.transform.parent = transform;
 			beam.AddComponent<Connection> ();

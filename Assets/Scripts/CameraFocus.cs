@@ -10,7 +10,7 @@ public class CameraFocus : MonoBehaviour {
     public GameObject player;
     public float max_x = 4;
     public float max_y = 5;
-    public float speed = 3;
+    public float speed = 8;
 
 	// Use this for initialization
 	void Start () {
