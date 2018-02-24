@@ -449,6 +449,11 @@ GameObject:
   m_PrefabParentObject: {fileID: 1062674776155996, guid: eb68358abca112044a1748cbff67c95b,
     type: 2}
   m_PrefabInternal: {fileID: 1517234680}
+--- !u!95 &429463040 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 95159571562274752, guid: eb68358abca112044a1748cbff67c95b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1517234680}
 --- !u!50 &429463044 stripped
 Rigidbody2D:
   m_PrefabParentObject: {fileID: 50705638565339850, guid: eb68358abca112044a1748cbff67c95b,
@@ -1112,9 +1117,11 @@ MonoBehaviour:
   facingRight: 1
   jump: 0
   running: 0
+  idleCount: 0
   moveForce: 365
   maxSpeed: 5
   jumpForce: 1000
+  idleTimer: 1000
   groundCheck: {fileID: 926679122}
 --- !u!82 &1027401355
 AudioSource:
@@ -1602,6 +1609,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 114283878690613714, guid: a2b807563629a93468b277582470353c,
+        type: 2}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 429463040}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a2b807563629a93468b277582470353c, type: 2}
   m_IsPrefabParent: 0
