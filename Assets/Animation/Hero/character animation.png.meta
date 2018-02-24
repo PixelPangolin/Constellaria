@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: a28432f2a79f8504bb6835acdcff98d3
-timeCreated: 1519443379
+timeCreated: 1519512439
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -46,6 +46,40 @@ TextureImporter:
     21300078: character animation_39
     21300080: character animation_40
     21300082: character animation_41
+    21300084: character animation_42
+    21300086: character animation_43
+    21300088: character animation_44
+    21300090: character animation_45
+    21300092: character animation_46
+    21300094: character animation_47
+    21300096: character animation_48
+    21300098: character animation_49
+    21300100: character animation_50
+    21300102: character animation_51
+    21300104: character animation_52
+    21300106: character animation_53
+    21300108: character animation_54
+    21300110: character animation_55
+    21300112: character animation_56
+    21300114: character animation_57
+    21300116: character animation_58
+    21300118: character animation_59
+    21300120: character animation_60
+    21300122: character animation_61
+    21300124: character animation_62
+    21300126: character animation_63
+    21300128: character animation_64
+    21300130: character animation_65
+    21300132: character animation_66
+    21300134: character animation_67
+    21300136: character animation_68
+    21300138: character animation_69
+    21300140: character animation_70
+    21300142: character animation_71
+    21300144: character animation_72
+    21300146: character animation_73
+    21300148: character animation_74
+    21300150: character animation_75
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -344,8 +378,8 @@ TextureImporter:
       name: character animation_16
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1920
+        x: 1920
+        y: 2160
         width: 240
         height: 240
       alignment: 0
@@ -358,8 +392,8 @@ TextureImporter:
       name: character animation_17
       rect:
         serializedVersion: 2
-        x: 240
-        y: 1920
+        x: 2160
+        y: 2160
         width: 240
         height: 240
       alignment: 0
@@ -372,8 +406,8 @@ TextureImporter:
       name: character animation_18
       rect:
         serializedVersion: 2
-        x: 480
-        y: 1920
+        x: 2400
+        y: 2160
         width: 240
         height: 240
       alignment: 0
@@ -386,8 +420,8 @@ TextureImporter:
       name: character animation_19
       rect:
         serializedVersion: 2
-        x: 720
-        y: 1920
+        x: 2640
+        y: 2160
         width: 240
         height: 240
       alignment: 0
@@ -401,7 +435,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1680
+        y: 1920
         width: 240
         height: 240
       alignment: 0
@@ -414,8 +448,8 @@ TextureImporter:
       name: character animation_21
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1440
+        x: 240
+        y: 1920
         width: 240
         height: 240
       alignment: 0
@@ -428,8 +462,8 @@ TextureImporter:
       name: character animation_22
       rect:
         serializedVersion: 2
-        x: 240
-        y: 1440
+        x: 480
+        y: 1920
         width: 240
         height: 240
       alignment: 0
@@ -442,8 +476,8 @@ TextureImporter:
       name: character animation_23
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1200
+        x: 720
+        y: 1920
         width: 240
         height: 240
       alignment: 0
@@ -456,8 +490,8 @@ TextureImporter:
       name: character animation_24
       rect:
         serializedVersion: 2
-        x: 240
-        y: 1200
+        x: 960
+        y: 1920
         width: 240
         height: 240
       alignment: 0
@@ -470,8 +504,8 @@ TextureImporter:
       name: character animation_25
       rect:
         serializedVersion: 2
-        x: 480
-        y: 1200
+        x: 1200
+        y: 1920
         width: 240
         height: 240
       alignment: 0
@@ -484,8 +518,8 @@ TextureImporter:
       name: character animation_26
       rect:
         serializedVersion: 2
-        x: 720
-        y: 1200
+        x: 1440
+        y: 1920
         width: 240
         height: 240
       alignment: 0
@@ -498,8 +532,8 @@ TextureImporter:
       name: character animation_27
       rect:
         serializedVersion: 2
-        x: 0
-        y: 960
+        x: 1680
+        y: 1920
         width: 240
         height: 240
       alignment: 0
@@ -512,8 +546,8 @@ TextureImporter:
       name: character animation_28
       rect:
         serializedVersion: 2
-        x: 240
-        y: 960
+        x: 1920
+        y: 1920
         width: 240
         height: 240
       alignment: 0
@@ -526,8 +560,8 @@ TextureImporter:
       name: character animation_29
       rect:
         serializedVersion: 2
-        x: 0
-        y: 720
+        x: 2160
+        y: 1920
         width: 240
         height: 240
       alignment: 0
@@ -540,8 +574,8 @@ TextureImporter:
       name: character animation_30
       rect:
         serializedVersion: 2
-        x: 240
-        y: 720
+        x: 2400
+        y: 1920
         width: 240
         height: 240
       alignment: 0
@@ -554,8 +588,8 @@ TextureImporter:
       name: character animation_31
       rect:
         serializedVersion: 2
-        x: 480
-        y: 720
+        x: 2640
+        y: 1920
         width: 240
         height: 240
       alignment: 0
@@ -569,7 +603,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 480
+        y: 1680
         width: 240
         height: 240
       alignment: 0
@@ -583,7 +617,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 240
-        y: 480
+        y: 1680
         width: 240
         height: 240
       alignment: 0
@@ -597,7 +631,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 240
+        y: 1440
         width: 240
         height: 240
       alignment: 0
@@ -611,7 +645,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 240
-        y: 240
+        y: 1440
         width: 240
         height: 240
       alignment: 0
@@ -625,7 +659,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 480
-        y: 240
+        y: 1440
         width: 240
         height: 240
       alignment: 0
@@ -639,7 +673,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 720
-        y: 240
+        y: 1440
         width: 240
         height: 240
       alignment: 0
@@ -653,7 +687,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 1200
         width: 240
         height: 240
       alignment: 0
@@ -667,7 +701,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 240
-        y: 0
+        y: 1200
         width: 240
         height: 240
       alignment: 0
@@ -681,7 +715,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 480
-        y: 0
+        y: 1200
         width: 240
         height: 240
       alignment: 0
@@ -695,6 +729,482 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 720
+        y: 1200
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_42
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1200
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_43
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1200
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_44
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1200
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_45
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 1200
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_46
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_47
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 960
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_48
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 960
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_49
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 960
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 720
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_51
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 720
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_52
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 720
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_53
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 720
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_54
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 720
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_55
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 720
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 480
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_57
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 480
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_58
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 480
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_59
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 480
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_61
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 240
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_62
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 240
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_63
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 240
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_64
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 240
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_65
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 240
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_66
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 240
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_67
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 240
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_68
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_69
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_70
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_71
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 0
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_72
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_73
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_74
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: character animation_75
+      rect:
+        serializedVersion: 2
+        x: 1680
         y: 0
         width: 240
         height: 240
