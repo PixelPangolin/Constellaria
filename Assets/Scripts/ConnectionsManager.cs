@@ -5,7 +5,12 @@ using System;
 
 [System.Serializable]
 public class ConnectionsManager : MonoBehaviour {
-
+	
+	[Range(0.0f,1.0f)]
+	public float soundEffectVolume;
+	public AudioSource audio;
+	public AudioClip makeLine;
+	public AudioClip breakLine;
 	public int maxTotalConnections;
 	public int maxNodeConnections;
     public List<Node> nodes;
@@ -41,8 +46,15 @@ public class ConnectionsManager : MonoBehaviour {
 				RemoveOldest ();
 			}
 */
-			RemoveExtraConnection (a);
-			RemoveExtraConnection (b);
+			if (RemoveExtraConnection (a) || RemoveExtraConnection (b)) {
+				//One of the nodes had extra connections
+				//SOUND: A link Being Cut
+				audio.PlayOneShot(makeLine ,soundEffectVolume);//TODO get volume from something
+			} else{
+				//No connection was broken
+				//SOUND: Making a new Link
+				audio.PlayOneShot(breakLine ,soundEffectVolume);//TODO get volume from something
+			}
 			GameObject beam = new GameObject ("beamOLight");
 			beam.transform.parent = transform;
 			beam.AddComponent<Connection> ();
@@ -65,7 +77,7 @@ public class ConnectionsManager : MonoBehaviour {
 		first.Delete();
 	}
 
-	public void RemoveExtraConnection(Node a){
+	public bool RemoveExtraConnection(Node a){
 		List<Connection> NodeAConnections = new List<Connection>();
 		for (int i = 0; i < playerConnections.Count; i++){
 			Connection c = playerConnections[i];
@@ -77,8 +89,10 @@ public class ConnectionsManager : MonoBehaviour {
 		if (NodeAConnections.Count >= maxNodeConnections) {
 			Connection first = NodeAConnections [0];
 			playerConnections.Remove (first);
-			first.Delete();
-		}
+			first.Delete ();
+			return true;
+		} else {
+			return false;}
 	}
 
     public Connection GetConnection(Node a, Node b)
