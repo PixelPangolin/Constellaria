@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class GrapplingHook : MonoBehaviour {
 
+	[Range(0.0f,1.0f)]
+	public float playerVolume;
+	public AudioSource audio;
+	public AudioClip pullRope;
+	public AudioClip tautRope;
     public Node currentNode;
     public LineRenderer line;
     public DistanceJoint2D hook;
@@ -16,11 +21,13 @@ public class GrapplingHook : MonoBehaviour {
         hook.enabled = false;
     }
 	
-	// Update is called once per frame
+	// Update is called once per physics update
 	void FixedUpdate () {
 		
 		if (Input.GetKey("up")||Input.GetKey("w"))
         {
+			//SOUND: When you pull back on the rope
+			audio.PlayOneShot(pullRope ,playerVolume);//TODO get volume from something
             hook.distance = hook.distance - 0.5f;
         }
 
@@ -47,6 +54,11 @@ public class GrapplingHook : MonoBehaviour {
 				Rope.Shorten(rope, node);
 				//Rope.ResetRope(rope, false);
 				//print ("shorten");
+			}
+			if (Mathf.Abs(Vector3.Distance(transform.position,node.transform.position) - hook.distance)< 0.5f) {
+				//SOUND: When the Rope becomes taut
+				audio.PlayOneShot(tautRope ,playerVolume);//TODO get volume from something
+
 			}
 			//print ((rope.transform.childCount*rope.transform.GetChild(0).GetComponent<SpriteRenderer>().bounds.size.y).ToString() + " " + (Vector3.Distance(transform.position,node.transform.position)).ToString());
 
