@@ -8,6 +8,7 @@ public class Node : MonoBehaviour
 	public bool on = false;
 	private Behaviour c;
 	public GrapplingHook pc;
+	public int maxConnections = 2;
 
 
 	// Use this for initialization
@@ -42,6 +43,10 @@ public class Node : MonoBehaviour
 
 	public GameObject GetGameObject(){
 		return gameObject;
+	}
+
+	public int GetMaxConnections(){
+		return this.maxConnections;
 	}
 }
 
