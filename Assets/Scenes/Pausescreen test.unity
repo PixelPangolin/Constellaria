@@ -894,7 +894,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 14
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1496384729167378, guid: a2b807563629a93468b277582470353c, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114283878690613714, guid: a2b807563629a93468b277582470353c,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61713952791449364, guid: a2b807563629a93468b277582470353c,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114283878690613714, guid: a2b807563629a93468b277582470353c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a2b807563629a93468b277582470353c, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &926679121
@@ -1159,6 +1174,7 @@ GameObject:
   - component: {fileID: 1027401363}
   - component: {fileID: 1027401364}
   - component: {fileID: 1027401365}
+  - component: {fileID: 1027401366}
   m_Layer: 9
   m_Name: hero
   m_TagString: Player
@@ -1179,10 +1195,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facingRight: 1
   jump: 0
+  running: 0
+  idleCount: 0
+  playerVolume: 1
+  footStepDelay: 0.5
   moveForce: 365
   maxSpeed: 5
   jumpForce: 1000
+  idleTimer: 1000
   groundCheck: {fileID: 926679122}
+  walkingOnCave: {fileID: 8300000, guid: 97b5d5e829e7a9e4b8abe8d966cb6502, type: 3}
+  walkingOnLine: {fileID: 0}
+  jumpSound: {fileID: 0}
+  fallSound: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: 241f01970dca49c4d9990b5c0cc91109, type: 3}
 --- !u!82 &1027401355
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1504,6 +1530,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6619e967967acb4438a3fa5fd860958d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audio: {fileID: 0}
+  pullRope: {fileID: 0}
+  tautRope: {fileID: 0}
   currentNode: {fileID: 0}
   line: {fileID: 1027401363}
   hook: {fileID: 0}
@@ -1521,6 +1550,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 285be1d6e829f4490a88fcb09880b3be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1027401366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1027401353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b56bc2b65ffa048b0eed9ed718355e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffectVolume: 0
+  audio: {fileID: 0}
+  makeLine: {fileID: 0}
+  breakLine: {fileID: 0}
+  maxTotalConnections: 0
+  maxNodeConnections: 0
+  nodes: []
+  goalConnectedNodes: []
+  playerConnections: []
 --- !u!1 &1082205951
 GameObject:
   m_ObjectHideFlags: 0
@@ -1901,10 +1950,6 @@ Prefab:
     - target: {fileID: 4295425554086274, guid: dbfd83d2391405f4596bfc0f6432ffcb, type: 2}
       propertyPath: m_RootOrder
       value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 1720543558811872, guid: dbfd83d2391405f4596bfc0f6432ffcb, type: 2}
-      propertyPath: m_TagString
-      value: ShowOnPause
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dbfd83d2391405f4596bfc0f6432ffcb, type: 2}

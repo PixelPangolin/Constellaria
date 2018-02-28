@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour {
 	void Update () {
 
 		//uses the p button to pause and unpause the game
-		if(Input.GetKeyDown(KeyCode.P) ||Input.GetKeyDown(KeyCode.Escape))
+		if(Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
 		{
 			if(Time.timeScale == 1)
 			{
@@ -53,6 +53,7 @@ public class UIManager : MonoBehaviour {
 	public void showPaused(){
 		foreach(GameObject g in pauseObjects){
 			g.SetActive(true);
+
 		}
 	}
 
