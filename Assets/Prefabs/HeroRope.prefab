@@ -57,15 +57,15 @@ MonoBehaviour:
   OverflowMode: 0
   linkSpriteLength: 0.1
   linkJointLength: 0.1
-  shortenBound: 0.5
-  lengthenBound: 0.3
+  shortenBound: 0.33
+  lengthenBound: 0.25
   firstSegmenthook: {fileID: 0}
   secondSegmenthook: {fileID: 0}
   useBendLimit: 0
   bendLimit: 180
   HangFirstSegment: 1
   HangLastSegment: 1
-  overlapFactor: -0.5
+  overlapFactor: -0.01
   nodes:
   - {x: -17.243137, y: 2.925778, z: 0}
   - {x: -13.134034, y: 3.2505767, z: 0}

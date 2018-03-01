@@ -13,25 +13,65 @@ public class GrapplingHook : MonoBehaviour {
     public bool connected = false;
 	public Rope rope;
 	public Rigidbody2D playerRigidBody;
+	public float pullRopeDelay = 0.5f;
+	private float pullRopeTimer = 0f;
     // Use this for initialization
     void Start () {
         hook = GetComponent<DistanceJoint2D>();
         hook.enabled = false;
     }
-	
+
+	void Update(){
+		if (Input.GetButtonDown("Up")||Input.GetButtonDown("Down")){
+			audio.PlayOneShot(pullRope ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume());
+			pullRopeTimer = Time.time+pullRopeDelay;
+			print("pressed up or down!");
+
+
+		}
+		if (Input.GetButtonDown ("Shift")&&connected) {
+			hook.distance = Vector3.Distance(transform.position,getCurrent().GetGameObject().transform.position);
+			hook.enabled = true;
+		}
+		if (Input.GetButtonUp ("Shift")&&connected) {
+			hook.distance = Vector3.Distance(transform.position,getCurrent().GetGameObject().transform.position);
+			hook.enabled=false;
+		}
+	}
+
 	// Update is called once per physics update
 	void FixedUpdate () {
-		
+
+		if (Input.GetButton ("Shift")&&connected) {
+			rope.nodes[0] = transform.position;
+			Rope.ResetRope (rope, false);
+		}
+
 		if (Input.GetKey("up")||Input.GetKey("w"))
         {
-			//SOUND: When you pull back on the rope
-			audio.PlayOneShot(pullRope ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume());//TODO get volume from something
-            hook.distance = hook.distance - 0.5f;
+
+
+				//rope.transform.GetChild (0).GetComponent<DistanceJoint2D> ().connectedBody = playerRigidBody;
+				//Rope.UpdateEndsJoints(rope);
+				//SOUND: When you pull back on the rope
+				if (pullRopeTimer < Time.time) {
+					print (pullRopeTimer);
+					audio.PlayOneShot (pullRope, PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetSoundEffectVolume ());
+					pullRopeTimer = (Time.time + pullRopeDelay);
+
+				}
+
+
+            hook.distance = hook.distance - 0.05f;
         }
 
 		if (Input.GetKey("down")||Input.GetKey("s"))
-        {
-            hook.distance = hook.distance + 0.5f;
+		{			
+			if (pullRopeTimer < Time.time) {
+			//	audio.PlayOneShot (pullRope, PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetSoundEffectVolume ());
+				pullRopeTimer = (Time.time + pullRopeDelay);
+			}
+            hook.distance = hook.distance + 0.05f;
         }
 			
         if (connected)
@@ -41,13 +81,14 @@ public class GrapplingHook : MonoBehaviour {
 			line.SetPosition(1, node.transform.position);
 			//rope.nodes[0] = transform.position;
 			//Rope.ResetRope (rope, false);
-			if (rope.transform.childCount*rope.linkSpriteLength-0.5f < rope.lengthenBound*Vector3.Distance(transform.position,node.transform.position))
+			if (rope.transform.childCount*rope.linkSpriteLength < rope.lengthenBound*Vector3.Distance(transform.position,node.transform.position))
 			{
 				Rope.Lengthen(rope);
 				//Rope.ResetRope(rope, false);
 				//print ("lengthen");
 			}
-			if (rope.transform.childCount*rope.linkSpriteLength-0.5f > rope.shortenBound*Vector3.Distance(transform.position,node.transform.position))
+			if (rope.transform.childCount*rope.linkSpriteLength > rope.shortenBound*Vector3.Distance(transform.position,node.transform.position))
+				
 			{
 				Rope.Shorten(rope, node);
 				//Rope.ResetRope(rope, false);
@@ -55,7 +96,7 @@ public class GrapplingHook : MonoBehaviour {
 			}
 			if (Mathf.Abs(Vector3.Distance(transform.position,node.transform.position) - hook.distance)< 0.5f) {
 				//SOUND: When the Rope becomes taut
-				audio.PlayOneShot(tautRope ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume());//TODO get volume from something
+			//	audio.PlayOneShot(tautRope ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume());//TODO get volume from something
 
 			}
 			//print ((rope.transform.childCount*rope.transform.GetChild(0).GetComponent<SpriteRenderer>().bounds.size.y).ToString() + " " + (Vector3.Distance(transform.position,node.transform.position)).ToString());
@@ -80,7 +121,7 @@ public class GrapplingHook : MonoBehaviour {
 
     public void setGrapplingHook(Node nodeA)
     {
-        hook.enabled = true;
+        //hook.enabled = true;
 		//hook.connectedAnchor = nodeA.GetGameObject().transform.position;
 		hook.connectedBody = nodeA.GetGameObject().GetComponent<Rigidbody2D>();
 

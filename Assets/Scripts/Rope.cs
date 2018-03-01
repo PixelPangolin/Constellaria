@@ -98,6 +98,7 @@ public class Rope : MonoBehaviour {
 	public static void Lengthen(Rope rope){
 		//print("longer!"); // TODO add a new node near lastSegment
 		float segmentHeight = rope.SegmentsPrefabs[0].bounds.size.y * (1 + rope.overlapFactor);
+		//float segmentHeight = rope.linkSpriteLength;
 		float theta = Mathf.Atan2(rope.nodes[1].y - rope.nodes[0].y, rope.nodes[1].x - rope.nodes[0].x);
 		float startX = rope.nodes[1].x;
 		float startY = rope.nodes[1].y;
@@ -171,7 +172,6 @@ public class Rope : MonoBehaviour {
 			joint.connectedAnchor = hingePositionInWorldSpace;
 			//joint.anchor = firstSegment.transform.InverseTransformPoint(hingePositionInWorldSpace);
 			joint.distance = rope.linkJointLength;
-
 			if(joint.connectedBody)
 			{
 				joint.connectedAnchor = joint.connectedBody.transform.InverseTransformPoint(hingePositionInWorldSpace);
@@ -219,6 +219,7 @@ public class Rope : MonoBehaviour {
 			return;
 		}
 		float segmentHeight = rope.SegmentsPrefabs[0].bounds.size.y * (1 + rope.overlapFactor);
+		//float segmentHeight = rope.linkSpriteLength;
 		List<Vector3> nodes = rope.nodes;
 		int currentSegPrefIndex = 0;
 		Rigidbody2D previousSegment = null;
@@ -268,18 +269,20 @@ public class Rope : MonoBehaviour {
 					if (segRigidbody == null)
 						segRigidbody = segment.AddComponent<Rigidbody2D>();
 					//if not the first segment, make a joint
-					if (currentSegment != 0)
-					{
+					if (currentSegment != 0) {
 						float dtheta = 0;
-						if (j == 0)
-						{
+						if (j == 0) {
 							//first segment in the line
 							dtheta = (theta - previousTheta) * Mathf.Rad2Deg;
-							if (dtheta > 180) dtheta -= 360;
-							else if (dtheta < -180) dtheta += 360;
+							if (dtheta > 180)
+								dtheta -= 360;
+							else if (dtheta < -180)
+								dtheta += 360;
 						}
 						//add Hinge
-						AddJoint(rope, dtheta, segmentHeight, previousSegment, segment);
+						AddJoint (rope, dtheta, segmentHeight, previousSegment, segment);
+					} else {
+						AddJoint (rope, 0, segmentHeight, rope.firstSegmenthook, segment);
 					}
 					previousSegment = segRigidbody;
 				}
@@ -288,6 +291,7 @@ public class Rope : MonoBehaviour {
 			previousTheta = theta;
 		}
 		UpdateEndsJoints(rope);
+
 	}
 }
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         

@@ -9,5 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScreen.unity
     guid: 97b7f6abf23ec6e48a4ee5e72306e792
   - enabled: 1
-    path: Assets/Scenes/Sonia Test Level Design.unity
-    guid: 1e7f03f13c146d746a089d1d2dda3177
+    path: Assets/Scenes/Nodes and Elephants and Spikes.unity
+    guid: 370582374f77a7b44861ce7813bc3e42

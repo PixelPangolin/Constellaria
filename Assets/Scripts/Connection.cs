@@ -47,7 +47,9 @@ public class Connection : MonoBehaviour {
 			pivot.transform.rotation = Quaternion.Euler (0, 0, degreesToRotate);
 		if (this.goal) {
 			Material m_Material = this.beam.gameObject.GetComponent<Renderer> ().material;
-			m_Material.color = Color.cyan;
+
+			m_Material.SetColor ("_EmissionColor", Color.yellow);
+			//m_Material.color = Color.cyan;
 		}
     }
 		

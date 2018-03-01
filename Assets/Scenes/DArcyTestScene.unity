@@ -3401,7 +3401,6 @@ MonoBehaviour:
   footStepDelay: 0.5
   moveForce: 365
   maxSpeed: 5
-  jumpForce: 1000
   idleTimer: 1000
   groundCheck: {fileID: 926679122}
   walkingOnCave: {fileID: 8300000, guid: 72e9c1e8d248c9f4691304525d9252f4, type: 3}
@@ -3771,6 +3770,7 @@ MonoBehaviour:
   connected: 0
   rope: {fileID: 811781579}
   playerRigidBody: {fileID: 1027401359}
+  pullRopeDelay: 5
 --- !u!4 &1096223671 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4169990611436694, guid: a2b807563629a93468b277582470353c,
@@ -4395,16 +4395,6 @@ Prefab:
       propertyPath: firstSegmenthook
       value: 
       objectReference: {fileID: 1027401359}
-    - target: {fileID: 114596131265965958, guid: c33f6218484eca04c88eea5f7e005d6b,
-        type: 2}
-      propertyPath: shortenBound
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 114596131265965958, guid: c33f6218484eca04c88eea5f7e005d6b,
-        type: 2}
-      propertyPath: lengthenBound
-      value: 0.2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c33f6218484eca04c88eea5f7e005d6b, type: 2}
   m_IsPrefabParent: 0
