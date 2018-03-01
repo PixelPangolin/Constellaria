@@ -37,8 +37,9 @@ public class ConnectionsManager : MonoBehaviour {
 			if (playerConnections.Count >= maxTotalConnections) {
 				RemoveOldest ();
 			}
-*/
-			if (RemoveExtraConnection (a) || RemoveExtraConnection (b)) {
+*/			bool removeConnectA = RemoveExtraConnection (a);
+			bool removeConnectB = RemoveExtraConnection (b);
+			if (removeConnectA||removeConnectB) {
 				//One of the nodes had extra connections
 				//SOUND: A link Being Cut
 				audio.PlayOneShot(makeLine ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume());
@@ -79,11 +80,14 @@ public class ConnectionsManager : MonoBehaviour {
 		List<Connection> NodeAConnections = new List<Connection>();
 		for (int i = 0; i < playerConnections.Count; i++){
 			Connection c = playerConnections[i];
+
 			if (((c.start == a) || (c.end == a)))
 			{
 				NodeAConnections.Add (c);
 			}
 		}
+		print (NodeAConnections.Count);
+		print (a.GetMaxConnections ());
 		if (NodeAConnections.Count >= a.GetMaxConnections()) {
 			Connection first = NodeAConnections [0];
 			playerConnections.Remove (first);
