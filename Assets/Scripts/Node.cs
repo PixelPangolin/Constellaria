@@ -24,7 +24,6 @@ public class Node : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		Debug.Log("Collision");
 		pc = other.gameObject.GetComponent<GrapplingHook>();
 		Node playerNode = pc.getCurrent ();
 		if ((playerNode != null) && (!playerNode.Equals(this)))
