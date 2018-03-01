@@ -9,8 +9,8 @@ public class ConnectionsManager : MonoBehaviour {
 	public AudioSource audio;
 	public AudioClip makeLine;
 	public AudioClip breakLine;
-	public int maxTotalConnections;
-	public int maxNodeConnections;
+	//public int maxTotalConnections;
+	//public int maxNodeConnections;
     public List<Node> nodes;
     public List<Vector2> goalConnectedNodes;
 	public List<Connection> playerConnections;
@@ -23,12 +23,6 @@ public class ConnectionsManager : MonoBehaviour {
 		}
 		if(goalConnectedNodes.Count == 0){
 			throw new Exception ("No goal Connections set");
-		}
-		if (maxTotalConnections < goalConnectedNodes.Count) {
-			throw new Exception ("Invalid maxTotalConnections set");
-		}
-		if (maxNodeConnections == 0) {
-			throw new Exception ("Invalid maxTotalConnections set");
 		}
 			
 	}
@@ -58,6 +52,12 @@ public class ConnectionsManager : MonoBehaviour {
 			beam.AddComponent<Connection> ();
 			Connection con = beam.GetComponent<Connection> ();
 			con.setNodes (a, b);
+
+			// Check if connection is part of the goal and set it's to be a goal connection if so
+			if (CheckInGoal (a,b)) {
+				print ("In goal");
+				con.setGoal ();
+			}
 			playerConnections.Add (con);
 			CheckForWin ();
         } 
@@ -84,7 +84,7 @@ public class ConnectionsManager : MonoBehaviour {
 				NodeAConnections.Add (c);
 			}
 		}
-		if (NodeAConnections.Count >= maxNodeConnections) {
+		if (NodeAConnections.Count >= a.GetMaxConnections()) {
 			Connection first = NodeAConnections [0];
 			playerConnections.Remove (first);
 			first.Delete ();
@@ -108,6 +108,19 @@ public class ConnectionsManager : MonoBehaviour {
         }
         return null;
     }
+
+	public bool CheckInGoal(Node a, Node b){
+		int correctConnections = 0;
+		for (int i = 0; i < goalConnectedNodes.Count; i++) {
+			Node goalStart = nodes[(int)goalConnectedNodes[i].x];
+			Node goalEnd = nodes[(int)goalConnectedNodes[i].y];
+			if (((goalStart == a) && (goalEnd == b))
+				|| ((goalStart == b) && (goalEnd == a))){
+				return true;
+			}
+		}
+		return false;
+	}
 
 
 	// Checks whether all connections that are in "goal connections" have been made

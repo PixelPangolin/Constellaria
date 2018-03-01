@@ -19,20 +19,19 @@ public class Connection : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		if (goal == false) {
        		this.pivot = (GameObject)Instantiate(Resources.Load("Prefabs/beamPivot"));
- 	        beam = pivot.transform.GetChild(0);
+ 	        this.beam = pivot.transform.GetChild(0);
+			
         	this.pivot.transform.parent = gameObject.transform;
 			//beam.GetComponent<Renderer>().material.color = Random.ColorHSV();
 			this.length = getDistance ();
-			beam.localScale = new Vector3 (this.length,0.2f, 1);
-			beam.position = Vector3.MoveTowards (beam.position, new Vector3 (beam.position.x, beam.position.y, 1), 1);
-			pivot.transform.position = new Vector3 ((this.start.transform.position.x+this.end.transform.position.x)/2, (this.start.transform.position.y +this.end.transform.position.y)/2, this.length / 2);
+			this.beam.localScale = new Vector3 (this.length,0.2f, 1);
+			this.beam.position = Vector3.MoveTowards (this.beam.position, new Vector3 (this.beam.position.x, this.beam.position.y, 1), 1);
+			this.pivot.transform.position = new Vector3 ((this.start.transform.position.x+this.end.transform.position.x)/2, (this.start.transform.position.y +this.end.transform.position.y)/2, this.length / 2);
 
 			float degreesToRotate = Mathf.Rad2Deg*Mathf.Atan2(this.end.transform.position.y - this.start.transform.position.y, this.end.transform.position.x - this.start.transform.position.x)%180;
 			//not possible to return values outside of 180 to -180
 			//degrees has to be within 90 to -90 to have the right side up, and we have to handle angles sharper than 45, as they can't be walked up.
-			print(degreesToRotate);
 			if (degreesToRotate < -90) {//If degress < -90, add 180
 				degreesToRotate = degreesToRotate+180;
 			}
@@ -46,7 +45,9 @@ public class Connection : MonoBehaviour {
 			}
 
 			pivot.transform.rotation = Quaternion.Euler (0, 0, degreesToRotate);
-		} else {
+		if (this.goal) {
+			Material m_Material = this.beam.gameObject.GetComponent<Renderer> ().material;
+			m_Material.color = Color.cyan;
 		}
     }
 		
@@ -71,7 +72,14 @@ public class Connection : MonoBehaviour {
         Destroy(this);
     }
 
-	public void SetGoalConnection(){
+	// Sets this connection to be a goal connection, changes aspects about the connection as a result
+
+	public void setGoal(){
 		this.goal = true;
+		//Transform b = this.beam;
+		//GameObject bOL = b.gameObject;
+		//Material m_Material = this.beam.gameObject.GetComponent<Renderer>().material;
+		//m_Material.color = Color.cyan;
 	}
+
 }

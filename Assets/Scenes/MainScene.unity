@@ -1078,8 +1078,6 @@ MonoBehaviour:
   audio: {fileID: 0}
   makeLine: {fileID: 0}
   breakLine: {fileID: 0}
-  maxTotalConnections: 90
-  maxNodeConnections: 90
   nodes:
   - {fileID: 1597772199}
   - {fileID: 912919332}
@@ -1386,6 +1384,11 @@ Prefab:
     - target: {fileID: 1630852055805674, guid: 0c43fd3db08336a4fa59cfa81fe2ae13, type: 2}
       propertyPath: m_Name
       value: Node (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114459674132474894, guid: 0c43fd3db08336a4fa59cfa81fe2ae13,
+        type: 2}
+      propertyPath: maxConnections
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c43fd3db08336a4fa59cfa81fe2ae13, type: 2}
