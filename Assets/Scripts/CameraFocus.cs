@@ -9,7 +9,7 @@ public class CameraFocus : MonoBehaviour {
     // These define the object the camera follows, the speed it follows at and the max distance before the camera moves in x or y
     public GameObject player;
     public float max_x = 4;
-    public float max_y = 5;
+    public float max_y = 1;
     public float speed = 8;
 
 	// Use this for initialization
