@@ -39,11 +39,7 @@ public class TwoWayLine : MonoBehaviour {
 	private IEnumerator Fall() {
 		this.GetComponent<BoxCollider2D>().enabled = false;
 		yield return new WaitForSeconds(0.2f);
-		if (grounded)
-		{
 		this.GetComponent<BoxCollider2D>().enabled = true;
-		}
-
 	}
 
 }
