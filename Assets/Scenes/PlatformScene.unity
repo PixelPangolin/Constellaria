@@ -514,13 +514,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 195016514}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.66, y: 10.429, z: -1.0585938}
-  m_LocalScale: {x: 48.53798, y: 18.634768, z: 1}
+  m_LocalScale: {x: 18.63477, y: 48.53798, z: 1}
   m_Children: []
   m_Father: {fileID: 1740754837}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &195016516
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -531,7 +531,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 98e3dce0fe849094e84bf214d4909385, type: 2}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -667,23 +667,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!68 &195016520
-EdgeCollider2D:
+--- !u!251 &195016520
+PlatformEffector2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 195016514}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 1debb068374764196a01e1c69c1f413f, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: 0.5, y: -0.51}
-  - {x: -0.5, y: -0.51}
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 0
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &232891138
 GameObject:
   m_ObjectHideFlags: 0
