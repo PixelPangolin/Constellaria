@@ -131,7 +131,7 @@ public class GrapplingHook : MonoBehaviour {
 
         line.SetPosition(0, transform.position);
 		line.SetPosition(1, nodeA.GetGameObject().transform.position);
-		line.enabled = true;
+		line.enabled = false;
         //line.SetWidth(0.1f, 0.1f);
         connected = true;
 		rope.nodes[0] = transform.position;
