@@ -24,7 +24,7 @@ public class KillPlayer : MonoBehaviour {
 			{
 				other.gameObject.transform.position = other.gameObject.GetComponent<GrapplingHook> ().currentNode.transform.position;
 				anim.SetTrigger ("Die");
-				audio.PlayOneShot(deathSound ,0.5f);//TODO get volume from something
+				GameObject.Find("GameController").GetComponent<AudioController>().playDeathSound();
 			} 
 			else 
 			{
