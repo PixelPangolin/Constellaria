@@ -88,7 +88,6 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -1579,6 +1578,7 @@ GameObject:
   - component: {fileID: 505362160}
   - component: {fileID: 505362162}
   - component: {fileID: 505362161}
+  - component: {fileID: 505362163}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -1646,6 +1646,35 @@ MonoBehaviour:
   - {x: 2, y: 3}
   - {x: 3, y: 4}
   playerConnections: []
+--- !u!114 &505362163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 505362159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07e06862f7ae040cf9c39692023bf7e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerAudio: {fileID: 0}
+  cameraAudio: {fileID: 0}
+  backgroundTrack: {fileID: 8300000, guid: a2b2ac73b366f5f43ab6962398e18121, type: 3}
+  makeLine: {fileID: 8300000, guid: 352a4346d2859484284a994d167c8862, type: 3}
+  breakLine: {fileID: 8300000, guid: f11b4febb1208c444ad81f9b9d965188, type: 3}
+  deathSound: {fileID: 8300000, guid: 9a0b30774355bd84bbd73bc40eb1c6ee, type: 3}
+  pullRope: {fileID: 8300000, guid: 43514c0a84890c947b82b1374ad47fbf, type: 3}
+  tautRope: {fileID: 0}
+  endLevelSound: {fileID: 0}
+  walkingOnCave: {fileID: 0}
+  walkingOnLine: {fileID: 0}
+  jumpSound: {fileID: 0}
+  fallSound: {fileID: 0}
+  landOnLineSound: {fileID: 0}
+  landOnGroundSound: {fileID: 8300000, guid: aaa38da3a8932ab408fdd58814381492, type: 3}
+  defaultSXVolume: 1
+  defaultMusicVolume: 1
+  defaultMasterVolume: 1
 --- !u!1 &539471545
 GameObject:
   m_ObjectHideFlags: 0
@@ -7059,7 +7088,7 @@ GameObject:
   - component: {fileID: 1839245537}
   m_Layer: 0
   m_Name: CameraFocus
-  m_TagString: Untagged
+  m_TagString: CameraFocus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7100,7 +7129,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1839245534}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a2b2ac73b366f5f43ab6962398e18121, type: 3}

@@ -13,6 +13,7 @@ TagManager:
   - Placeholder3
   - Placeholder4
   - Placeholder5
+  - CameraFocus
   layers:
   - Default
   - TransparentFX
