@@ -63,7 +63,7 @@ public class Player : MonoBehaviour {
     {
         CalculateVelocity();
 
-        controller.Move(velocity * Time.deltaTime, directionalInput);
+        controller.Move(velocity * Time.deltaTime);
 
         // This makes our falling make more sense
         // Due to how our gravity is implemented, this makes sure we don't just fall really quickly when we step off a platform

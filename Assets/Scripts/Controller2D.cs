@@ -38,7 +38,7 @@ public class Controller2D : RaycastController {
         }
     }
 
-    public void Move(Vector2 moveAmount, Vector2 input)
+    public void Move(Vector2 moveAmount)
     {
         UpdateRaycastOrigins();
         collisions.Reset();
@@ -95,6 +95,14 @@ public class Controller2D : RaycastController {
 
             if (hit)
             {
+                // Do not collide horizontally if it's a node
+                if (hit.collider.tag == "Node")
+                {
+                    // TODO: Czeto's grappling hook modifications
+
+                    continue;
+                }
+
                 // Get angle of surface we've hit - for slope moving purposes
                 float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
                 
@@ -178,6 +186,13 @@ public class Controller2D : RaycastController {
 
             if (hit)
             {
+                // Do not collide vertically if it is a node
+                if (hit.collider.tag == "Node")
+                {
+                    // TODO: Czeto's grappling hook modifications
+                    continue;
+                }
+
                 // Sets our moveAmount to the amount needed to get from current position to the location hit
                 moveAmount.y = (hit.distance - skinWidth) * directionY;
                 rayLength = hit.distance;
