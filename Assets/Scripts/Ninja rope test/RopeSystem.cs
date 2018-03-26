@@ -81,7 +81,9 @@ void Update()
 							return;
 						}
 
-						// The ropePositions list is now updated, adding the position the rope should wrap around, and the wrapPointsLookup dictionary is also updated. Lastly the distanceSet flag is disabled, so that UpdateRopePositions() method can re-configure the rope's distances to take into account the new rope length and segments.
+						// The ropePositions list is now updated, adding the position the rope should wrap around, 
+						// and the wrapPointsLookup dictionary is also updated. Lastly the distanceSet flag is disabled, 
+						// so that UpdateRopePositions() method can re-configure the rope's distances to take into account the new rope length and segments.
 						ropePositions.Add(closestPointToHit);
 						wrapPointsLookup.Add(closestPointToHit, 0);
 						distanceSet = false;
