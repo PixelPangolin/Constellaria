@@ -26,6 +26,9 @@ public class Player : MonoBehaviour {
     private float velocityXSmoothing;
 
     private Controller2D controller;
+    private Animator animator;
+
+    private bool facingRight;
 
     public void SetDirectionalInput(Vector2 input)
     {
@@ -37,6 +40,9 @@ public class Player : MonoBehaviour {
         if (controller.collisions.below)
         {
             velocity.y = maxJumpVelocity;
+
+            // Animation for jumping
+            animator.SetTrigger("Jump");
         }
     }
     public void OnJumpInputUp()
@@ -51,6 +57,7 @@ public class Player : MonoBehaviour {
     void Start()
     {
         controller = GetComponent<Controller2D>();
+        animator = GetComponent<Animator>();
 
         // Note that gravity has to be negative, hence the -1
         gravity = (-1)*(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
@@ -71,7 +78,22 @@ public class Player : MonoBehaviour {
         {
             velocity.y = 0;
         }
-	}
+
+        Debug.Log(velocity.x);
+        Debug.Log(velocity.y);
+
+        // Animations for player character
+        if (velocity.x < 0)
+        {
+            TurnLeft();
+            animator.SetFloat("Speed", 0);
+        }
+        else if (velocity.x > 0)
+        {
+            TurnRight();
+            animator.SetFloat("Speed", 0);
+        }
+    }
 
     void CalculateVelocity()
     {
@@ -90,5 +112,18 @@ public class Player : MonoBehaviour {
 
         // Applying gravity to the player's velocity and moves accordingly
         velocity.y += gravity * Time.deltaTime;
+    }
+
+    void TurnRight()
+    {
+        facingRight = true;
+        animator.SetBool("FacingRight", facingRight);
+        animator.SetTrigger("Turn");
+    }
+    void TurnLeft()
+    {
+        facingRight = false;
+        animator.SetBool("FacingRight", facingRight);
+        animator.SetTrigger("Turn");
     }
 }
