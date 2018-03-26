@@ -13,6 +13,7 @@ TagManager:
   - Placeholder3
   - Placeholder4
   - Placeholder5
+  - CameraFocus
   layers:
   - Default
   - TransparentFX
@@ -28,11 +29,11 @@ TagManager:
   - Nodes
   - Ground
   - Lines
-  - Unused1
-  - Unused2
-  - Unused3
-  - Unused4
-  - Unused5
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 

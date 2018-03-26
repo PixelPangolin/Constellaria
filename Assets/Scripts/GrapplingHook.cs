@@ -5,9 +5,9 @@ using System.Linq;
 
 public class GrapplingHook : MonoBehaviour {
 
-	public AudioSource audio;
-	public AudioClip pullRope;
-	public AudioClip tautRope;
+	//public AudioSource audio;
+	//public AudioClip pullRope;
+	//public AudioClip tautRope;
     public Node currentNode;
     public LineRenderer line;
     public DistanceJoint2D hook;
@@ -33,7 +33,7 @@ public class GrapplingHook : MonoBehaviour {
 
 	void Update(){
 		if (Input.GetButtonDown("Up")||Input.GetButtonDown("Down")){
-			audio.PlayOneShot(pullRope ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume());
+			GameObject.Find("GameController").GetComponent<AudioController>().playPullRope();
 			pullRopeTimer = Time.time+pullRopeDelay;
 			//print("pressed up or down!");
 
@@ -111,8 +111,8 @@ public class GrapplingHook : MonoBehaviour {
 				//Rope.UpdateEndsJoints(rope);
 				//SOUND: When you pull back on the rope
 				if (pullRopeTimer < Time.time) {
-					//print (pullRopeTimer);
-					audio.PlayOneShot (pullRope, PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetSoundEffectVolume ());
+					print (pullRopeTimer);
+					GameObject.Find("GameController").GetComponent<AudioController>().playPullRope();
 					pullRopeTimer = (Time.time + pullRopeDelay);
 
 				}
