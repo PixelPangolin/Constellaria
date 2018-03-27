@@ -6,7 +6,7 @@ using UnityEngine;
 public class Controller2D : RaycastController {
 
     // Maximum slope the player can climb in degrees
-    private float maxSlopeAngle = 90;
+    private float maxSlopeAngle = 80;
 
     public CollisionInfo collisions;
 

@@ -4,16 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - ground
-  - Enemy
-  - Node
   - ShowOnPause
-  - Placeholder1
-  - Placeholder2
-  - Placeholder3
-  - Placeholder4
   - CameraFocus
-  - LineTag
+  - Node
+  - Line
+  - Hazard
   layers:
   - Default
   - TransparentFX
@@ -25,7 +20,7 @@ TagManager:
   - 
   - Rope
   - Player
-  - Enemies
+  - Hazard
   - Nodes
   - Ground
   - Lines
