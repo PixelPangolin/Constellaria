@@ -7,7 +7,7 @@ public class Controller2D : RaycastController {
 
     // Maximum slope the player can climb in degrees
     private float maxSlopeAngle = 80;
-
+    private Vector2 playerInput;
 
     public bool playerDeath = false;
 
@@ -41,11 +41,13 @@ public class Controller2D : RaycastController {
         }
     }
 
-    public void Move(Vector2 moveAmount)
+    public void Move(Vector2 moveAmount, Vector2 input)
     {
         UpdateRaycastOrigins();
         collisions.Reset();
         collisions.moveAmountOld = moveAmount;
+
+        playerInput = input;
 
         if (moveAmount.y < 0)
         {
@@ -98,6 +100,11 @@ public class Controller2D : RaycastController {
 
             if (hit)
             {
+                if (hit.distance == 0)
+                {
+                    continue;
+                }
+
                 // Colliding with a hazard horizontally kills you
                 if (hit.collider.tag == "Hazard")
                 {
@@ -193,6 +200,26 @@ public class Controller2D : RaycastController {
                 if (hit.collider.tag == "Hazard")
                 {
                     playerDeath = true;
+                }
+
+                // Two way platforms for line
+                if (hit.collider.tag == "Line")
+                {
+                    Debug.Log("LineThing");
+                    // If we are jumping up, then go through
+                    if (directionY == 1 || hit.distance == 0)
+                    {
+                        Debug.Log("Jump");
+                        continue;
+                        Debug.Log("Continue");
+                    }
+
+                    //Debug.Log(playerInput.y);
+
+                    //if (playerInput.y == -1)
+                    //{
+                    //    continue;
+                    //}
                 }
 
                 // Sets our moveAmount to the amount needed to get from current position to the location hit

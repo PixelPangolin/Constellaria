@@ -33,7 +33,7 @@ public class GrapplingHook : MonoBehaviour {
     }
 
 	void Update(){
-		if (Input.GetButtonDown("Up")||Input.GetButtonDown("Down")){
+		if (Input.GetButtonDown("Up") && hanging || Input.GetButtonDown("Down") && hanging){
 			GameObject.Find("GameController").GetComponent<AudioController>().playPullRope();
 			pullRopeTimer = Time.time+pullRopeDelay;
 			//print("pressed up or down!");
