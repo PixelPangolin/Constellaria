@@ -67,6 +67,6 @@ MonoBehaviour:
   HangLastSegment: 1
   overlapFactor: -0.01
   nodes:
-  - {x: -17.243137, y: 2.925778, z: 0}
-  - {x: -13.134034, y: 3.2505767, z: 0}
+  - {x: -9.906132, y: -1.2693229, z: 0}
+  - {x: -8.52648, y: -0.42724144, z: 0.05859375}
   WithPhysics: 1

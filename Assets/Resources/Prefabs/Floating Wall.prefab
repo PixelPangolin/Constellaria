@@ -19,8 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4326656391166074}
-  - component: {fileID: 61004166233426322}
   - component: {fileID: 212372884717992686}
+  - component: {fileID: 60460705037154692}
   m_Layer: 12
   m_Name: Floating Wall
   m_TagString: Untagged
@@ -41,15 +41,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61004166233426322
-BoxCollider2D:
+--- !u!60 &60460705037154692
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1456358344909782}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5f9c37fb361d64b788498991d3de93d7, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -63,9 +63,12 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 6.5, y: 20.8}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 3.25, y: -9.7}
+      - {x: 3.25, y: 10.35}
+      - {x: -3.25, y: 10.35}
+      - {x: -3.25, y: -9.7}
 --- !u!212 &212372884717992686
 SpriteRenderer:
   m_ObjectHideFlags: 1

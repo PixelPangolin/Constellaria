@@ -51,7 +51,7 @@ public class ConnectionsManager : MonoBehaviour {
 
 			// Check if connection is part of the goal and set it's to be a goal connection if so
 			if (CheckInGoal (a,b)) {
-				print ("In goal");
+				//print ("In goal");
 				con.setGoal ();
 			}
 			playerConnections.Add (con);
@@ -81,8 +81,8 @@ public class ConnectionsManager : MonoBehaviour {
 				NodeAConnections.Add (c);
 			}
 		}
-		print (NodeAConnections.Count);
-		print (a.GetMaxConnections ());
+		//print (NodeAConnections.Count);
+		//print (a.GetMaxConnections ());
 		if (NodeAConnections.Count >= a.GetMaxConnections()) {
 			Connection first = NodeAConnections [0];
 			playerConnections.Remove (first);
@@ -141,7 +141,7 @@ public class ConnectionsManager : MonoBehaviour {
 				
 			}
 		}
-		print ("Number of Correct Connections : " + correctConnections);
+		//print ("Number of Correct Connections : " + correctConnections);
 
 		if (correctConnections == goalConnectedNodes.Count) {
 			gameObject.GetComponent<LevelComplete> ().EndLevel ();

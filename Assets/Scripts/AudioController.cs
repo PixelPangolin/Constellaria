@@ -34,8 +34,8 @@ public class AudioController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		playerAudio = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>();
-		cameraAudio = GameObject.FindGameObjectWithTag("CameraFocus").GetComponent<AudioSource>();
+		//playerAudio = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>();
+		//cameraAudio = GameObject.FindGameObjectWithTag("CameraFocus").GetComponent<AudioSource>();
 		PlayerPrefsManager.SetMasterVolume (defaultMasterVolume);
 		PlayerPrefsManager.SetMusicVolume (defaultMusicVolume);
 		PlayerPrefsManager.SetSoundEffectVolume (defaultSXVolume);
