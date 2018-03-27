@@ -40,17 +40,6 @@ public class GrapplingHook : MonoBehaviour {
     }
 
 	void Update(){
-        if (hanging)
-        {
-            if (Input.GetButtonDown("Up") && !controller.collisions.below || Input.GetButtonDown("Down") && !controller.collisions.below)
-            {
-                GameObject.Find("GameController").GetComponent<AudioController>().playPullRope();
-                pullRopeTimer = Time.time + pullRopeDelay;
-                //print("pressed up or down!");
-
-
-            }
-        }
 		
 		if (Input.GetButtonDown ("Shift")&&connected) {
 			isSwinging = true;
