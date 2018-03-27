@@ -199,7 +199,7 @@ public class Controller2D : RaycastController {
                 // Colliding with a hazard vertically kills you
                 if (hit.collider.tag == "Hazard")
                 {
-                    playerDeath = true;
+                    //playerDeath = true;
                 }
 
                 // Two way platforms for line
@@ -211,7 +211,6 @@ public class Controller2D : RaycastController {
                     {
                         Debug.Log("Jump");
                         continue;
-                        Debug.Log("Continue");
                     }
 
                     //Debug.Log(playerInput.y);
@@ -243,6 +242,7 @@ public class Controller2D : RaycastController {
                 }
             }
         }
+        Debug.Log("Continue");
 
         // Smooth transition from moving up different slopes
         if (collisions.climbingSlope)

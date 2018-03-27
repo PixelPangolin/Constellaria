@@ -5,6 +5,8 @@ using System.Linq;
 
 public class GrapplingHook : MonoBehaviour {
 
+    private Controller2D controller;
+
 	//public AudioSource audio;
 	//public AudioClip pullRope;
 	//public AudioClip tautRope;
@@ -25,21 +27,31 @@ public class GrapplingHook : MonoBehaviour {
 	private Dictionary<Vector2, int> wrapPointsLookup = new Dictionary<Vector2, int>();
 	public LayerMask ropeLayerMask;
 	private Vector2 playerPosition;
+
+
+
     // Use this for initialization
     void Start () {
+        controller = GetComponent<Controller2D>();
+
         hook = GetComponent<DistanceJoint2D>();
         hook.enabled = false;
 		playerPosition = transform.position;
     }
 
 	void Update(){
-		if (Input.GetButtonDown("Up") && hanging || Input.GetButtonDown("Down") && hanging){
-			GameObject.Find("GameController").GetComponent<AudioController>().playPullRope();
-			pullRopeTimer = Time.time+pullRopeDelay;
-			//print("pressed up or down!");
+        if (hanging)
+        {
+            if (Input.GetButtonDown("Up") && !controller.collisions.below || Input.GetButtonDown("Down") && !controller.collisions.below)
+            {
+                GameObject.Find("GameController").GetComponent<AudioController>().playPullRope();
+                pullRopeTimer = Time.time + pullRopeDelay;
+                //print("pressed up or down!");
 
 
-		}
+            }
+        }
+		
 		if (Input.GetButtonDown ("Shift")&&connected) {
 			isSwinging = true;
             hanging = true;
@@ -106,22 +118,26 @@ public class GrapplingHook : MonoBehaviour {
 			//Rope.ResetRope (rope, false);
 		}
 
-		if (Input.GetKey("up")||Input.GetKey("w"))
+        if (hanging)
         {
+            if (Input.GetKey("up") && !controller.collisions.below || Input.GetKey("w") && !controller.collisions.below)
+            {
 
 
-				//rope.transform.GetChild (0).GetComponent<DistanceJoint2D> ().connectedBody = playerRigidBody;
-				//Rope.UpdateEndsJoints(rope);
-				//SOUND: When you pull back on the rope
-				if (pullRopeTimer < Time.time) {
-					print (pullRopeTimer);
-					GameObject.Find("GameController").GetComponent<AudioController>().playPullRope();
-					pullRopeTimer = (Time.time + pullRopeDelay);
+                //rope.transform.GetChild (0).GetComponent<DistanceJoint2D> ().connectedBody = playerRigidBody;
+                //Rope.UpdateEndsJoints(rope);
+                //SOUND: When you pull back on the rope
+                if (pullRopeTimer < Time.time)
+                {
+                    print(pullRopeTimer);
+                    GameObject.Find("GameController").GetComponent<AudioController>().playPullRope();
+                    pullRopeTimer = (Time.time + pullRopeDelay);
 
-				}
+                }
 
 
-            hook.distance = hook.distance - 0.05f;
+                hook.distance = hook.distance - 0.05f;
+            }
         }
 
 		if (Input.GetKey("down")||Input.GetKey("s"))
