@@ -99,12 +99,7 @@ public class Controller2D : RaycastController {
             Debug.DrawRay(rayOrigin, Vector2.right * directionX, Color.red);
 
             if (hit)
-            {
-                if (hit.distance == 0)
-                {
-                    continue;
-                }
-
+            {                
                 // Colliding with a hazard horizontally kills you
                 if (hit.collider.tag == "Hazard")
                 {
@@ -199,26 +194,23 @@ public class Controller2D : RaycastController {
                 // Colliding with a hazard vertically kills you
                 if (hit.collider.tag == "Hazard")
                 {
-                    //playerDeath = true;
+                    playerDeath = true;
                 }
 
                 // Two way platforms for line
                 if (hit.collider.tag == "Line")
                 {
-                    Debug.Log("LineThing");
+                    Debug.Log(collisions.below);
                     // If we are jumping up, then go through
                     if (directionY == 1 || hit.distance == 0)
                     {
-                        Debug.Log("Jump");
                         continue;
                     }
 
-                    //Debug.Log(playerInput.y);
-
-                    //if (playerInput.y == -1)
-                    //{
-                    //    continue;
-                    //}
+                    if (playerInput.y == -1)
+                    {
+                        continue;
+                    }
                 }
 
                 // Sets our moveAmount to the amount needed to get from current position to the location hit
@@ -236,13 +228,12 @@ public class Controller2D : RaycastController {
                 {
                     collisions.below = true;
                 }
-                else
+                else 
                 {
                     collisions.above = true;
                 }
             }
         }
-        Debug.Log("Continue");
 
         // Smooth transition from moving up different slopes
         if (collisions.climbingSlope)
