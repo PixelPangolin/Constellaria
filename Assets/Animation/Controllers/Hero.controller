@@ -542,7 +542,7 @@ AnimatorStateMachine:
     m_Position: {x: 708, y: -360, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102944746937966066}
-    m_Position: {x: 552, y: -168, z: 0}
+    m_Position: {x: 576, y: -180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102604534421804936}
     m_Position: {x: 588, y: 12, z: 0}
@@ -554,10 +554,10 @@ AnimatorStateMachine:
     m_Position: {x: 1224, y: -168, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102330743629496532}
-    m_Position: {x: 1140, y: -24, z: 0}
+    m_Position: {x: 1152, y: -48, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102027339937475020}
-    m_Position: {x: 1128, y: 12, z: 0}
+    m_Position: {x: 1140, y: 12, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102737522866866310}
     m_Position: {x: 768, y: 228, z: 0}
@@ -845,9 +845,9 @@ AnimatorStateTransition:
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
+  - m_ConditionMode: 3
     m_ConditionEvent: Speed
-    m_EventTreshold: 0.1
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102939827750306460}
   m_Solo: 0
@@ -922,7 +922,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: Speed
-    m_EventTreshold: 0.1
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102604534421804936}
   m_Solo: 0
@@ -1274,9 +1274,9 @@ AnimatorStateTransition:
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
+  - m_ConditionMode: 4
     m_ConditionEvent: Speed
-    m_EventTreshold: 0.1
+    m_EventTreshold: -0.1
   - m_ConditionMode: 2
     m_ConditionEvent: FacingRight
     m_EventTreshold: 0
@@ -1301,9 +1301,9 @@ AnimatorStateTransition:
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
+  - m_ConditionMode: 4
     m_ConditionEvent: Speed
-    m_EventTreshold: 0.1
+    m_EventTreshold: -0.1
   - m_ConditionMode: 2
     m_ConditionEvent: FacingRight
     m_EventTreshold: 0

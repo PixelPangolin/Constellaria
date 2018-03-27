@@ -86,12 +86,12 @@ public class Player : MonoBehaviour {
         if (velocity.x < 0)
         {
             TurnLeft();
-            animator.SetFloat("Speed", 0);
+            animator.SetFloat("Speed", (velocity.x));
         }
         else if (velocity.x > 0)
         {
             TurnRight();
-            animator.SetFloat("Speed", 0);
+            animator.SetFloat("Speed", (velocity.x));
         }
     }
 
