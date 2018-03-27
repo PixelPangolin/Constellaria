@@ -13,6 +13,7 @@ public class GrapplingHook : MonoBehaviour {
     public DistanceJoint2D hook;
     public bool connected = false;
 	public bool isSwinging = false;
+    public bool hanging = false;
 	public Rope rope;
 	public Rigidbody2D playerRigidBody;
 	public Rigidbody2D ropeRigidBody;
@@ -41,13 +42,15 @@ public class GrapplingHook : MonoBehaviour {
 		}
 		if (Input.GetButtonDown ("Shift")&&connected) {
 			isSwinging = true;
-			hook.distance = Vector3.Distance(transform.position,ropePositions.Last());
+            hanging = true;
+            hook.distance = Vector3.Distance(transform.position,ropePositions.Last());
 			hook.enabled = true;
 		}
 		if (Input.GetButtonUp ("Shift")&&connected) {
 			isSwinging = false;
-			//hook.distance = Vector3.Distance(transform.position,ropePositions.Last());
-			hook.enabled=false;
+            hanging = false;
+            //hook.distance = Vector3.Distance(transform.position,ropePositions.Last());
+            hook.enabled=false;
 		}
 
 		playerPosition = transform.position;

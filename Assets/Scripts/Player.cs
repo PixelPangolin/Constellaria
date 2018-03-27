@@ -27,6 +27,7 @@ public class Player : MonoBehaviour {
 
     private Controller2D controller;
     private Animator animator;
+    private GrapplingHook grapple;
 
     private bool facingRight;
 
@@ -58,6 +59,7 @@ public class Player : MonoBehaviour {
     {
         controller = GetComponent<Controller2D>();
         animator = GetComponent<Animator>();
+        grapple = GetComponent<GrapplingHook>();
 
         // Note that gravity has to be negative, hence the -1
         gravity = (-1)*(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
@@ -70,17 +72,14 @@ public class Player : MonoBehaviour {
     {
         CalculateVelocity();
 
-        controller.Move(velocity * Time.deltaTime);
+        controller.Move(velocity * Time.deltaTime); //, directionalInput);
 
         // This makes our falling make more sense
         // Due to how our gravity is implemented, this makes sure we don't just fall really quickly when we step off a platform
-        if (controller.collisions.above || controller.collisions.below)
+        if (controller.collisions.above || controller.collisions.below || grapple.hanging || controller.playerDeath)
         {
             velocity.y = 0;
         }
-
-        Debug.Log(velocity.x);
-        Debug.Log(velocity.y);
 
         // Animations for player character
         if (velocity.x < 0)

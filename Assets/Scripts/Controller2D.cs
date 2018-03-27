@@ -8,6 +8,9 @@ public class Controller2D : RaycastController {
     // Maximum slope the player can climb in degrees
     private float maxSlopeAngle = 80;
 
+
+    public bool playerDeath = false;
+
     public CollisionInfo collisions;
 
     public struct CollisionInfo
@@ -95,12 +98,10 @@ public class Controller2D : RaycastController {
 
             if (hit)
             {
-                // Do not collide horizontally if it's a node
-                if (hit.collider.tag == "Node")
+                // Colliding with a hazard horizontally kills you
+                if (hit.collider.tag == "Hazard")
                 {
-                    // TODO: Czeto's grappling hook modifications
-
-                    continue;
+                    playerDeath = true;
                 }
 
                 // Get angle of surface we've hit - for slope moving purposes
@@ -128,6 +129,8 @@ public class Controller2D : RaycastController {
                     moveAmount.x += distanceToSlopeStart * directionX;
                 }
 
+                // We don't want to check other rays if we're already climbing
+                // Only want to check when not climbing slope or when the slope exceeds max angle
                 if (!collisions.climbingSlope || slopeAngle > maxSlopeAngle)
                 {
                     // Sets our moveAmount to the amount needed to get from current position to the location hit
@@ -186,11 +189,10 @@ public class Controller2D : RaycastController {
 
             if (hit)
             {
-                // Do not collide vertically if it is a node
-                if (hit.collider.tag == "Node")
+                // Colliding with a hazard vertically kills you
+                if (hit.collider.tag == "Hazard")
                 {
-                    // TODO: Czeto's grappling hook modifications
-                    continue;
+                    playerDeath = true;
                 }
 
                 // Sets our moveAmount to the amount needed to get from current position to the location hit
