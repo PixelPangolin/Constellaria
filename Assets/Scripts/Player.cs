@@ -105,18 +105,18 @@ public class Player : MonoBehaviour {
 
         // This makes our falling make more sense
         // Due to how our gravity is implemented, this makes sure we don't just fall really quickly when we step off a platform
-		if (controller.collisions.above || controller.collisions.below  || controller.playerDeath || grapple.hanging)
+		if (controller.collisions.above || controller.collisions.below  || controller.playerDeath)
 		{
 			velocity.y = 0;
 		}
 
         // Animations for player character
-		if (velocity.x < 1 && !grapple.hanging)
+		if (velocity.x < 1)
         {
             TurnLeft();
             animator.SetFloat("Speed", (velocity.x));
         }
-		else if (velocity.x > 1 && !grapple.hanging)
+		else if (velocity.x > 1)
         {
             TurnRight();
             animator.SetFloat("Speed", (velocity.x));
