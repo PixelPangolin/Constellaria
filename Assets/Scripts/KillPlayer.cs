@@ -29,7 +29,8 @@ public class KillPlayer : MonoBehaviour {
         {
             animator.SetTrigger("Die");
             GameObject.Find("GameController").GetComponent<AudioController>().playDeathSound();
-            Invoke("TeleportPlayerToCheckpoint", delayTime);
+            //Invoke("TeleportPlayerToCheckpoint", delayTime);
+            TeleportPlayerToCheckpoint();
         }
         else
         {
