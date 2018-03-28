@@ -6,11 +6,6 @@ using System;
 [System.Serializable]
 public class ConnectionsManager : MonoBehaviour {
 	
-	public AudioSource audio;
-	public AudioClip makeLine;
-	public AudioClip breakLine;
-	//public int maxTotalConnections;
-	//public int maxNodeConnections;
     public List<Node> nodes;
     public List<Vector2> goalConnectedNodes;
 	public List<Connection> playerConnections;
@@ -42,11 +37,11 @@ public class ConnectionsManager : MonoBehaviour {
 			if (removeConnectA||removeConnectB) {
 				//One of the nodes had extra connections
 				//SOUND: A link Being Cut
-				audio.PlayOneShot(makeLine ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume());
+				GameObject.Find("GameController").GetComponent<AudioController>().playMakeLine();
 			} else{
 				//No connection was broken
 				//SOUND: Making a new Link
-				audio.PlayOneShot(breakLine ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume());
+				GameObject.Find("GameController").GetComponent<AudioController>().playBreakLine();
 			}
 			GameObject beam = new GameObject ("beamOLight");
 			beam.transform.parent = transform;
