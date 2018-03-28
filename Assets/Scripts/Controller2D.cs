@@ -234,6 +234,7 @@ public class Controller2D : RaycastController {
                 }
             }
         }
+        //Debug.Log("Continue");
 
         // Smooth transition from moving up different slopes
         if (collisions.climbingSlope)

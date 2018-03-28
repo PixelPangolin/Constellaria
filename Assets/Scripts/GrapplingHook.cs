@@ -19,12 +19,13 @@ public class GrapplingHook : MonoBehaviour {
 	public Rope rope;
 	public Rigidbody2D playerRigidBody;
 	public Rigidbody2D ropeRigidBody;
+	public float ropeDistance;
 
 	public float pullRopeDelay = 0.5f;
 	private float pullRopeTimer = 0f;
-	private List<Vector2> ropePositions = new List<Vector2>();
+	public List<Vector2> ropePositions = new List<Vector2>();
 	private bool distanceSet;
-	private Dictionary<Vector2, int> wrapPointsLookup = new Dictionary<Vector2, int>();
+	public Dictionary<Vector2, int> wrapPointsLookup = new Dictionary<Vector2, int>();
 	public LayerMask ropeLayerMask;
 	private Vector2 playerPosition;
 
@@ -45,6 +46,7 @@ public class GrapplingHook : MonoBehaviour {
 			isSwinging = true;
             hanging = true;
             hook.distance = Vector3.Distance(transform.position,ropePositions.Last());
+			ropeDistance = hook.distance;
 			hook.enabled = true;
 		}
 		if (Input.GetButtonUp ("Shift")&&connected) {
@@ -126,6 +128,7 @@ public class GrapplingHook : MonoBehaviour {
 
 
                 hook.distance = hook.distance - 0.05f;
+				ropeDistance = hook.distance;
             }
         }
 
@@ -136,6 +139,7 @@ public class GrapplingHook : MonoBehaviour {
 				pullRopeTimer = (Time.time + pullRopeDelay);
 			}
             hook.distance = hook.distance + 0.05f;
+			ropeDistance = hook.distance;
         }
 			
         if (connected)
@@ -235,12 +239,14 @@ private void UpdateRopePositions ()
 						ropeRigidBody.transform.position = ropePosition;
 						if (!distanceSet) {
 							hook.distance = Vector2.Distance (transform.position, ropePosition);
+							ropeDistance = hook.distance;
 							distanceSet = true;
 						}
 					} else {
 						ropeRigidBody.transform.position = ropePosition;
 						if (!distanceSet) {
 							hook.distance = Vector2.Distance (transform.position, ropePosition);
+							ropeDistance = hook.distance;
 							distanceSet = true;
 						}
 					}
@@ -251,6 +257,7 @@ private void UpdateRopePositions ()
 					ropeRigidBody.transform.position = ropePosition;
 					if (!distanceSet) {
 						hook.distance = Vector2.Distance (transform.position, ropePosition);
+						ropeDistance = hook.distance;
 						distanceSet = true;
 					}
 				}
@@ -364,6 +371,7 @@ private void UpdateRopePositions ()
 			return;
 		}
 		hook.distance = Vector2.Distance(transform.position, newAnchorPosition);
+		ropeDistance = hook.distance;
 		distanceSet = true;
 	}
 }

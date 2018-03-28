@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 [RequireComponent(typeof(Controller2D))]
 
@@ -14,6 +15,7 @@ public class Player : MonoBehaviour {
     private float timeToJumpApex = 0.65f;
     private float accelerationTimeAirborne = 0.2f;
     private float accelerationTimeGrounded = 0.1f;
+
 
     // Equation assuming we're at the top of our jump should help explain gravity - jumpHeight = (gravity * timeToJumpApex**2)/2 so isolate gravity
     // Equation for velocity is jumpVelocity = gravity * timeToJumpApex
@@ -28,6 +30,8 @@ public class Player : MonoBehaviour {
     private Controller2D controller;
     private Animator animator;
     private GrapplingHook grapple;
+	private Rigidbody2D rb2d;
+	private CapsuleCollider2D capColl2d;
 
     private bool facingRight;
 
@@ -53,6 +57,21 @@ public class Player : MonoBehaviour {
             velocity.y = minJumpVelocity;
         }
     }
+	public void OnShiftInputDown(){
+		if (grapple.connected) {
+			rb2d.gravityScale = 1f;
+			rb2d.velocity = velocity;
+			capColl2d.isTrigger = false;
+		}
+	}
+	public void OnShiftInputUp(){
+		if (grapple.connected) {
+			rb2d.gravityScale = 0f;
+			velocity = rb2d.velocity;
+			rb2d.velocity = new Vector2 (0f, 0f);
+			capColl2d.isTrigger = true;
+		}
+	}
 
     // Use this for initialization
     void Start()
@@ -60,6 +79,8 @@ public class Player : MonoBehaviour {
         controller = GetComponent<Controller2D>();
         animator = GetComponent<Animator>();
         grapple = GetComponent<GrapplingHook>();
+		rb2d = GetComponent<Rigidbody2D> ();
+		capColl2d = GetComponent<CapsuleCollider2D> ();
 
         // Note that gravity has to be negative, hence the -1
         gravity = (-1)*(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
@@ -70,29 +91,93 @@ public class Player : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        CalculateVelocity();
 
-        controller.Move(velocity * Time.deltaTime, directionalInput);
 
+
+
+	
         // This makes our falling make more sense
         // Due to how our gravity is implemented, this makes sure we don't just fall really quickly when we step off a platform
-        if (controller.collisions.above || controller.collisions.below || grapple.hanging || controller.playerDeath)
-        {
-            velocity.y = 0;
-        }
+
+
+		if (grapple.isSwinging) {
+			animator.SetBool("isSwinging", true);
+			animator.SetTrigger("Swing");
+			CalculateVelocitySwing2();
+
+		}
+		if (!grapple.isSwinging) {
+			animator.SetBool("isSwinging", false);
+			CalculateVelocity();
+			controller.Move(velocity * Time.deltaTime, directionalInput);
+		}
+
+		if (controller.collisions.above || controller.collisions.below  || controller.playerDeath)
+		{
+			velocity.y = 0;
+		}
+
+
 
         // Animations for player character
-        if (velocity.x < 0)
+		if (velocity.x < 1 )
         {
             TurnLeft();
             animator.SetFloat("Speed", (velocity.x));
         }
-        else if (velocity.x > 0)
+		else if (velocity.x > 1 )
         {
             TurnRight();
             animator.SetFloat("Speed", (velocity.x));
         }
     }
+
+	void CalculateVelocitySwing2()
+	{
+		float targetVelocityX = directionalInput.x * moveSpeed;
+		velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, accelerationTimeAirborne);
+		this.GetComponent<Rigidbody2D> ().AddForce (Vector2.right * velocity.x*1f);
+	}
+
+	void CalculateVelocitySwing()
+	{
+
+		// Smoothing movement in x
+		float targetVelocityX = directionalInput.x * moveSpeed;
+		//float angleA = Mathf.PI - Mathf.Atan2 ((grapple.ropePositions.Last ().y - transform.position.y), (grapple.ropePositions.Last ().x - transform.position.x));
+		float angleA = Mathf.PI - Mathf.Atan2 ((grapple.ropePositions.Last ().y - transform.position.y), (grapple.ropePositions.Last ().x - transform.position.x));
+
+		float convertedVelocityX = Mathf.Sin(angleA)*targetVelocityX;
+		float convertedVelocityY = Mathf.Cos(angleA)*targetVelocityX;
+
+		if (controller.collisions.below)
+		{
+
+			velocity.x = Mathf.SmoothDamp(velocity.x, convertedVelocityX, ref velocityXSmoothing, accelerationTimeGrounded);
+		}
+		else
+		{
+			velocity.x = Mathf.SmoothDamp(velocity.x, convertedVelocityX, ref velocityXSmoothing, accelerationTimeAirborne);
+		}
+
+		// Applying gravity to the player's velocity and moves accordingly
+		velocity.x = (convertedVelocityX);
+		velocity.y = (convertedVelocityY);
+
+		//calculate future position
+		Vector3 testPosition = transform.position;
+		testPosition.x = testPosition.x + velocity.x;
+		testPosition.y = testPosition.y + velocity.y;
+		float newDistance = Vector3.Distance(testPosition, grapple.ropePositions.Last());
+
+		//if future position farther away from hook than it should be, change movement to pendulum
+		if (grapple.ropeDistance < newDistance){
+			//find point between the grapple and testposition, one rope length away from grapple
+			testPosition = Vector3.Lerp(testPosition, grapple.ropePositions.Last (),  grapple.ropeDistance/newDistance);
+			velocity.x = (testPosition.x - transform.position.x);
+			velocity.y = (testPosition.y - transform.position.y);
+		}
+	}
 
     void CalculateVelocity()
     {
