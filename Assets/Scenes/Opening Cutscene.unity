@@ -404,7 +404,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &245664511
 Transform:
   m_ObjectHideFlags: 0
@@ -785,9 +785,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65b56bc2b65ffa048b0eed9ed718355e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 0}
-  makeLine: {fileID: 8300000, guid: 352a4346d2859484284a994d167c8862, type: 3}
-  breakLine: {fileID: 8300000, guid: f11b4febb1208c444ad81f9b9d965188, type: 3}
   nodes:
   - {fileID: 0}
   - {fileID: 0}
@@ -1359,7 +1356,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -427487282
+  randomSeed: 263908220
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5106,6 +5103,46 @@ Transform:
   m_Father: {fileID: 1492652366}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1016025043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1016025045}
+  - component: {fileID: 1016025044}
+  m_Layer: 0
+  m_Name: OpenngCutsceneEnd
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1016025044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1016025043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae5fa81ff37fc74782be25527b2fd09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1016025045
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1016025043}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 51.06216, y: -3.957091, z: -7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1093995810
 GameObject:
   m_ObjectHideFlags: 0
@@ -6207,6 +6244,10 @@ PlayableDirector:
     value: {fileID: 1108081355}
   - key: {fileID: 114195685280736532, guid: fb878f116c08f0b46828eb2a6493e491, type: 2}
     value: {fileID: 1108081355}
+  - key: {fileID: 114050925918982680, guid: fb878f116c08f0b46828eb2a6493e491, type: 2}
+    value: {fileID: 1016025043}
+  - key: {fileID: 114860704679285334, guid: fb878f116c08f0b46828eb2a6493e491, type: 2}
+    value: {fileID: 1840270861}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1492652366
@@ -7182,6 +7223,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1840270862}
+  - component: {fileID: 1840270863}
   m_Layer: 0
   m_Name: Over the Hill Objects
   m_TagString: Untagged
@@ -7206,6 +7248,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1840270863
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1840270861}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1852472439
 GameObject:
   m_ObjectHideFlags: 0
@@ -7500,7 +7559,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &1928196924
 Animator:
   serializedVersion: 3
