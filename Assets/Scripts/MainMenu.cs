@@ -25,6 +25,7 @@ public class MainMenu : MonoBehaviour {
 	public void CDOpenMainMenu ()
 	{
 		SceneManager.LoadScene(0);
+		//print (PlayerPrefsManager.GetMusicVolume());
 	}
 	public void CDOpenSceneByName (string sceneName)
 	{
@@ -33,6 +34,7 @@ public class MainMenu : MonoBehaviour {
 	public void OnMasterSliderChange ()//TODO should be set via savefile, and default to a level by string name
 	{
 		PlayerPrefsManager.SetMasterVolume (masterSlider.value);
+		print (masterSlider.value);
 	}
 	public void OnEffectsSliderChange ()//TODO should be set via savefile, and default to a level by string name
 	{

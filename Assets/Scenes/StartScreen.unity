@@ -654,7 +654,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1054714830}
-        m_MethodName: StartGame
+        m_MethodName: MMStartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1385,7 +1385,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 826891962}
-  - component: {fileID: 826891963}
   m_Layer: 5
   m_Name: GameObject
   m_TagString: Untagged
@@ -1407,21 +1406,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &826891963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 826891961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00d7647c911452c44b415c2a9c9adc3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  masterSlider: {fileID: 1876393977}
-  effectsSlider: {fileID: 1902165020}
-  ambienceSlider: {fileID: 1846982461}
-  musicSlider: {fileID: 503031916}
 --- !u!1 &899589786
 GameObject:
   m_ObjectHideFlags: 0
@@ -2110,10 +2094,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d7647c911452c44b415c2a9c9adc3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterSlider: {fileID: 0}
-  effectsSlider: {fileID: 0}
-  ambienceSlider: {fileID: 0}
-  musicSlider: {fileID: 0}
+  masterSlider: {fileID: 1876393977}
+  effectsSlider: {fileID: 1902165020}
+  ambienceSlider: {fileID: 1846982461}
+  musicSlider: {fileID: 503031916}
 --- !u!1 &1101895938
 GameObject:
   m_ObjectHideFlags: 0
@@ -3261,7 +3245,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1054714830}
         m_MethodName: OnMasterSliderChange
-        m_Mode: 4
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

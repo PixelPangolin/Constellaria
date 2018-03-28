@@ -36,12 +36,12 @@ public class AudioController : MonoBehaviour {
 	void Start () {
 		//playerAudio = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>();
 		//cameraAudio = GameObject.FindGameObjectWithTag("CameraFocus").GetComponent<AudioSource>();
-		PlayerPrefsManager.SetMasterVolume (defaultMasterVolume);
-		PlayerPrefsManager.SetMusicVolume (defaultMusicVolume);
-		PlayerPrefsManager.SetSoundEffectVolume (defaultSXVolume);
+		//PlayerPrefsManager.SetMasterVolume (defaultMasterVolume);
+		//PlayerPrefsManager.SetMusicVolume (defaultMusicVolume);
+		//PlayerPrefsManager.SetSoundEffectVolume (defaultSXVolume);
 
 
-		cameraAudio.volume = PlayerPrefsManager.GetMusicVolume ();
+		cameraAudio.volume = PlayerPrefsManager.GetMusicVolume ()*PlayerPrefsManager.GetMasterVolume();
 		cameraAudio.clip = backgroundTrack;
 		cameraAudio.Play ();
 
@@ -49,11 +49,11 @@ public class AudioController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		cameraAudio.volume = PlayerPrefsManager.GetMusicVolume ();
+		//cameraAudio.volume = PlayerPrefsManager.GetMusicVolume ();
 		//debug , remove after done debugging
-		PlayerPrefsManager.SetMasterVolume (defaultMasterVolume);
-		PlayerPrefsManager.SetMusicVolume (defaultMusicVolume);
-		PlayerPrefsManager.SetSoundEffectVolume (defaultSXVolume);
+		//PlayerPrefsManager.SetMasterVolume (defaultMasterVolume);
+		//PlayerPrefsManager.SetMusicVolume (defaultMusicVolume);
+		//PlayerPrefsManager.SetSoundEffectVolume (defaultSXVolume);
 	}
 
 	public void playMakeLine(){
