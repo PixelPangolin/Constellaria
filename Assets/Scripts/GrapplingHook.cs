@@ -230,7 +230,7 @@ private void UpdateRopePositions ()
 		// 3
 		for (var i = line.positionCount - 1; i >= 0; i--) {
 			if (i != line.positionCount - 1) { // if not the Last point of line renderer
-				line.SetPosition (i, ropePositions [i]);
+				line.SetPosition (i, new Vector3(ropePositions[i].x, ropePositions[i].y, 1f));
 
 				// 4
 				if (i == ropePositions.Count - 1 || ropePositions.Count == 1) {
@@ -263,7 +263,7 @@ private void UpdateRopePositions ()
 				}
 			} else {
 				// 6
-				line.SetPosition (i, transform.position);
+				line.SetPosition (i, new Vector3(transform.position.x, transform.position.y, 1f));
 			}
 		}
 	}
@@ -284,8 +284,8 @@ private void UpdateRopePositions ()
 		//connected = false;
 		//playerMovement.isSwinging = false;
 		line.positionCount = 2;
-		line.SetPosition(0, currentNode.transform.position);
-		line.SetPosition(1, transform.position);
+		line.SetPosition(0, new Vector3(currentNode.transform.position.x, currentNode.transform.position.y, 1f));
+		line.SetPosition(1, new Vector3(transform.position.x, transform.position.y, 1f));
 		ropePositions.Clear();
 		//ropePositions.Add(line.GetPosition(0));
 		//ropePositions.Add(line.GetPosition(1));

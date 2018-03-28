@@ -136,7 +136,7 @@ public class Player : MonoBehaviour {
 	{
 		float targetVelocityX = directionalInput.x * moveSpeed;
 		velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, accelerationTimeAirborne);
-		this.GetComponent<Rigidbody2D> ().AddForce (Vector2.right * velocity.x*1f);
+		this.GetComponent<Rigidbody2D> ().AddForce (Vector2.right * velocity.x*10f);
 	}
 
 	void CalculateVelocitySwing()
