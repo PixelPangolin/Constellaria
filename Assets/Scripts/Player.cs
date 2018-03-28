@@ -62,6 +62,7 @@ public class Player : MonoBehaviour {
 			rb2d.gravityScale = 1f;
 			rb2d.velocity = velocity;
 			capColl2d.isTrigger = false;
+			rb2d.mass = 10f;
 		}
 	}
 	public void OnShiftInputUp(){
@@ -69,6 +70,7 @@ public class Player : MonoBehaviour {
 			rb2d.gravityScale = 0f;
 			velocity = rb2d.velocity;
 			rb2d.velocity = new Vector2 (0f, 0f);
+			rb2d.mass = 1000f;
 			capColl2d.isTrigger = true;
 		}
 	}
@@ -101,6 +103,7 @@ public class Player : MonoBehaviour {
 			animator.SetBool("isSwinging", false);
 			CalculateVelocity();
 			controller.Move(velocity * Time.deltaTime, directionalInput);
+
 		}
 
         // This makes our falling make more sense
