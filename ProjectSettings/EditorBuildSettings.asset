@@ -9,5 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScreen.unity
     guid: 97b7f6abf23ec6e48a4ee5e72306e792
   - enabled: 1
-    path: Assets/Scenes/Nodes and Elephants and Spikes.unity
-    guid: 370582374f77a7b44861ce7813bc3e42
+    path: Assets/Scenes/CodexDisplay.unity
+    guid: 951b842bed80a47479dee8ca691232b5
+  - enabled: 1
+    path: Assets/Scenes/PhysicsAndGrappling.unity
+    guid: d4dfff2762657dc4c802e79e6e51d920
