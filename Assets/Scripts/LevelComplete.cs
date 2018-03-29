@@ -12,10 +12,14 @@ public class LevelComplete : MonoBehaviour {
 	public GameObject constellation;
 	public bool debugEndLevel =false; 
 	private bool zoomOut=false;
+	private bool moveCamera=false;
 	private bool fadeIn=false;
+	private bool endLevel=false;
+	public float fadeInSpeed = 1.25f;
 	public Vector3 cameraEndPosition;
-    public float cameraZoom = 20.0f;
-
+	public float cameraMoveSpeed = 15.0f;
+	public float cameraZoom = 5.0f;
+	public float cameraZoomSpeed = 6.0f;
 	// Use this for initialization
 	void Start () {
 		
@@ -32,16 +36,23 @@ public class LevelComplete : MonoBehaviour {
 	void FixedUpdate(){
 	//zoom camera out, fade in, then animate once
 		if (zoomOut) {
-			cameraFocus.transform.position = Vector3.MoveTowards (cameraFocus.transform.position,cameraEndPosition, 15.0f*Time.deltaTime);
-			Camera.main.orthographicSize = Mathf.MoveTowards (Camera.main.orthographicSize, cameraZoom, 6.0f * Time.deltaTime);
-			if (cameraFocus.transform.position == cameraEndPosition) {
+			Camera.main.orthographicSize = Mathf.MoveTowards (Camera.main.orthographicSize, cameraZoom, cameraZoomSpeed * Time.deltaTime);
+			if (Camera.main.orthographicSize == cameraZoom) {
 				zoomOut = false;
-				fadeIn = true;
 			}
 		}
+		if (moveCamera) {
+			cameraFocus.transform.position = Vector3.MoveTowards (cameraFocus.transform.position,cameraEndPosition, cameraMoveSpeed*Time.deltaTime);
+			if (cameraFocus.transform.position == cameraEndPosition) {
+				moveCamera = false;
+
+			}
+		}
+		if (!moveCamera && !zoomOut && endLevel) { fadeIn = true;
+		} 
 		if (fadeIn) 
 		{
-			constellation.GetComponent<SpriteRenderer>().color =  new Color (255f, 255f, 255f, constellation.GetComponent<SpriteRenderer>().color.a+1.25f*Time.deltaTime);
+			constellation.GetComponent<SpriteRenderer>().color =  new Color (255f, 255f, 255f, constellation.GetComponent<SpriteRenderer>().color.a+fadeInSpeed*Time.deltaTime);
 			print (constellation.GetComponent<SpriteRenderer> ().color.a);
 			if (constellation.GetComponent<SpriteRenderer> ().color.a >= 6) {
 				fadeIn = false;
@@ -58,6 +69,8 @@ public class LevelComplete : MonoBehaviour {
 		// Write script here for what occurs when the level is complete
 		cameraFocus.GetComponent<CameraFocusUpdated>().control =false;//stop the camera from following the player
 		zoomOut = true;
+		moveCamera = true;
+		endLevel = true;
 		//x25 y 15
 	}
 }

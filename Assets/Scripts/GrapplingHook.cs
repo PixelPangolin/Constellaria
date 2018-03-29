@@ -200,7 +200,7 @@ public class GrapplingHook : MonoBehaviour {
 		connected = true;
 		line.enabled = true;
 		ResetLine ();
-		ropePositions.Add(nodePosition);
+		//ropePositions.Add(nodePosition);
 		//line.positionCount = 2;
 
         //no such thing as a 'get list/count of vertexes', so we will need to keep a list
@@ -288,7 +288,7 @@ private void UpdateRopePositions ()
 		line.SetPosition(1, new Vector3(transform.position.x, transform.position.y, 1f));
 		ropePositions.Clear();
 		//ropePositions.Add(line.GetPosition(0));
-		//ropePositions.Add(line.GetPosition(1));
+		ropePositions.Add(new Vector3(currentNode.transform.position.x, currentNode.transform.position.y, 1f));
 		//ropeHingeAnchorSprite.enabled = false;
 		wrapPointsLookup.Clear();
 	}
