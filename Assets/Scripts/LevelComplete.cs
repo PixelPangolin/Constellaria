@@ -11,6 +11,7 @@ public class LevelComplete : MonoBehaviour {
 	public GameObject cameraFocus;
 	public GameObject constellation;
 	public bool debugEndLevel =false; 
+	public bool debugResetSaveGame =false; 
 	private bool zoomOut=false;
 	private bool moveCamera=false;
 	private bool fadeIn=false;
@@ -21,8 +22,12 @@ public class LevelComplete : MonoBehaviour {
 	public float cameraZoom = 5.0f;
 	public float cameraZoomSpeed = 6.0f;
 	// Use this for initialization
-	void Start () {
-		
+	void Start () { 
+		//TODO: uncomment these for after the demo
+		//Note that this version will be easy to mess up by replaying old levels through codex
+		//maybe use build index instead, and only take higher numbers? Could also use that to return to codex after
+		//PlayerPrefsManager.SetLastLevelPlayed(SceneManager.GetActiveScene().name);
+		//PlayerPrefs.Save;
 	}
 	
 	// Update is called once per frame
@@ -30,6 +35,11 @@ public class LevelComplete : MonoBehaviour {
 		if (debugEndLevel) {
 			debugEndLevel = false;
 			EndLevel ();
+		}
+		if (debugResetSaveGame) {
+			PlayerPrefsManager.SetLastLevelPlayed("Demo3-TutorialLevel");
+			PlayerPrefs.Save();
+			debugEndLevel = false;
 		}
 	}
 
@@ -67,6 +77,7 @@ public class LevelComplete : MonoBehaviour {
 		//SOUND: Completing the puzzle
 		GameObject.Find("GameController").GetComponent<AudioController>().playEndLevelSound();
 		// Write script here for what occurs when the level is complete
+
 		cameraFocus.GetComponent<CameraFocusUpdated>().control =false;//stop the camera from following the player
 		zoomOut = true;
 		moveCamera = true;

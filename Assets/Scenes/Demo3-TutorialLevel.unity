@@ -1227,13 +1227,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAudio: {fileID: 1083258923}
   cameraAudio: {fileID: 1839245538}
-  ambienceAudio: {fileID: 0}
-  defaultSXVolume: 1
-  defaultMusicVolume: 1
-  defaultAmbience: 0
-  defaultMasterVolume: 1
+  ambienceAudio: {fileID: 505362164}
+  defaultSXVolume: 0.5
+  defaultMusicVolume: 0.5
+  defaultAmbience: 0.5
+  defaultMasterVolume: 0.5
   backgroundTrack: {fileID: 8300000, guid: a2b2ac73b366f5f43ab6962398e18121, type: 3}
-  ambienceTrack: {fileID: 0}
+  ambienceTrack: {fileID: 8300000, guid: a9dac166337fc9d4299eca9633f29bc1, type: 3}
   makeLine: {fileID: 8300000, guid: 352a4346d2859484284a994d167c8862, type: 3}
   makeLineVolume: 1
   breakLine: {fileID: 8300000, guid: f11b4febb1208c444ad81f9b9d965188, type: 3}
@@ -1325,7 +1325,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:

@@ -55,13 +55,13 @@ public class AudioController : MonoBehaviour {
 		cameraAudio = GameObject.FindGameObjectWithTag("CameraFocus").GetComponent<AudioSource>();
         ambienceAudio = gameObject.GetComponent<AudioSource>();
 
-		PlayerPrefsManager.SetMasterVolume (defaultMasterVolume);
-		PlayerPrefsManager.SetMusicVolume (defaultMusicVolume);
-		PlayerPrefsManager.SetSoundEffectVolume (defaultSXVolume);
-        PlayerPrefsManager.SetAmbienceVolume(defaultAmbience);
+		//PlayerPrefsManager.SetMasterVolume (defaultMasterVolume);
+		//PlayerPrefsManager.SetMusicVolume (defaultMusicVolume);
+		//PlayerPrefsManager.SetSoundEffectVolume (defaultSXVolume);
+        //PlayerPrefsManager.SetAmbienceVolume(defaultAmbience);
 
 
-        cameraAudio.volume = PlayerPrefsManager.GetMasterVolume() * PlayerPrefsManager.GetMusicVolume ();
+        cameraAudio.volume = PlayerPrefsManager.GetMasterVolume() * PlayerPrefsManager.GetMusicVolume();
 		cameraAudio.clip = backgroundTrack;
         cameraAudio.loop = true;
 		cameraAudio.Play ();
@@ -71,18 +71,19 @@ public class AudioController : MonoBehaviour {
         ambienceAudio.clip = ambienceTrack;
         ambienceAudio.Play();
 
+		playerAudio.volume = PlayerPrefsManager.GetMasterVolume() * PlayerPrefsManager.GetSoundEffectVolume();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		//debug , remove after done debugging
-		PlayerPrefsManager.SetMasterVolume (defaultMasterVolume);
-		PlayerPrefsManager.SetMusicVolume (defaultMusicVolume);
-		PlayerPrefsManager.SetSoundEffectVolume (defaultSXVolume);
+		//PlayerPrefsManager.SetMasterVolume (defaultMasterVolume);
+		//PlayerPrefsManager.SetMusicVolume (defaultMusicVolume);
+		//PlayerPrefsManager.SetSoundEffectVolume (defaultSXVolume);
 
         cameraAudio.volume = PlayerPrefsManager.GetMasterVolume() * PlayerPrefsManager.GetMusicVolume();
         ambienceAudio.volume = PlayerPrefsManager.GetMasterVolume() * PlayerPrefsManager.GetAmbienceVolume();
-
+		playerAudio.volume = PlayerPrefsManager.GetMasterVolume() * PlayerPrefsManager.GetSoundEffectVolume();
 	}
 
 	public void playMakeLine(){

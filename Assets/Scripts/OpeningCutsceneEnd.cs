@@ -7,7 +7,7 @@ public class OpeningCutsceneEnd : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        SceneManager.LoadScene("Demo3-TutorialLevel");
+		SceneManager.LoadScene(PlayerPrefsManager.GetLastLevelPlayed());
     }
 	
 	// Update is called once per frame

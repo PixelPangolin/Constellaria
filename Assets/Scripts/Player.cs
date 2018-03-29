@@ -104,14 +104,21 @@ public class Player : MonoBehaviour {
     }
 
     // Update is called once per frame
+	void FixedUpdate()
+	{
+		if (grapple.isSwinging)
+		{
+			CalculateSwingVelocity();
+		}
+	}
+
+
     void Update()
     {
         if (grapple.isSwinging)
         {
             animator.SetBool("isSwinging", true);
             animator.SetTrigger("Swing");
-            CalculateSwingVelocity();
-
         }
         if (!grapple.isSwinging)
         {
