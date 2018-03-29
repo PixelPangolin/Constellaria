@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelComplete : MonoBehaviour {
 
+	public string nextSceneName;
 	public AudioSource audio;
 	public AudioClip endLevelSound;
 	public GameObject cameraFocus;
@@ -41,7 +42,7 @@ public class LevelComplete : MonoBehaviour {
 			print (constellation.GetComponent<SpriteRenderer> ().color.a);
 			if (constellation.GetComponent<SpriteRenderer> ().color.a >= 6) {
 				fadeIn = false;
-				SceneManager.LoadScene(0);
+				SceneManager.LoadScene(nextSceneName);
 			}
 		}
 	}

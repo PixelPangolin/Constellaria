@@ -30,6 +30,7 @@ public class KillPlayer : MonoBehaviour {
             animator.SetTrigger("Die");
             GameObject.Find("GameController").GetComponent<AudioController>().playDeathSound();
             //Invoke("TeleportPlayerToCheckpoint", delayTime);
+			GetComponent<GrapplingHook>().ResetLine();
             TeleportPlayerToCheckpoint();
         }
         else

@@ -96,6 +96,10 @@ public class Rope : MonoBehaviour {
 	}
 
 	public static void Lengthen(Rope rope){
+		if (rope.transform.childCount == 0){
+			Rope.ResetRope (rope, false);
+			return;
+		}
 		//print("longer!"); // TODO add a new node near lastSegment
 		float segmentHeight = rope.SegmentsPrefabs[0].bounds.size.y * (1 + rope.overlapFactor);
 		//float segmentHeight = rope.linkSpriteLength;

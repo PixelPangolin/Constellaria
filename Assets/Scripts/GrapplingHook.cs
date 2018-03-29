@@ -278,7 +278,7 @@ private void UpdateRopePositions ()
 		var orderedDictionary = distanceDictionary.OrderBy(e => e.Key);
 		return orderedDictionary.Any() ? orderedDictionary.First().Value : Vector2.zero;
 	}
-	private void ResetLine()
+	public void ResetLine()
 	{
 		//hook.enabled = false;
 		//connected = false;
