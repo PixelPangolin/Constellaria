@@ -75,13 +75,14 @@ public class AudioController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
 		//debug , remove after done debugging
 		PlayerPrefsManager.SetMasterVolume (defaultMasterVolume);
 		PlayerPrefsManager.SetMusicVolume (defaultMusicVolume);
 		PlayerPrefsManager.SetSoundEffectVolume (defaultSXVolume);
 
         cameraAudio.volume = PlayerPrefsManager.GetMasterVolume() * PlayerPrefsManager.GetMusicVolume();
+        ambienceAudio.volume = PlayerPrefsManager.GetMasterVolume() * PlayerPrefsManager.GetAmbienceVolume();
+
 	}
 
 	public void playMakeLine(){

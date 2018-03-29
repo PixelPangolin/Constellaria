@@ -3,33 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class KillPlayer : MonoBehaviour {
-	public Animator anim;
-	public AudioSource audio;
-	public AudioClip deathSound;
+
+    private Controller2D controller;
+    private Animator animator;
+    private GameObject player;
+
 	// Use this for initialization
 	void Start () {
-
-	}
+        controller = GetComponent<Controller2D>();
+        animator = GetComponent<Animator>();
+    }
 
 	// Update is called once per frame
 	void Update () {
-
+        if (controller.playerDeath)
+        {
+            PlayerDeath();
+        }
 	}
 
-	void OnTriggerEnter2D (Collider2D other)
+	void PlayerDeath()
 	{
-		if (other.gameObject.CompareTag ("Player")) 
-		{
-			if (other.gameObject.GetComponent<GrapplingHook> ().currentNode) 
-			{
-				other.gameObject.transform.position = other.gameObject.GetComponent<GrapplingHook> ().currentNode.transform.position;
-				anim.SetTrigger ("Die");
-				GameObject.Find("GameController").GetComponent<AudioController>().playDeathSound();
-			} 
-			else 
-			{
-				Application.LoadLevel (Application.loadedLevel);
-			}
-		}
+        float delayTime = 2f;
+        if (GetComponent<GrapplingHook>().currentNode)
+        {
+            animator.SetTrigger("Die");
+            GameObject.Find("GameController").GetComponent<AudioController>().playDeathSound();
+            //Invoke("TeleportPlayerToCheckpoint", delayTime);
+            TeleportPlayerToCheckpoint();
+        }
+        else
+        {
+            Application.LoadLevel(Application.loadedLevel);
+        }
 	}
+
+    void TeleportPlayerToCheckpoint()
+    {
+        transform.position = GetComponent<GrapplingHook>().currentNode.transform.position;
+        controller.playerDeath = false;
+    }
 }
