@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelComplete : MonoBehaviour {
 
+	public string nextSceneName;
 	public AudioSource audio;
 	public AudioClip endLevelSound;
 	public GameObject cameraFocus;
@@ -12,6 +13,9 @@ public class LevelComplete : MonoBehaviour {
 	public bool debugEndLevel =false; 
 	private bool zoomOut=false;
 	private bool fadeIn=false;
+	public Vector3 cameraEndPosition;
+    public float cameraZoom = 20.0f;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -28,9 +32,9 @@ public class LevelComplete : MonoBehaviour {
 	void FixedUpdate(){
 	//zoom camera out, fade in, then animate once
 		if (zoomOut) {
-			cameraFocus.transform.position = Vector3.MoveTowards (cameraFocus.transform.position,new Vector3(15,16,-10), 15.0f*Time.deltaTime);
-			Camera.main.orthographicSize = Mathf.MoveTowards (Camera.main.orthographicSize, 20.0f, 6.0f * Time.deltaTime);
-			if (cameraFocus.transform.position == new Vector3 (15, 16, -10)) {
+			cameraFocus.transform.position = Vector3.MoveTowards (cameraFocus.transform.position,cameraEndPosition, 15.0f*Time.deltaTime);
+			Camera.main.orthographicSize = Mathf.MoveTowards (Camera.main.orthographicSize, cameraZoom, 6.0f * Time.deltaTime);
+			if (cameraFocus.transform.position == cameraEndPosition) {
 				zoomOut = false;
 				fadeIn = true;
 			}
@@ -41,7 +45,7 @@ public class LevelComplete : MonoBehaviour {
 			print (constellation.GetComponent<SpriteRenderer> ().color.a);
 			if (constellation.GetComponent<SpriteRenderer> ().color.a >= 6) {
 				fadeIn = false;
-				SceneManager.LoadScene(0);
+				SceneManager.LoadScene(nextSceneName);
 			}
 		}
 	}
@@ -52,7 +56,7 @@ public class LevelComplete : MonoBehaviour {
 		//SOUND: Completing the puzzle
 		GameObject.Find("GameController").GetComponent<AudioController>().playEndLevelSound();
 		// Write script here for what occurs when the level is complete
-		cameraFocus.GetComponent<CameraFocus>().control =false;//stop the camera from following the player
+		cameraFocus.GetComponent<CameraFocusUpdated>().control =false;//stop the camera from following the player
 		zoomOut = true;
 		//x25 y 15
 	}

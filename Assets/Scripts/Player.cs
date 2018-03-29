@@ -34,6 +34,7 @@ public class Player : MonoBehaviour {
     private GrapplingHook grapple;
 	private Rigidbody2D rb2d;
 	private CapsuleCollider2D capColl2d;
+    private AudioController audioC;
 
     private bool facingRight;
 
@@ -94,6 +95,7 @@ public class Player : MonoBehaviour {
         grapple = GetComponent<GrapplingHook>();
 		rb2d = GetComponent<Rigidbody2D> ();
 		capColl2d = GetComponent<CapsuleCollider2D> ();
+        audioC = GameObject.FindGameObjectWithTag("GameController").GetComponent<AudioController>();
 
         // Note that gravity has to be negative, hence the -1
         gravity = (-1)*(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
