@@ -29,6 +29,8 @@ public class Player : MonoBehaviour {
 
     private Controller2D controller;
     private Animator animator;
+    private AudioController audioController;
+
     private GrapplingHook grapple;
 	private Rigidbody2D rb2d;
 	private CapsuleCollider2D capColl2d;
@@ -49,7 +51,13 @@ public class Player : MonoBehaviour {
 
             // Animation for jumping
             animator.SetTrigger("Jump");
-            audioC.playJump();
+
+            // Sound for jumping
+            audioController.playJump();
+
+            // Let's the touching ground and line sounds play again
+            controller.touchGround = 0;
+            controller.touchLine = 0;
         }
     }
     public void OnJumpInputUp()
@@ -82,6 +90,8 @@ public class Player : MonoBehaviour {
     {
         controller = GetComponent<Controller2D>();
         animator = GetComponent<Animator>();
+        audioController = GameObject.FindGameObjectWithTag("GameController").GetComponent<AudioController>();
+
         grapple = GetComponent<GrapplingHook>();
 		rb2d = GetComponent<Rigidbody2D> ();
 		capColl2d = GetComponent<CapsuleCollider2D> ();
@@ -96,18 +106,20 @@ public class Player : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-		if (grapple.isSwinging) {
-			animator.SetBool("isSwinging", true);
-			animator.SetTrigger("Swing");
-			CalculateSwingVelocity();
+        if (grapple.isSwinging)
+        {
+            animator.SetBool("isSwinging", true);
+            animator.SetTrigger("Swing");
+            CalculateSwingVelocity();
 
-		}
-		if (!grapple.isSwinging) {
-			animator.SetBool("isSwinging", false);
-			CalculateVelocity();
-			controller.Move(velocity * Time.deltaTime, directionalInput);
+        }
+        if (!grapple.isSwinging)
+        {
+            animator.SetBool("isSwinging", false);
+            CalculateVelocity();
+            controller.Move(velocity * Time.deltaTime, directionalInput);
 
-		}
+        }		
 
         // This makes our falling make more sense
         // Due to how our gravity is implemented, this makes sure we don't just fall really quickly when we step off a platform

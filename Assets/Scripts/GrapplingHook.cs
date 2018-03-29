@@ -6,6 +6,7 @@ using System.Linq;
 public class GrapplingHook : MonoBehaviour {
 
     private Controller2D controller;
+    private AudioController audioController;
 
 	//public AudioSource audio;
 	//public AudioClip pullRope;
@@ -34,6 +35,7 @@ public class GrapplingHook : MonoBehaviour {
     // Use this for initialization
     void Start () {
         controller = GetComponent<Controller2D>();
+        audioController = GameObject.FindGameObjectWithTag("GameController").GetComponent<AudioController>();
 
         hook = GetComponent<DistanceJoint2D>();
         hook.enabled = false;
@@ -113,19 +115,15 @@ public class GrapplingHook : MonoBehaviour {
         {
             if (Input.GetKey("up") && !controller.collisions.below || Input.GetKey("w") && !controller.collisions.below)
             {
-
-
-                //rope.transform.GetChild (0).GetComponent<DistanceJoint2D> ().connectedBody = playerRigidBody;
-                //Rope.UpdateEndsJoints(rope);
-                //SOUND: When you pull back on the rope
                 if (pullRopeTimer < Time.time)
                 {
                     print(pullRopeTimer);
-                    GameObject.Find("GameController").GetComponent<AudioController>().playPullRope();
+
+                    // Sound for going up the rope
+                    audioController.playPullRope();
                     pullRopeTimer = (Time.time + pullRopeDelay);
 
                 }
-
 
                 hook.distance = hook.distance - 0.05f;
 				ropeDistance = hook.distance;
@@ -135,7 +133,6 @@ public class GrapplingHook : MonoBehaviour {
 		if (Input.GetKey("down")||Input.GetKey("s"))
 		{			
 			if (pullRopeTimer < Time.time) {
-			//	audio.PlayOneShot (pullRope, PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetSoundEffectVolume ());
 				pullRopeTimer = (Time.time + pullRopeDelay);
 			}
             hook.distance = hook.distance + 0.05f;

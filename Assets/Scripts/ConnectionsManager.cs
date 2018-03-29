@@ -5,7 +5,9 @@ using System;
 
 [System.Serializable]
 public class ConnectionsManager : MonoBehaviour {
-	
+
+    private AudioController audioController;
+
     public List<Node> nodes;
     public List<Vector2> goalConnectedNodes;
 	public List<Connection> playerConnections;
@@ -13,7 +15,10 @@ public class ConnectionsManager : MonoBehaviour {
     
 
 	void Start () {
-		if (nodes.Count == 0) {
+
+        audioController = GameObject.FindGameObjectWithTag("GameController").GetComponent<AudioController>();
+
+        if (nodes.Count == 0) {
 			throw new Exception ("No Nodes Added");
 		}
 		if(goalConnectedNodes.Count == 0){
@@ -37,11 +42,11 @@ public class ConnectionsManager : MonoBehaviour {
 			if (removeConnectA||removeConnectB) {
 				//One of the nodes had extra connections
 				//SOUND: A link Being Cut
-				GameObject.Find("GameController").GetComponent<AudioController>().playMakeLine();
+				audioController.playBreakLine();
 			} else{
 				//No connection was broken
 				//SOUND: Making a new Link
-				GameObject.Find("GameController").GetComponent<AudioController>().playBreakLine();
+				audioController.playMakeLine();
 			}
 			GameObject beam = new GameObject ("beamOLight");
 			beam.transform.parent = transform;

@@ -6,12 +6,13 @@ public class KillPlayer : MonoBehaviour {
 
     private Controller2D controller;
     private Animator animator;
-    private GameObject player;
+    private AudioController audioController;
 
 	// Use this for initialization
 	void Start () {
         controller = GetComponent<Controller2D>();
         animator = GetComponent<Animator>();
+        audioController = GameObject.FindGameObjectWithTag("GameController").GetComponent<AudioController>();
     }
 
 	// Update is called once per frame
@@ -28,8 +29,8 @@ public class KillPlayer : MonoBehaviour {
         if (GetComponent<GrapplingHook>().currentNode)
         {
             animator.SetTrigger("Die");
-            GameObject.FindGameObjectWithTag("GameController").GetComponent<AudioController>().playDeathSound();
-			GetComponent<GrapplingHook>().ResetLine();
+            audioController.playDeathSound();
+			      GetComponent<GrapplingHook>().ResetLine();
             TeleportPlayerToCheckpoint();
         }
         else

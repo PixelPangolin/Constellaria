@@ -9,6 +9,7 @@ TagManager:
   - Node
   - Line
   - Hazard
+  - Ground
   layers:
   - Default
   - TransparentFX
