@@ -14,9 +14,18 @@ public class MainMenu : MonoBehaviour {
 	public Slider ambienceSlider;
 	public Slider musicSlider;
 
+    public GameObject loop;
+    public GameObject cutscene;
+
+    public GameObject mainMenu;
+
 	public void MMStartGame ()//TODO should be set via savefile, and default to a level by string name
 	{
-		SceneManager.LoadScene(2);
+        //SceneManager.LoadScene(2);
+        cutscene.SetActive(true);
+        loop.SetActive(false);
+        Destroy(mainMenu);
+
 	}
 	public void MMOpenCodex ()
 	{
