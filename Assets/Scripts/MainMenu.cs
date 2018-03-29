@@ -14,13 +14,22 @@ public class MainMenu : MonoBehaviour {
 	public Slider ambienceSlider;
 	public Slider musicSlider;
 
+    public GameObject loop;
+    public GameObject cutscene;
+
+    public GameObject mainMenu;
+
 	public void MMStartGame ()//TODO should be set via savefile, and default to a level by string name
 	{
-		SceneManager.LoadScene(2);
+        //SceneManager.LoadScene(2);
+        cutscene.SetActive(true);
+        loop.SetActive(false);
+        Destroy(mainMenu);
+
 	}
 	public void MMOpenCodex ()
 	{
-		SceneManager.LoadScene(1);
+		SceneManager.LoadScene("CodexDisplay");
 	}
 	public void CDOpenMainMenu ()
 	{
@@ -31,20 +40,20 @@ public class MainMenu : MonoBehaviour {
 	{
 		SceneManager.LoadScene(sceneName);
 	}
-	public void OnMasterSliderChange ()//TODO should be set via savefile, and default to a level by string name
+	public void OnMasterSliderChange ()//TODO should be set via savefile
 	{
 		PlayerPrefsManager.SetMasterVolume (masterSlider.value);
-		print (masterSlider.value);
+		//print (masterSlider.value);
 	}
-	public void OnEffectsSliderChange ()//TODO should be set via savefile, and default to a level by string name
+	public void OnEffectsSliderChange ()//TODO should be set via savefile
 	{
 		PlayerPrefsManager.SetSoundEffectVolume (effectsSlider.value);
 	}
-	public void OnAmbienceSliderChange ()//TODO should be set via savefile, and default to a level by string name
+	public void OnAmbienceSliderChange ()//TODO should be set via savefile
 	{
 		PlayerPrefsManager.SetAmbienceVolume (ambienceSlider.value);
 	}
-	public void OnMusicSliderChange ()//TODO should be set via savefile, and default to a level by string name
+	public void OnMusicSliderChange ()//TODO should be set via savefile
 	{
 		PlayerPrefsManager.SetMusicVolume (musicSlider.value);
 	}

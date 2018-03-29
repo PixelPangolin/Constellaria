@@ -419,6 +419,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4489147914622920, guid: 046b7ef39315fb6428fc4bcac0f4b876, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 84.82
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 046b7ef39315fb6428fc4bcac0f4b876, type: 2}
   m_IsPrefabParent: 0
@@ -1336,9 +1340,10 @@ GameObject:
   - component: {fileID: 505362162}
   - component: {fileID: 505362161}
   - component: {fileID: 505362163}
+  - component: {fileID: 505362164}
   m_Layer: 0
   m_Name: GameController
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1367,11 +1372,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c494bc231d54466b919bbb1431e53f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextSceneName: Opening Cutscene
   audio: {fileID: 0}
   endLevelSound: {fileID: 8300000, guid: 716ef017e9b47494284742a53009e92d, type: 3}
   cameraFocus: {fileID: 1839245534}
   constellation: {fileID: 552047957}
   debugEndLevel: 0
+  cameraEndPosition: {x: 15, y: 16, z: -10}
 --- !u!114 &505362162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1413,22 +1420,117 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAudio: {fileID: 1083258923}
   cameraAudio: {fileID: 1839245538}
-  backgroundTrack: {fileID: 8300000, guid: a2b2ac73b366f5f43ab6962398e18121, type: 3}
-  makeLine: {fileID: 8300000, guid: 352a4346d2859484284a994d167c8862, type: 3}
-  breakLine: {fileID: 8300000, guid: f11b4febb1208c444ad81f9b9d965188, type: 3}
-  deathSound: {fileID: 8300000, guid: 9a0b30774355bd84bbd73bc40eb1c6ee, type: 3}
-  pullRope: {fileID: 8300000, guid: 43514c0a84890c947b82b1374ad47fbf, type: 3}
-  tautRope: {fileID: 8300000, guid: fbe84a42c3de00740b8fcdd16cf1633b, type: 3}
-  endLevelSound: {fileID: 8300000, guid: 90b6d742204c3244b898f03980944611, type: 3}
-  walkingOnCave: {fileID: 8300000, guid: 72e9c1e8d248c9f4691304525d9252f4, type: 3}
-  walkingOnLine: {fileID: 8300000, guid: f7654f96eda35824d8458e5becf1fe92, type: 3}
-  jumpSound: {fileID: 8300000, guid: bc6a615850d91a94d9228becd7cef1a2, type: 3}
-  fallSound: {fileID: 8300000, guid: e5538654f7884d54d8039eb7bea90e08, type: 3}
-  landOnLineSound: {fileID: 8300000, guid: 2183cd07542ef964688a575ce68d034e, type: 3}
-  landOnGroundSound: {fileID: 8300000, guid: aaa38da3a8932ab408fdd58814381492, type: 3}
+  ambienceAudio: {fileID: 505362164}
   defaultSXVolume: 1
   defaultMusicVolume: 1
+  defaultAmbience: 1
   defaultMasterVolume: 1
+  backgroundTrack: {fileID: 8300000, guid: a2b2ac73b366f5f43ab6962398e18121, type: 3}
+  ambienceTrack: {fileID: 8300000, guid: a9dac166337fc9d4299eca9633f29bc1, type: 3}
+  makeLine: {fileID: 8300000, guid: 352a4346d2859484284a994d167c8862, type: 3}
+  makeLineVolumne: 1
+  breakLine: {fileID: 8300000, guid: f11b4febb1208c444ad81f9b9d965188, type: 3}
+  breakLineVolumne: 1
+  deathSound: {fileID: 8300000, guid: 9a0b30774355bd84bbd73bc40eb1c6ee, type: 3}
+  deathSoundVolumne: 1
+  pullRope: {fileID: 8300000, guid: 43514c0a84890c947b82b1374ad47fbf, type: 3}
+  pullRopeVolumne: 1
+  tautRope: {fileID: 8300000, guid: fbe84a42c3de00740b8fcdd16cf1633b, type: 3}
+  tautRopeVolumne: 1
+  endLevelSound: {fileID: 8300000, guid: 90b6d742204c3244b898f03980944611, type: 3}
+  endLevelVolumne: 1
+  walkingOnCave: {fileID: 8300000, guid: 72e9c1e8d248c9f4691304525d9252f4, type: 3}
+  walkCaveVolumne: 1
+  walkingOnLine: {fileID: 8300000, guid: f7654f96eda35824d8458e5becf1fe92, type: 3}
+  walkLineVolumne: 1
+  jumpSound: {fileID: 8300000, guid: bc6a615850d91a94d9228becd7cef1a2, type: 3}
+  jumpVolumne: 1
+  fallSound: {fileID: 8300000, guid: e5538654f7884d54d8039eb7bea90e08, type: 3}
+  fallSoundVolumne: 1
+  landOnLineSound: {fileID: 8300000, guid: 2183cd07542ef964688a575ce68d034e, type: 3}
+  landOnLineVolumne: 1
+  landOnGroundSound: {fileID: 8300000, guid: aaa38da3a8932ab408fdd58814381492, type: 3}
+  landOnGroundVolumne: 1
+--- !u!82 &505362164
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 505362159}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &552047957
 GameObject:
   m_ObjectHideFlags: 0
@@ -2451,11 +2553,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4299189427600838, guid: 304048deb13e3b34f9fd37972d244a61, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -17.34
+      value: -11.8
       objectReference: {fileID: 0}
     - target: {fileID: 4299189427600838, guid: 304048deb13e3b34f9fd37972d244a61, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.8
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4299189427600838, guid: 304048deb13e3b34f9fd37972d244a61, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2488,6 +2590,11 @@ Prefab:
       objectReference: {fileID: 302274860}
     - target: {fileID: 4666841885696816, guid: 304048deb13e3b34f9fd37972d244a61, type: 2}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82780069172598562, guid: 304048deb13e3b34f9fd37972d244a61,
+        type: 2}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3153,6 +3260,10 @@ Prefab:
     - target: {fileID: 4056887383828586, guid: 917d4e211a5c0b844ad61a0b8c505c22, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056887383828586, guid: 917d4e211a5c0b844ad61a0b8c505c22, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 30.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 917d4e211a5c0b844ad61a0b8c505c22, type: 2}
@@ -4387,9 +4498,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1839245536}
-  - component: {fileID: 1839245535}
   - component: {fileID: 1839245538}
   - component: {fileID: 1839245537}
+  - component: {fileID: 1839245535}
   m_Layer: 0
   m_Name: CameraFocus
   m_TagString: CameraFocus
@@ -4405,14 +4516,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1839245534}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68cf9acb776ac49489529dcd0372cec4, type: 3}
+  m_Script: {fileID: 11500000, guid: a12889f81f9ff9b4d961ce80915b25cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1083258911}
   max_x: 4
   max_y: 1
-  speed: 8
   control: 1
+  minvelocity: 2
+  defaultvelocity: 4
 --- !u!4 &1839245536
 Transform:
   m_ObjectHideFlags: 0
