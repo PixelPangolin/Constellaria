@@ -1337,6 +1337,7 @@ GameObject:
   - component: {fileID: 505362162}
   - component: {fileID: 505362161}
   - component: {fileID: 505362163}
+  - component: {fileID: 505362164}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -1414,22 +1415,117 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAudio: {fileID: 1083258923}
   cameraAudio: {fileID: 1839245538}
-  backgroundTrack: {fileID: 8300000, guid: a2b2ac73b366f5f43ab6962398e18121, type: 3}
-  makeLine: {fileID: 8300000, guid: 352a4346d2859484284a994d167c8862, type: 3}
-  breakLine: {fileID: 8300000, guid: f11b4febb1208c444ad81f9b9d965188, type: 3}
-  deathSound: {fileID: 8300000, guid: 9a0b30774355bd84bbd73bc40eb1c6ee, type: 3}
-  pullRope: {fileID: 8300000, guid: 43514c0a84890c947b82b1374ad47fbf, type: 3}
-  tautRope: {fileID: 8300000, guid: fbe84a42c3de00740b8fcdd16cf1633b, type: 3}
-  endLevelSound: {fileID: 8300000, guid: 90b6d742204c3244b898f03980944611, type: 3}
-  walkingOnCave: {fileID: 8300000, guid: 72e9c1e8d248c9f4691304525d9252f4, type: 3}
-  walkingOnLine: {fileID: 8300000, guid: f7654f96eda35824d8458e5becf1fe92, type: 3}
-  jumpSound: {fileID: 8300000, guid: bc6a615850d91a94d9228becd7cef1a2, type: 3}
-  fallSound: {fileID: 8300000, guid: e5538654f7884d54d8039eb7bea90e08, type: 3}
-  landOnLineSound: {fileID: 8300000, guid: 2183cd07542ef964688a575ce68d034e, type: 3}
-  landOnGroundSound: {fileID: 8300000, guid: aaa38da3a8932ab408fdd58814381492, type: 3}
+  ambienceAudio: {fileID: 0}
   defaultSXVolume: 1
   defaultMusicVolume: 1
+  defaultAmbience: 0
   defaultMasterVolume: 1
+  backgroundTrack: {fileID: 8300000, guid: a2b2ac73b366f5f43ab6962398e18121, type: 3}
+  ambienceTrack: {fileID: 0}
+  makeLine: {fileID: 8300000, guid: 352a4346d2859484284a994d167c8862, type: 3}
+  makeLineVolumne: 1
+  breakLine: {fileID: 8300000, guid: f11b4febb1208c444ad81f9b9d965188, type: 3}
+  breakLineVolumne: 1
+  deathSound: {fileID: 8300000, guid: 9a0b30774355bd84bbd73bc40eb1c6ee, type: 3}
+  deathSoundVolumne: 1
+  pullRope: {fileID: 8300000, guid: 43514c0a84890c947b82b1374ad47fbf, type: 3}
+  pullRopeVolumne: 1
+  tautRope: {fileID: 8300000, guid: fbe84a42c3de00740b8fcdd16cf1633b, type: 3}
+  tautRopeVolumne: 1
+  endLevelSound: {fileID: 8300000, guid: 90b6d742204c3244b898f03980944611, type: 3}
+  endLevelVolumne: 1
+  walkingOnCave: {fileID: 8300000, guid: 72e9c1e8d248c9f4691304525d9252f4, type: 3}
+  walkCaveVolumne: 1
+  walkingOnLine: {fileID: 8300000, guid: f7654f96eda35824d8458e5becf1fe92, type: 3}
+  walkLineVolumne: 1
+  jumpSound: {fileID: 8300000, guid: bc6a615850d91a94d9228becd7cef1a2, type: 3}
+  jumpVolumne: 1
+  fallSound: {fileID: 8300000, guid: e5538654f7884d54d8039eb7bea90e08, type: 3}
+  fallSoundVolumne: 1
+  landOnLineSound: {fileID: 8300000, guid: 2183cd07542ef964688a575ce68d034e, type: 3}
+  landOnLineVolumne: 1
+  landOnGroundSound: {fileID: 8300000, guid: aaa38da3a8932ab408fdd58814381492, type: 3}
+  landOnGroundVolumne: 1
+--- !u!82 &505362164
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 505362159}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &552047957
 GameObject:
   m_ObjectHideFlags: 0
