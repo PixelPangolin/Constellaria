@@ -88,6 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -1367,6 +1368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c494bc231d54466b919bbb1431e53f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextSceneName: StartScreen
   audio: {fileID: 0}
   endLevelSound: {fileID: 8300000, guid: 716ef017e9b47494284742a53009e92d, type: 3}
   cameraFocus: {fileID: 1839245534}
@@ -2546,11 +2548,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4299189427600838, guid: 304048deb13e3b34f9fd37972d244a61, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -17.34
+      value: -11.8
       objectReference: {fileID: 0}
     - target: {fileID: 4299189427600838, guid: 304048deb13e3b34f9fd37972d244a61, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.8
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4299189427600838, guid: 304048deb13e3b34f9fd37972d244a61, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3253,6 +3255,10 @@ Prefab:
     - target: {fileID: 4056887383828586, guid: 917d4e211a5c0b844ad61a0b8c505c22, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056887383828586, guid: 917d4e211a5c0b844ad61a0b8c505c22, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 30.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 917d4e211a5c0b844ad61a0b8c505c22, type: 2}
