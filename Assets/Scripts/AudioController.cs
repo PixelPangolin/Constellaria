@@ -23,29 +23,29 @@ public class AudioController : MonoBehaviour {
 
 	//Sound Effects
 	public AudioClip makeLine;
-    public float makeLineVolumne = 1;
+    public float makeLineVolume = 1;
 	public AudioClip breakLine;
-    public float breakLineVolumne = 1;
+    public float breakLineVolume = 1;
 	public AudioClip deathSound;
-    public float deathSoundVolumne = 1;
+    public float deathSoundVolume = 1;
 	public AudioClip pullRope;
-    public float pullRopeVolumne = 1;
+    public float pullRopeVolume = 1;
 	public AudioClip tautRope;
-    public float tautRopeVolumne = 1;
+    public float tautRopeVolume = 1;
 	public AudioClip endLevelSound;
-    public float endLevelVolumne= 1;
+    public float endLevelVolume= 1;
 	public AudioClip walkingOnCave;
-    public float walkCaveVolumne = 1;
+    public float walkCaveVolume = 1;
 	public AudioClip walkingOnLine;
-    public float walkLineVolumne = 1;
+    public float walkLineVolume = 1;
 	public AudioClip jumpSound;
-    public float jumpVolumne = 1;
+    public float jumpVolume = 1;
 	public AudioClip fallSound;
-    public float fallSoundVolumne = 1;
+    public float fallSoundVolume = 1;
 	public AudioClip landOnLineSound;
-    public float landOnLineVolumne = 1;
+    public float landOnLineVolume = 1;
 	public AudioClip landOnGroundSound;
-    public float landOnGroundVolumne = 1;
+    public float landOnGroundVolume = 1;
 
 
 
@@ -86,50 +86,50 @@ public class AudioController : MonoBehaviour {
 	}
 
 	public void playMakeLine(){
-        playerAudio.PlayOneShot(makeLine ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume()*makeLineVolumne);
+        playerAudio.PlayOneShot(makeLine ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume()*makeLineVolume);
 	}
 
 	public void playBreakLine(){
-        playerAudio.PlayOneShot(breakLine ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume()*breakLineVolumne);
+        playerAudio.PlayOneShot(breakLine ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume()*breakLineVolume);
 	}
 
 	public void playDeathSound(){
-        playerAudio.PlayOneShot(deathSound ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume()*deathSoundVolumne);
+        playerAudio.PlayOneShot(deathSound ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume()*deathSoundVolume);
 	}
 
 	public void playPullRope(){
-        playerAudio.PlayOneShot(pullRope ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume()*pullRopeVolumne);
+        playerAudio.PlayOneShot(pullRope ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume()*pullRopeVolume);
 	}
 
 	public void playTautRope(){
-        playerAudio.PlayOneShot(tautRope ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume()*tautRopeVolumne);
+        playerAudio.PlayOneShot(tautRope ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume()*tautRopeVolume);
 	}
 
 	public void playEndLevelSound(){
-        playerAudio.PlayOneShot(endLevelSound ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume()*endLevelVolumne);
+        playerAudio.PlayOneShot(endLevelSound ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume()*endLevelVolume);
 	}
 
 	public void playWalkCave(){
-        playerAudio.PlayOneShot(walkingOnCave ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume()*walkCaveVolumne);
+        playerAudio.PlayOneShot(walkingOnCave ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume()*walkCaveVolume);
 	}
 
 	public void playWalkLine(){
-        playerAudio.PlayOneShot(walkingOnLine ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume()*walkLineVolumne);
+        playerAudio.PlayOneShot(walkingOnLine ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume()*walkLineVolume);
 	}
 
 	public void playJump(){
-        playerAudio.PlayOneShot(jumpSound ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume()*jumpVolumne);
+        playerAudio.PlayOneShot(jumpSound ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume()*jumpVolume);
 	}
 
 	public void playFall(){
-        playerAudio.PlayOneShot(fallSound ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume()*fallSoundVolumne);
+        playerAudio.PlayOneShot(fallSound ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume()*fallSoundVolume);
 	}
 
 	public void playLandLine(){
-        playerAudio.PlayOneShot(landOnLineSound ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume()*landOnLineVolumne);
+        playerAudio.PlayOneShot(landOnLineSound ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume()*landOnLineVolume);
 	}
 
 	public void playLandGround(){
-        playerAudio.PlayOneShot(landOnGroundSound ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume()*landOnGroundVolumne);
+        playerAudio.PlayOneShot(landOnGroundSound ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume()*landOnGroundVolume);
 	}
 }

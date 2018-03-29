@@ -21,6 +21,8 @@ public class RaycastController : MonoBehaviour {
     [HideInInspector] public CapsuleCollider2D collider;
     [HideInInspector] public RaycastOrigins raycastOrigins;
 
+    [HideInInspector] public AudioController audioController;
+
     // A struct that stores the places the raycasts come from
     public struct RaycastOrigins
     {
@@ -34,6 +36,7 @@ public class RaycastController : MonoBehaviour {
     public virtual void Start()
     {
         collider = GetComponent<CapsuleCollider2D>();
+        audioController = GameObject.FindGameObjectWithTag("GameController").GetComponent<AudioController>();
         CalculateRaySpacing();
     }
 

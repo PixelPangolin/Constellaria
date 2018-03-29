@@ -26,10 +26,12 @@ public class PlayerInput : MonoBehaviour {
         {
             player.OnJumpInputUp();
         }
+
 		if (Input.GetButtonDown("Shift"))
 		{
 			player.OnShiftInputDown();
 		}
+
 		if (Input.GetButtonUp("Shift"))
 		{
 			player.OnShiftInputUp();

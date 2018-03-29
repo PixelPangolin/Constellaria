@@ -7,6 +7,12 @@ public class Controller2D : RaycastController {
 
     // Maximum slope the player can climb in degrees
     private float maxSlopeAngle = 80;
+    private float timeSinceFootStep = 0.0f;
+    private float footStepSoundDelay = 0.3f;
+
+    public int touchGround = 0;
+    public int touchLine = 0;
+
     private Vector2 playerInput;
 
     public bool playerDeath = false;
@@ -191,26 +197,70 @@ public class Controller2D : RaycastController {
 
             if (hit)
             {
+                // Two way platforms for line
+                if (directionY == 1 || hit.distance == 0)
+                {
+                    continue;
+                }
+
+                if (playerInput.y == -1)
+                {
+                    continue;
+                }
+
                 // Colliding with a hazard vertically kills you
                 if (hit.collider.tag == "Hazard")
                 {
                     playerDeath = true;
                 }
 
-                // Two way platforms for line
                 if (hit.collider.tag == "Line")
                 {
-                    Debug.Log(collisions.below);
-                    // If we are jumping up, then go through
-                    if (directionY == 1 || hit.distance == 0)
+                    // Play walking on line sound
+                    if (collisions.below && Mathf.Abs(moveAmount.x) > 0.01)//(collisions.below && Mathf.Abs(moveAmount.x) > 0.01)
                     {
-                        continue;
+                        if (Time.time > timeSinceFootStep)
+                        {
+                            // Delays footstep sounds
+                            audioController.playWalkLine();
+                            timeSinceFootStep = Time.time + footStepSoundDelay;
+                        }
                     }
 
-                    if (playerInput.y == -1)
+                    // Play landing on line sound
+                    if (directionY == -1)
                     {
-                        continue;
+                        if (touchLine == 0)
+                        {
+                            audioController.playLandLine();
+                            touchLine++;
+                        }
                     }
+                }
+
+                if (hit.collider.tag == "Ground")
+                {
+
+                    // Play walking on ground sound
+                    if (collisions.below && Mathf.Abs(moveAmount.x) > 0.01)
+                    {
+                        if (Time.time > timeSinceFootStep)
+                        { 
+                            // Delays footstep sounds
+                            audioController.playWalkCave();
+                            timeSinceFootStep = Time.time + footStepSoundDelay;
+                        }
+                    }
+
+                    // Play landing on ground sound
+                    if (directionY == -1)
+                    {
+                        if (touchGround == 0)
+                        {
+                            audioController.playLandGround();
+                            touchGround++;
+                        }
+                    }   
                 }
 
                 // Sets our moveAmount to the amount needed to get from current position to the location hit
