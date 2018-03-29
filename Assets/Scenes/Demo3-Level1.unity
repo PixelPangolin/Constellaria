@@ -1374,6 +1374,7 @@ MonoBehaviour:
   cameraFocus: {fileID: 1839245534}
   constellation: {fileID: 552047957}
   debugEndLevel: 0
+  cameraEndPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &505362162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2932,11 +2933,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c43fd3db08336a4fa59cfa81fe2ae13, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1083258911 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1332816115503774, guid: 304048deb13e3b34f9fd37972d244a61,
-    type: 2}
-  m_PrefabInternal: {fileID: 848087436}
 --- !u!4 &1083258912 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4299189427600838, guid: 304048deb13e3b34f9fd37972d244a61,
@@ -4493,9 +4489,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1839245536}
-  - component: {fileID: 1839245535}
   - component: {fileID: 1839245538}
   - component: {fileID: 1839245537}
+  - component: {fileID: 1839245535}
   m_Layer: 0
   m_Name: CameraFocus
   m_TagString: CameraFocus
@@ -4511,14 +4507,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1839245534}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68cf9acb776ac49489529dcd0372cec4, type: 3}
+  m_Script: {fileID: 11500000, guid: a12889f81f9ff9b4d961ce80915b25cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1083258911}
+  player: {fileID: 0}
   max_x: 4
   max_y: 1
-  speed: 8
   control: 1
+  minvelocity: 2
+  defaultvelocity: 4
 --- !u!4 &1839245536
 Transform:
   m_ObjectHideFlags: 0

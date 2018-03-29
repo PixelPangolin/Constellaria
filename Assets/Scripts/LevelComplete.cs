@@ -13,6 +13,7 @@ public class LevelComplete : MonoBehaviour {
 	public bool debugEndLevel =false; 
 	private bool zoomOut=false;
 	private bool fadeIn=false;
+	public Vector3 cameraEndPosition;
 	// Use this for initialization
 	void Start () {
 		
@@ -29,9 +30,9 @@ public class LevelComplete : MonoBehaviour {
 	void FixedUpdate(){
 	//zoom camera out, fade in, then animate once
 		if (zoomOut) {
-			cameraFocus.transform.position = Vector3.MoveTowards (cameraFocus.transform.position,new Vector3(15,16,-10), 15.0f*Time.deltaTime);
+			cameraFocus.transform.position = Vector3.MoveTowards (cameraFocus.transform.position,cameraEndPosition, 15.0f*Time.deltaTime);
 			Camera.main.orthographicSize = Mathf.MoveTowards (Camera.main.orthographicSize, 20.0f, 6.0f * Time.deltaTime);
-			if (cameraFocus.transform.position == new Vector3 (15, 16, -10)) {
+			if (cameraFocus.transform.position == cameraEndPosition) {
 				zoomOut = false;
 				fadeIn = true;
 			}
