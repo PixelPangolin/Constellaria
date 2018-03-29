@@ -54,7 +54,7 @@ public class LevelComplete : MonoBehaviour {
 		//SOUND: Completing the puzzle
 		GameObject.Find("GameController").GetComponent<AudioController>().playEndLevelSound();
 		// Write script here for what occurs when the level is complete
-		cameraFocus.GetComponent<CameraFocus>().control =false;//stop the camera from following the player
+		cameraFocus.GetComponent<CameraFocusUpdated>().control =false;//stop the camera from following the player
 		zoomOut = true;
 		//x25 y 15
 	}
