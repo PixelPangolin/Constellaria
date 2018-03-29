@@ -1372,7 +1372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c494bc231d54466b919bbb1431e53f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: StartScreen
+  nextSceneName: Opening Cutscene
   audio: {fileID: 0}
   endLevelSound: {fileID: 8300000, guid: 716ef017e9b47494284742a53009e92d, type: 3}
   cameraFocus: {fileID: 1839245534}
