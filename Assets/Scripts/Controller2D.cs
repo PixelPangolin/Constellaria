@@ -14,6 +14,7 @@ public class Controller2D : RaycastController {
     public int touchLine = 0;
 
     private Vector2 playerInput;
+    private bool onGround;
 
     public bool playerDeath = false;
 
@@ -112,8 +113,13 @@ public class Controller2D : RaycastController {
                     playerDeath = true;
                 }
 
-                // Get angle of surface we've hit - for slope moving purposes
-                float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
+                if ((onGround && hit.collider.tag == "Line") || (grapple.hanging && hit.collider.tag == "Line"))
+                {
+                    continue;
+                }
+
+                    // Get angle of surface we've hit - for slope moving purposes
+                    float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
                 
                 if (i == 0 && slopeAngle <= maxSlopeAngle)
                 {
@@ -168,6 +174,8 @@ public class Controller2D : RaycastController {
     // Passes a reference of moveAmount rather than making a copy
     void VerticalCollisions(ref Vector2 moveAmount)
     {
+        onGround = false;
+
         // Direction of movement and length of ray
         float directionY = Mathf.Sign(moveAmount.y);
         float rayLength = Mathf.Abs(moveAmount.y) + skinWidth;
@@ -197,17 +205,6 @@ public class Controller2D : RaycastController {
 
             if (hit)
             {
-                // Two way platforms for line
-                if (directionY == 1 || hit.distance == 0)
-                {
-                    continue;
-                }
-
-                if (playerInput.y == -1)
-                {
-                    continue;
-                }
-
                 // Colliding with a hazard vertically kills you
                 if (hit.collider.tag == "Hazard")
                 {
@@ -216,6 +213,14 @@ public class Controller2D : RaycastController {
 
                 if (hit.collider.tag == "Line")
                 {
+
+                    // If you're hanging, go through lines that are in the way?
+                    // OPTIONAL?
+                    if (grapple.hanging)
+                    {
+                        continue;
+                    }
+
                     // Play walking on line sound
                     if (collisions.below && Mathf.Abs(moveAmount.x) > 0.01)//(collisions.below && Mathf.Abs(moveAmount.x) > 0.01)
                     {
@@ -236,10 +241,23 @@ public class Controller2D : RaycastController {
                             touchLine++;
                         }
                     }
+
+                    // Two way platforms for line
+                    if (directionY == 1 || hit.distance == 0)
+                    {
+                        continue;
+                    }
+
+                    if (playerInput.y == -1)
+                    {
+                        continue;
+                    }
                 }
 
                 if (hit.collider.tag == "Ground")
                 {
+
+                    onGround = true;
 
                     // Play walking on ground sound
                     if (collisions.below && Mathf.Abs(moveAmount.x) > 0.01)

@@ -22,6 +22,7 @@ public class RaycastController : MonoBehaviour {
     [HideInInspector] public RaycastOrigins raycastOrigins;
 
     [HideInInspector] public AudioController audioController;
+    [HideInInspector] public GrapplingHook grapple;
 
     // A struct that stores the places the raycasts come from
     public struct RaycastOrigins
@@ -37,6 +38,8 @@ public class RaycastController : MonoBehaviour {
     {
         collider = GetComponent<CapsuleCollider2D>();
         audioController = GameObject.FindGameObjectWithTag("GameController").GetComponent<AudioController>();
+        grapple = GetComponent<GrapplingHook>();
+
         CalculateRaySpacing();
     }
 
