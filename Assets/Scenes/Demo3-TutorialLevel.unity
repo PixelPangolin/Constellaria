@@ -1175,8 +1175,11 @@ MonoBehaviour:
   cameraFocus: {fileID: 1839245534}
   constellation: {fileID: 552047957}
   debugEndLevel: 0
+  fadeInSpeed: 1.25
   cameraEndPosition: {x: 8, y: 22, z: -10}
-  cameraZoom: 40
+  cameraMoveSpeed: 15
+  cameraZoom: 20.5
+  cameraZoomSpeed: 6
 --- !u!114 &505362162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1221,29 +1224,29 @@ MonoBehaviour:
   backgroundTrack: {fileID: 8300000, guid: a2b2ac73b366f5f43ab6962398e18121, type: 3}
   ambienceTrack: {fileID: 0}
   makeLine: {fileID: 8300000, guid: 352a4346d2859484284a994d167c8862, type: 3}
-  makeLineVolumne: 1
+  makeLineVolume: 1
   breakLine: {fileID: 8300000, guid: f11b4febb1208c444ad81f9b9d965188, type: 3}
-  breakLineVolumne: 1
+  breakLineVolume: 1
   deathSound: {fileID: 8300000, guid: 9a0b30774355bd84bbd73bc40eb1c6ee, type: 3}
-  deathSoundVolumne: 1
+  deathSoundVolume: 1
   pullRope: {fileID: 8300000, guid: 43514c0a84890c947b82b1374ad47fbf, type: 3}
-  pullRopeVolumne: 1
+  pullRopeVolume: 1
   tautRope: {fileID: 8300000, guid: fbe84a42c3de00740b8fcdd16cf1633b, type: 3}
-  tautRopeVolumne: 1
+  tautRopeVolume: 1
   endLevelSound: {fileID: 8300000, guid: 90b6d742204c3244b898f03980944611, type: 3}
-  endLevelVolumne: 1
+  endLevelVolume: 1
   walkingOnCave: {fileID: 8300000, guid: 72e9c1e8d248c9f4691304525d9252f4, type: 3}
-  walkCaveVolumne: 1
+  walkCaveVolume: 1
   walkingOnLine: {fileID: 8300000, guid: f7654f96eda35824d8458e5becf1fe92, type: 3}
-  walkLineVolumne: 1
+  walkLineVolume: 1
   jumpSound: {fileID: 8300000, guid: bc6a615850d91a94d9228becd7cef1a2, type: 3}
-  jumpVolumne: 1
+  jumpVolume: 1
   fallSound: {fileID: 8300000, guid: e5538654f7884d54d8039eb7bea90e08, type: 3}
-  fallSoundVolumne: 1
+  fallSoundVolume: 1
   landOnLineSound: {fileID: 8300000, guid: 2183cd07542ef964688a575ce68d034e, type: 3}
-  landOnLineVolumne: 1
+  landOnLineVolume: 1
   landOnGroundSound: {fileID: 8300000, guid: aaa38da3a8932ab408fdd58814381492, type: 3}
-  landOnGroundVolumne: 1
+  landOnGroundVolume: 1
 --- !u!82 &505362164
 AudioSource:
   m_ObjectHideFlags: 0
