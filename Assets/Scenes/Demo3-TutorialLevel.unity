@@ -3882,8 +3882,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2024454729}
-  focusAreaSize: {x: 3, y: 5}
-  verticalOffset: 1
+  focusAreaSize: {x: 3, y: 3}
 --- !u!4 &1839245536
 Transform:
   m_ObjectHideFlags: 0

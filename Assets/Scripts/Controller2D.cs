@@ -13,7 +13,7 @@ public class Controller2D : RaycastController {
     public int touchGround = 0;
     public int touchLine = 0;
 
-    private Vector2 playerInput;
+    [HideInInspector] public Vector2 playerInput;
     private bool onGround;
 
     public bool playerDeath = false;

@@ -5,11 +5,31 @@ using UnityEngine;
 public class CameraFollow: MonoBehaviour {
 
     public Controller2D player;
+
+    // For our character, a 3x3 or a 3x4 focusAreaSize is recommended
     public Vector2 focusAreaSize;
 
-    public float verticalOffset;
+    // Determines if this script is in control of the camera
+    [HideInInspector] public bool control = true;
 
-    FocusArea focusArea;
+    // Sets how our camera moves and the smoothing
+    private float verticalOffset = 0;
+    private float lookAheadDistanceX = 2;
+    private  float lookSmoothTimeX = 0.5f;
+    private float verticalSmoothTime = 0.1f;
+
+    // The area around the player we focus on
+    private FocusArea focusArea;
+
+    // Used to calculate camera movement
+    private float currentLookAheadX;
+    private float playerLookAheadX;
+    private float lookAheadDirectionX;
+    private float smoothLookVelocityX;
+    private float smoothVelocityY;
+
+    private bool lookAheadStopped;
+
 
     // The area we will focus on and track around the player
     struct FocusArea {
@@ -80,14 +100,44 @@ public class CameraFollow: MonoBehaviour {
         focusArea = new FocusArea(player.collider.bounds, focusAreaSize);
 	}
 	
-	// Update is called once per frame
+	// LateUpdate is called once per frame only after Update has been called because the camera tracks objects that may have moved in Update
 	void LateUpdate () {
-        focusArea.Update(player.collider.bounds);
 
-        Vector2 focusPosition = focusArea.center + Vector2.up * verticalOffset;
+        if (control)
+        {
+            focusArea.Update(player.collider.bounds);
 
-        transform.position = (Vector3)focusPosition + Vector3.forward * -10;
+            Vector2 focusPosition = focusArea.center + Vector2.up * verticalOffset;
 
+            if (focusArea.velocity.x != 0)
+            {
+                lookAheadDirectionX = Mathf.Sign(focusArea.velocity.x);
+
+                // Only want to set lookAheadX if the input is the same direction as the focusArea is moving
+                if ((Mathf.Sign(player.playerInput.x) == Mathf.Sign(focusArea.velocity.x)) && player.playerInput.x != 0)
+                {
+                    lookAheadStopped = false;
+                    playerLookAheadX = lookAheadDirectionX * lookAheadDistanceX;
+                }
+                else
+                {
+                    // Allows us to stop lookAhead prematurely when the character stops
+                    if (!lookAheadStopped)
+                    {
+                        playerLookAheadX = currentLookAheadX + (lookAheadDirectionX * lookAheadDistanceX - currentLookAheadX) / 4f;
+                        lookAheadStopped = true;
+                    }
+                }
+            }
+
+            // Smoothing
+            currentLookAheadX = Mathf.SmoothDamp(currentLookAheadX, playerLookAheadX, ref smoothLookVelocityX, lookSmoothTimeX);
+            focusPosition.y = Mathf.SmoothDamp(transform.position.y, focusPosition.y, ref smoothVelocityY, verticalSmoothTime);
+
+            focusPosition += Vector2.right * currentLookAheadX;
+
+            transform.position = (Vector3)focusPosition + Vector3.forward * -10;
+        }
 	}
 
     // Draws the focusArea
