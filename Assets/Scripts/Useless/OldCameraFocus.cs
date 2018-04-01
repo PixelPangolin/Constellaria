@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFocus : MonoBehaviour {
+public class OldCameraFocus : MonoBehaviour {
 
     // These define the object the camera follows, the speed it follows at and the max distance before the camera moves in x or y
     public GameObject player;
