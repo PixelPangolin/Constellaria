@@ -213,6 +213,7 @@ public class Controller2D : RaycastController {
 
                 if (hit.collider.tag == "Line")
                 {
+                    Debug.Log(collisions.below);
 
                     // If you're hanging, go through lines that are in the way?
                     // OPTIONAL?
@@ -222,7 +223,7 @@ public class Controller2D : RaycastController {
                     }
 
                     // Play walking on line sound
-                    if (collisions.below && Mathf.Abs(moveAmount.x) > 0.01)//(collisions.below && Mathf.Abs(moveAmount.x) > 0.01)
+                    if (Mathf.Abs(moveAmount.x) > 0.01)//(collisions.below && Mathf.Abs(moveAmount.x) > 0.01)
                     {
                         if (Time.time > timeSinceFootStep)
                         {
@@ -248,7 +249,7 @@ public class Controller2D : RaycastController {
                         continue;
                     }
 
-                    if (playerInput.y == -1)
+                    if (playerInput.y == -1 || (playerInput.y == -1 && collisions.climbingSlope))
                     {
                         continue;
                     }
@@ -256,7 +257,6 @@ public class Controller2D : RaycastController {
 
                 if (hit.collider.tag == "Ground")
                 {
-
                     onGround = true;
 
                     // Play walking on ground sound
@@ -302,16 +302,17 @@ public class Controller2D : RaycastController {
                 }
             }
         }
-        //Debug.Log("Continue");
 
+        // Possibly unneeded - keep the chunk of code below anyways
         // Smooth transition from moving up different slopes
+        /*
         if (collisions.climbingSlope)
         {
             float directionX = Mathf.Sign(moveAmount.x);
             rayLength = Mathf.Abs(moveAmount.x) + skinWidth;
             Vector2 rayOrigin;
 
-            if (directionY == -1)
+            if (directionX == -1)
             {
                 rayOrigin = raycastOrigins.bottomLeft + Vector2.up * moveAmount.y;
             }
@@ -333,8 +334,9 @@ public class Controller2D : RaycastController {
                 }
             }
         }
+        */
     }
-
+    
     void ClimbSlope(ref Vector2 moveAmount, float slopeAngle)
     {
         // Treat the moveAmount on x as the same as flat ground
@@ -351,11 +353,13 @@ public class Controller2D : RaycastController {
 
             // Setting below to true allows for jumping
             collisions.below = true;
-            collisions.climbingSlope = true;
             collisions.slopeAngle = slopeAngle;
+
+            // Allows for moving up different slopes - also activates the large chunk of commented code in VerticalCollisions
+            collisions.climbingSlope = true;
         }
     }
-
+    
     void DescendSlope(ref Vector2 moveAmount)
     {
         // Casts a ray downwards as you descend the slope
