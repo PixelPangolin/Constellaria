@@ -63,7 +63,7 @@ public class LevelComplete : MonoBehaviour {
 		if (fadeIn) 
 		{
 			constellation.GetComponent<SpriteRenderer>().color =  new Color (255f, 255f, 255f, constellation.GetComponent<SpriteRenderer>().color.a+fadeInSpeed*Time.deltaTime);
-			print (constellation.GetComponent<SpriteRenderer> ().color.a);
+			//print (constellation.GetComponent<SpriteRenderer> ().color.a);
 			if (constellation.GetComponent<SpriteRenderer> ().color.a >= 6) {
 				fadeIn = false;
 				SceneManager.LoadScene(nextSceneName);

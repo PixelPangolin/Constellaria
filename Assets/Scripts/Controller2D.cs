@@ -106,21 +106,21 @@ public class Controller2D : RaycastController {
             Debug.DrawRay(rayOrigin, Vector2.right * directionX, Color.red);
 
             if (hit)
-            {                
+            {
+                // Get angle of surface we've hit - for slope moving purposes
+                float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
+
                 // Colliding with a hazard horizontally kills you
                 if (hit.collider.tag == "Hazard")
                 {
                     playerDeath = true;
                 }
 
-                if ((onGround && hit.collider.tag == "Line") || (grapple.hanging && hit.collider.tag == "Line"))
+                if ((onGround && hit.collider.tag == "Line") || (grapple.hanging && hit.collider.tag == "Line") || (slopeAngle > maxSlopeAngle && hit.collider.tag == "Line"))
                 {
                     continue;
                 }
 
-                    // Get angle of surface we've hit - for slope moving purposes
-                    float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
-                
                 if (i == 0 && slopeAngle <= maxSlopeAngle)
                 {
                     // Preventing two crossed slopes from making player movement awkward
@@ -182,7 +182,6 @@ public class Controller2D : RaycastController {
         
         for (int i = 0; i < verticalRayCount; i++)
         {
-
             // Where the ray should come from
             Vector2 rayOrigin;
 
@@ -213,10 +212,12 @@ public class Controller2D : RaycastController {
 
                 if (hit.collider.tag == "Line")
                 {
+                    // Get angle of surface we've hit - for slope moving purposes
+                    float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
 
-                    // If you're hanging, go through lines that are in the way?
-                    // OPTIONAL?
-                    if (grapple.hanging)
+                    // If you're hanging, go through lines that are in the way
+                    // Don't touch line slopes that are too steep for you 
+                    if (grapple.hanging || slopeAngle > maxSlopeAngle)
                     {
                         continue;
                     }
@@ -237,6 +238,7 @@ public class Controller2D : RaycastController {
                     {
                         if (touchLine == 0)
                         {
+                            Debug.Log("Plays Land");
                             audioController.playLandLine();
                             touchLine++;
                         }
@@ -251,7 +253,7 @@ public class Controller2D : RaycastController {
                     if (playerInput.y == -1)
                     {
                         continue;
-                    }
+                    }                    
                 }
 
                 if (hit.collider.tag == "Ground")
@@ -270,6 +272,7 @@ public class Controller2D : RaycastController {
                         }
                     }
 
+                    // SOUND BUG HERE
                     // Play landing on ground sound
                     if (directionY == -1)
                     {
