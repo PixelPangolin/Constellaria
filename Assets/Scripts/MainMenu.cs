@@ -55,25 +55,25 @@ public class MainMenu : MonoBehaviour {
 	public void OnMasterSliderChange ()//TODO should be set via savefile
 	{
 		PlayerPrefsManager.SetMasterVolume (masterSlider.value);
-		print (masterSlider.value +" "+ PlayerPrefsManager.GetMasterVolume());
+		//print (masterSlider.value +" "+ PlayerPrefsManager.GetMasterVolume());
 		PlayerPrefs.Save ();
 	}
 	public void OnEffectsSliderChange ()//TODO should be set via savefile
 	{
 		PlayerPrefsManager.SetSoundEffectVolume (effectsSlider.value);
-		print (effectsSlider.value +" "+ PlayerPrefsManager.GetSoundEffectVolume());
+		//print (effectsSlider.value +" "+ PlayerPrefsManager.GetSoundEffectVolume());
 		PlayerPrefs.Save ();
 	}
 	public void OnAmbienceSliderChange ()//TODO should be set via savefile
 	{
 		PlayerPrefsManager.SetAmbienceVolume (ambienceSlider.value);
-		print (ambienceSlider.value +" "+ PlayerPrefsManager.GetAmbienceVolume());
+		//print (ambienceSlider.value +" "+ PlayerPrefsManager.GetAmbienceVolume());
 		PlayerPrefs.Save ();
 	}
 	public void OnMusicSliderChange ()//TODO should be set via savefile
 	{
 		PlayerPrefsManager.SetMusicVolume (musicSlider.value);
-		print (musicSlider.value +" "+ PlayerPrefsManager.GetMusicVolume());
+		//print (musicSlider.value +" "+ PlayerPrefsManager.GetMusicVolume());
 		PlayerPrefs.Save ();
 	}
 

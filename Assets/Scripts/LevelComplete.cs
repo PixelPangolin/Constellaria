@@ -63,7 +63,7 @@ public class LevelComplete : MonoBehaviour {
 		if (fadeIn) 
 		{
 			constellation.GetComponent<SpriteRenderer>().color =  new Color (255f, 255f, 255f, constellation.GetComponent<SpriteRenderer>().color.a+fadeInSpeed*Time.deltaTime);
-			print (constellation.GetComponent<SpriteRenderer> ().color.a);
+			//print (constellation.GetComponent<SpriteRenderer> ().color.a);
 			if (constellation.GetComponent<SpriteRenderer> ().color.a >= 6) {
 				fadeIn = false;
 				SceneManager.LoadScene(nextSceneName);
@@ -78,10 +78,9 @@ public class LevelComplete : MonoBehaviour {
 		GameObject.Find("GameController").GetComponent<AudioController>().playEndLevelSound();
 		// Write script here for what occurs when the level is complete
 
-		cameraFocus.GetComponent<CameraFocusUpdated>().control =false;//stop the camera from following the player
+		cameraFocus.GetComponent<CameraFollow>().control = false; //stop the camera from following the player
 		zoomOut = true;
 		moveCamera = true;
 		endLevel = true;
-		//x25 y 15
 	}
 }
