@@ -34,12 +34,15 @@ public class RaycastController : MonoBehaviour {
     }
 
     // Use this for initialization
-    public virtual void Start()
+    public virtual void Awake()
     {
         collider = GetComponent<CapsuleCollider2D>();
         audioController = GameObject.FindGameObjectWithTag("GameController").GetComponent<AudioController>();
         grapple = GetComponent<GrapplingHook>();
+    }
 
+    public virtual void Start()
+    {
         CalculateRaySpacing();
     }
 
