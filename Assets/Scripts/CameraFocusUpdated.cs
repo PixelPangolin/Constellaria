@@ -71,17 +71,17 @@ public class CameraFocusUpdated : MonoBehaviour
                 
                 // distance camera moves towards the player
                 float step = velmag * Time.deltaTime;
-                Debug.Log("calculated step as " + step);
+                //Debug.Log("calculated step as " + step);
 
                 // if the distance to the player is greater than what the step would be
                 if (lineartoPlayer > step) {
-                    Debug.Log("lineartoplayer > step, moving camera transform by " + step);
+                    //Debug.Log("lineartoplayer > step, moving camera transform by " + step);
                     transform.position = Vector3.MoveTowards(selfPos, playerPos, step);
                 }
                 // if the distance to the player is less than what the step would be set the step to the distance to the player
                 else
                 {
-                                        Debug.Log("moving camera transform by " + step);
+                    //Debug.Log("moving camera transform by " + step);
                     transform.position = Vector3.MoveTowards(selfPos, playerPos, lineartoPlayer);
                     shouldMovex = false;
                     shouldMovey = false;
