@@ -117,7 +117,7 @@ public class GrapplingHook : MonoBehaviour {
             {
                 if (pullRopeTimer < Time.time)
                 {
-                    print(pullRopeTimer);
+                    //print(pullRopeTimer);
 
                     // Sound for going up the rope
                     audioController.playPullRope();
