@@ -24,6 +24,11 @@ public class MainMenu : MonoBehaviour {
 		effectsSlider.value = PlayerPrefsManager.GetSoundEffectVolume();
 		ambienceSlider.value = PlayerPrefsManager.GetAmbienceVolume();
 		musicSlider.value = PlayerPrefsManager.GetMusicVolume();
+		GameObject.FindGameObjectWithTag ("GameController").GetComponent<AudioSource> ().volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetMusicVolume ();
+		GameObject.Find ("WavesSounds").GetComponent<AudioSource> ().volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetAmbienceVolume ();
+		GameObject.Find ("FireCrackleSounds").GetComponent<AudioSource> ().volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetSoundEffectVolume ();
+		GameObject.Find ("Misc Sounds").GetComponent<AudioSource> ().volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetSoundEffectVolume ();
+
 	}
 
 	public void MMStartGame ()//TODO should be set via savefile, and default to a level by string name
@@ -34,9 +39,17 @@ public class MainMenu : MonoBehaviour {
 		else {
 			cutscene.SetActive (true);
 			loop.SetActive (false);
-			GameObject.FindGameObjectWithTag ("GameController").GetComponent<AudioSource> ().volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetMusicVolume ();
+
 			Destroy (mainMenu);
 		}
+	}
+	public void MMUpdateSound ()
+	{
+		PlayerPrefs.Save ();
+		GameObject.FindGameObjectWithTag ("GameController").GetComponent<AudioSource> ().volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetMusicVolume ();
+		GameObject.Find ("WavesSounds").GetComponent<AudioSource> ().volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetAmbienceVolume ();
+		GameObject.Find ("FireCrackleSounds").GetComponent<AudioSource> ().volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetSoundEffectVolume ();
+		GameObject.Find ("Misc Sounds").GetComponent<AudioSource> ().volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetSoundEffectVolume ();
 
 	}
 	public void MMOpenCodex ()
@@ -56,25 +69,25 @@ public class MainMenu : MonoBehaviour {
 	{
 		PlayerPrefsManager.SetMasterVolume (masterSlider.value);
 		//print (masterSlider.value +" "+ PlayerPrefsManager.GetMasterVolume());
-		PlayerPrefs.Save ();
+		MMUpdateSound ();
 	}
 	public void OnEffectsSliderChange ()//TODO should be set via savefile
 	{
 		PlayerPrefsManager.SetSoundEffectVolume (effectsSlider.value);
 		//print (effectsSlider.value +" "+ PlayerPrefsManager.GetSoundEffectVolume());
-		PlayerPrefs.Save ();
+		MMUpdateSound ();
 	}
 	public void OnAmbienceSliderChange ()//TODO should be set via savefile
 	{
 		PlayerPrefsManager.SetAmbienceVolume (ambienceSlider.value);
 		//print (ambienceSlider.value +" "+ PlayerPrefsManager.GetAmbienceVolume());
-		PlayerPrefs.Save ();
+		MMUpdateSound ();
 	}
 	public void OnMusicSliderChange ()//TODO should be set via savefile
 	{
 		PlayerPrefsManager.SetMusicVolume (musicSlider.value);
 		//print (musicSlider.value +" "+ PlayerPrefsManager.GetMusicVolume());
-		PlayerPrefs.Save ();
+		MMUpdateSound ();
 	}
 
 	public void QuitGame ()
