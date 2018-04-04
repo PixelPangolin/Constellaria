@@ -21,8 +21,9 @@ public class LevelComplete : MonoBehaviour {
 	public float cameraMoveSpeed = 15.0f;
 	public float cameraZoom = 5.0f;
 	public float cameraZoomSpeed = 6.0f;
-	// Use this for initialization
-	void Start () { 
+    public List<GameObject> DeactivateWhenLevelComplete; // wanted to deactivate toturial stuff when you complete the level
+    // Use this for initialization
+    void Start () { 
 		//TODO: uncomment these for after the demo
 		//Note that this version will be easy to mess up by replaying old levels through codex
 		//maybe use build index instead, and only take higher numbers? Could also use that to return to codex after
@@ -76,9 +77,13 @@ public class LevelComplete : MonoBehaviour {
 		print ("Level complete");
 		//SOUND: Completing the puzzle
 		GameObject.Find("GameController").GetComponent<AudioController>().playEndLevelSound();
-		// Write script here for what occurs when the level is complete
+        // Write script here for what occurs when the level is complete
+        foreach (GameObject each in DeactivateWhenLevelComplete) //added by deactivate tutorial stuff
+        {
+            each.SetActive(false);
+        }
 
-		cameraFocus.GetComponent<CameraFollow>().control = false; //stop the camera from following the player
+        cameraFocus.GetComponent<CameraFollow>().control = false; //stop the camera from following the player
 		zoomOut = true;
 		moveCamera = true;
 		endLevel = true;
