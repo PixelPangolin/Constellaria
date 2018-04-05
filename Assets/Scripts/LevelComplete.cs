@@ -22,6 +22,7 @@ public class LevelComplete : MonoBehaviour {
 	public float cameraZoom = 5.0f;
 	public float cameraZoomSpeed = 6.0f;
     public List<GameObject> DeactivateWhenLevelComplete; // wanted to deactivate toturial stuff when you complete the level
+    public List<GameObject> ActivateWhenLevelComplete; // wanted to activate toturial stuff when you complete the level
     // Use this for initialization
     void Start () { 
 		//TODO: uncomment these for after the demo
@@ -78,9 +79,13 @@ public class LevelComplete : MonoBehaviour {
 		//SOUND: Completing the puzzle
 		GameObject.Find("GameController").GetComponent<AudioController>().playEndLevelSound();
         // Write script here for what occurs when the level is complete
-        foreach (GameObject each in DeactivateWhenLevelComplete) //added by deactivate tutorial stuff
+        foreach (GameObject each in DeactivateWhenLevelComplete) //added to deactivate tutorial stuff
         {
             each.SetActive(false);
+        }
+        foreach (GameObject each in ActivateWhenLevelComplete) //added to active tutorial stuff
+        {
+            each.SetActive(true);
         }
 
         cameraFocus.GetComponent<CameraFollow>().control = false; //stop the camera from following the player
