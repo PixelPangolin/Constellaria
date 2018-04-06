@@ -667,7 +667,7 @@ MonoBehaviour:
   selectionMenu: {fileID: 124911622}
   entry: {fileID: 206007527}
   button: {fileID: 1008600064}
-  levelNumber: 5
+  levelNumber: 4
 --- !u!114 &206007529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1455,7 +1455,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1713508115}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0
+  m_Size: 0.37
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2378,6 +2378,7 @@ MonoBehaviour:
   ambienceSlider: {fileID: 0}
   musicSlider: {fileID: 0}
   cutsceneDebug: 0
+  saveGameDebug: 0
   loop: {fileID: 0}
   cutscene: {fileID: 0}
   mainMenu: {fileID: 0}
@@ -3243,7 +3244,7 @@ MonoBehaviour:
   selectionMenu: {fileID: 124911622}
   entry: {fileID: 1651677221}
   button: {fileID: 242644918}
-  levelNumber: 4
+  levelNumber: 3
 --- !u!1 &1694031092
 GameObject:
   m_ObjectHideFlags: 0
