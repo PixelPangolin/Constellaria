@@ -20,6 +20,7 @@ public class MainMenu : MonoBehaviour {
     public GameObject mainMenu;
 
 	void Start () {
+		PlayerPrefsManager.DefaultPlayerPrefs ();//sets prefs to default if they've never been set
 		masterSlider.value = PlayerPrefsManager.GetMasterVolume();
 		effectsSlider.value = PlayerPrefsManager.GetSoundEffectVolume();
 		ambienceSlider.value = PlayerPrefsManager.GetAmbienceVolume();
@@ -34,7 +35,7 @@ public class MainMenu : MonoBehaviour {
 	public void MMStartGame ()//TODO should be set via savefile, and default to a level by string name
 	{
 		
-		if (cutsceneDebug)
+		if (cutsceneDebug || PlayerPrefsManager.GetLastLevelPlayed() > 3)
 			SceneManager.LoadScene (PlayerPrefsManager.GetLastLevelPlayed());
 		else {
 			cutscene.SetActive (true);

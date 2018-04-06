@@ -16,20 +16,32 @@ public class LevelComplete : MonoBehaviour {
 	private bool moveCamera=false;
 	private bool fadeIn=false;
 	private bool endLevel=false;
+	private bool endLevel2=false;
+	private bool zoomIn=false;
+	private bool moveCamera2=false;
+	private bool fadeOut=false;
+	private bool playAnim=false;
+	public float endAnimationTime = 1.0f;
 	public float fadeInSpeed = 1.25f;
 	public Vector3 cameraEndPosition;
 	public float cameraMoveSpeed = 15.0f;
 	public float cameraZoom = 5.0f;
 	public float cameraZoomSpeed = 6.0f;
-    public List<GameObject> DeactivateWhenLevelComplete; // wanted to deactivate toturial stuff when you complete the level
+    public List<GameObject> DeactivateWhenLevelCompleteZoomOut; // wanted to deactivate toturial stuff when you complete the level
+	public List<GameObject> DeactivateWhenLevelCompleteZoomIn;
     public List<GameObject> ActivateWhenLevelComplete; // wanted to activate toturial stuff when you complete the level
+	public Vector3 cameraEndPosition2;
+	public float cameraMoveSpeed2 = 15.0f;
+	public float cameraZoom2 = 5.0f;
+	public float cameraZoomSpeed2 = 6.0f;
     // Use this for initialization
     void Start () { 
-		//TODO: uncomment these for after the demo
-		//Note that this version will be easy to mess up by replaying old levels through codex
-		//maybe use build index instead, and only take higher numbers? Could also use that to return to codex after
-		//PlayerPrefsManager.SetLastLevelPlayed(SceneManager.GetActiveScene().name);
-		//PlayerPrefs.Save;
+		//If current level is bigger farther than last level, save it as furthest level played
+		int y = SceneManager.GetActiveScene().buildIndex;
+		if (PlayerPrefsManager.GetLastLevelPlayed() < y){
+			PlayerPrefsManager.SetLastLevelPlayed(y);
+			PlayerPrefs.Save();
+		}
 	}
 	
 	// Update is called once per frame
@@ -39,9 +51,9 @@ public class LevelComplete : MonoBehaviour {
 			EndLevel ();
 		}
 		if (debugResetSaveGame) {
-			PlayerPrefsManager.SetLastLevelPlayed("Demo3-TutorialLevel");
+			PlayerPrefsManager.SetLastLevelPlayed(3);
 			PlayerPrefs.Save();
-			debugEndLevel = false;
+			debugResetSaveGame = false;
 		}
 	}
 
@@ -68,9 +80,45 @@ public class LevelComplete : MonoBehaviour {
 			//print (constellation.GetComponent<SpriteRenderer> ().color.a);
 			if (constellation.GetComponent<SpriteRenderer> ().color.a >= 6) {
 				fadeIn = false;
-				SceneManager.LoadScene(nextSceneName);
+				zoomIn = true;
+				moveCamera2 = true;
+
+				//SceneManager.LoadScene(nextSceneName);
 			}
 		}
+
+		if (zoomIn && !moveCamera && !zoomOut && endLevel) {
+			Camera.main.orthographicSize = Mathf.MoveTowards (Camera.main.orthographicSize, cameraZoom2, cameraZoomSpeed2 * Time.deltaTime);
+			if (Camera.main.orthographicSize == cameraZoom2) {
+				zoomIn = false;
+				endLevel2 = true;
+			}
+		}
+		if (moveCamera2 && !moveCamera && !zoomOut && endLevel) {
+			cameraFocus.transform.position = Vector3.MoveTowards (cameraFocus.transform.position,cameraEndPosition2, cameraMoveSpeed2*Time.deltaTime);
+			if (cameraFocus.transform.position == cameraEndPosition2) {
+				moveCamera2 = false;
+				endLevel2 = true;
+			}
+		}
+		if (!moveCamera && !zoomOut && endLevel && !moveCamera2 && !zoomIn && endLevel2) { 
+			foreach (GameObject each in DeactivateWhenLevelCompleteZoomIn) //added to deactivate tutorial stuff
+			{
+				each.SetActive(false);
+			}
+
+			foreach (GameObject each in ActivateWhenLevelComplete) //added to active tutorial stuff
+			{
+				each.SetActive(true);
+			}
+			//SOUND TODO
+			PlayerPrefsManager.SetLastLevelPlayed(PlayerPrefsManager.GetLastLevelPlayed()+1);
+			PlayerPrefs.Save();
+			StartCoroutine(WaitThenEnd(endAnimationTime));
+
+		} 
+
+
 	}
 
 
@@ -79,18 +127,20 @@ public class LevelComplete : MonoBehaviour {
 		//SOUND: Completing the puzzle
 		GameObject.Find("GameController").GetComponent<AudioController>().playEndLevelSound();
         // Write script here for what occurs when the level is complete
-        foreach (GameObject each in DeactivateWhenLevelComplete) //added to deactivate tutorial stuff
+		foreach (GameObject each in DeactivateWhenLevelCompleteZoomOut) //added to deactivate tutorial stuff
         {
             each.SetActive(false);
         }
-        foreach (GameObject each in ActivateWhenLevelComplete) //added to active tutorial stuff
-        {
-            each.SetActive(true);
-        }
+
 
         cameraFocus.GetComponent<CameraFollow>().control = false; //stop the camera from following the player
 		zoomOut = true;
 		moveCamera = true;
 		endLevel = true;
+	}
+
+	IEnumerator WaitThenEnd(float t){
+		yield return new WaitForSeconds (t);
+		SceneManager.LoadScene(nextSceneName);
 	}
 }

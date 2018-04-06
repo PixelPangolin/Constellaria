@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 114228429827522146}
   - component: {fileID: 114078138294296022}
   - component: {fileID: 82780069172598562}
+  - component: {fileID: 114889907781129730}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -61,7 +62,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1332816115503774}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.34, y: -0.8, z: 0}
+  m_LocalPosition: {x: -15.53, y: 34.81, z: 0}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 4666841885696816}
@@ -142,7 +143,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1332816115503774}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 1ac26b9a3f3035540b3794686a3f3eac,
     type: 2}
@@ -301,6 +302,11 @@ MonoBehaviour:
   horizontalRaySpacing: 0
   verticalRaySpacing: 0
   collider: {fileID: 0}
+  audioController: {fileID: 0}
+  grapple: {fileID: 0}
+  touchGround: 0
+  touchLine: 0
+  playerInput: {x: 0, y: 0}
   playerDeath: 0
 --- !u!114 &114772000453174914
 MonoBehaviour:
@@ -313,6 +319,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec6e6eca6acd29b4783a95f34128bb7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114889907781129730
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332816115503774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2651dd0ef7d5fd444b0c49f0c59d28f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1332816115503774}
+  trigger: Tutorial
+  delay: 4
 --- !u!120 &120157996533235880
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -380,7 +400,7 @@ LineRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 0.94482756, g: 1, b: 0, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 1, g: 1, b: 1, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -388,14 +408,14 @@ LineRenderer:
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-      ctime1: 31804
+      ctime1: 65535
       ctime2: 65535
       ctime3: 0
       ctime4: 0
       ctime5: 0
       ctime6: 0
       ctime7: 0
-      atime0: 20624
+      atime0: 0
       atime1: 65535
       atime2: 0
       atime3: 0
@@ -404,7 +424,7 @@ LineRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_NumColorKeys: 3
+      m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
