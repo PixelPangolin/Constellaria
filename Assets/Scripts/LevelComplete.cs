@@ -141,6 +141,6 @@ public class LevelComplete : MonoBehaviour {
 
 	IEnumerator WaitThenEnd(float t){
 		yield return new WaitForSeconds (t);
-		SceneManager.LoadScene(nextSceneName);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
 	}
 }

@@ -17,3 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Demo3-Level1.unity
     guid: bff2d9a3a3168b3499cfc9f273a3ddc9
+  - enabled: 1
+    path: Assets/Scenes/Updated Forest Level.unity
+    guid: 553b3003d339a6d4f82b7bef6e7c868c
+  - enabled: 1
+    path: Assets/Scenes/Ending Cutscene.unity
+    guid: b6ff290bdcce19846905ba5f430f8317
