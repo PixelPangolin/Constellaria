@@ -36,7 +36,7 @@ public class MainMenu : MonoBehaviour {
 
 	public void MMStartGame ()//TODO should be set via savefile, and default to a level by string name
 	{
-		
+		if (saveGameDebug){PlayerPrefsManager.SetLastLevelPlayed (2); saveGameDebug = false;}
 		if (cutsceneDebug || PlayerPrefsManager.GetLastLevelPlayed() > 2)
 			SceneManager.LoadScene (PlayerPrefsManager.GetLastLevelPlayed());
 		else {
