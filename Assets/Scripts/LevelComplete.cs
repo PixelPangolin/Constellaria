@@ -112,7 +112,7 @@ public class LevelComplete : MonoBehaviour {
 				each.SetActive(true);
 			}
 			//SOUND TODO
-			PlayerPrefsManager.SetLastLevelPlayed(PlayerPrefsManager.GetLastLevelPlayed()+1);
+			PlayerPrefsManager.SetLastLevelPlayed(SceneManager.GetActiveScene().buildIndex+1);
 			PlayerPrefs.Save();
 			StartCoroutine(WaitThenEnd(endAnimationTime));
 
