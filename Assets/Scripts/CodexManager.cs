@@ -9,6 +9,15 @@ public class CodexManager : MonoBehaviour {
 
 	public GameObject selectionMenu;
 	public GameObject entry;
+	public GameObject button;
+	public int levelNumber;
+
+	public void Start(){
+		if (PlayerPrefsManager.GetLastLevelPlayed () < levelNumber) {
+			button.SetActive (false);
+		}
+		entry.SetActive (false);
+	}
 
 	public void LoadEntry()
 	{

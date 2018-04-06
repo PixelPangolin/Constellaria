@@ -14,12 +14,14 @@ public class MainMenu : MonoBehaviour {
 	public Slider ambienceSlider;
 	public Slider musicSlider;
 	public bool cutsceneDebug = false;
+	public bool saveGameDebug = false;
     public GameObject loop;
     public GameObject cutscene;
 
     public GameObject mainMenu;
 
 	void Start () {
+		PlayerPrefsManager.DefaultPlayerPrefs ();//sets prefs to default if they've never been set
 		masterSlider.value = PlayerPrefsManager.GetMasterVolume();
 		effectsSlider.value = PlayerPrefsManager.GetSoundEffectVolume();
 		ambienceSlider.value = PlayerPrefsManager.GetAmbienceVolume();
@@ -28,13 +30,14 @@ public class MainMenu : MonoBehaviour {
 		GameObject.Find ("WavesSounds").GetComponent<AudioSource> ().volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetAmbienceVolume ();
 		GameObject.Find ("FireCrackleSounds").GetComponent<AudioSource> ().volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetSoundEffectVolume ();
 		GameObject.Find ("Misc Sounds").GetComponent<AudioSource> ().volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetSoundEffectVolume ();
+		if (saveGameDebug){PlayerPrefsManager.SetLastLevelPlayed (2); saveGameDebug = false;}
 
 	}
 
 	public void MMStartGame ()//TODO should be set via savefile, and default to a level by string name
 	{
-		
-		if (cutsceneDebug)
+		if (saveGameDebug){PlayerPrefsManager.SetLastLevelPlayed (2); saveGameDebug = false;}
+		if (cutsceneDebug || PlayerPrefsManager.GetLastLevelPlayed() > 2)
 			SceneManager.LoadScene (PlayerPrefsManager.GetLastLevelPlayed());
 		else {
 			cutscene.SetActive (true);
