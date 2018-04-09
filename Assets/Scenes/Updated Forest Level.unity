@@ -769,6 +769,95 @@ Transform:
   m_PrefabParentObject: {fileID: 4169990611436694, guid: a2b807563629a93468b277582470353c,
     type: 2}
   m_PrefabInternal: {fileID: 915340648}
+--- !u!1 &324286431
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 324286434}
+  - component: {fileID: 324286433}
+  - component: {fileID: 324286432}
+  m_Layer: 0
+  m_Name: Character Tossed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!95 &324286432
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 324286431}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1aecef2e99a7b5844a19e512f46c9e06, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!212 &324286433
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 324286431}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300010, guid: a28432f2a79f8504bb6835acdcff98d3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 2, y: 2}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+--- !u!4 &324286434
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 324286431}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.983344, y: -0.51373386, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &330595200
 Prefab:
   m_ObjectHideFlags: 0
@@ -1387,18 +1476,23 @@ MonoBehaviour:
   constellation: {fileID: 2029800706}
   debugEndLevel: 0
   debugResetSaveGame: 0
-  endAnimationTime: 1
+  endAnimationTime: 15
   fadeInSpeed: 1.25
   cameraEndPosition: {x: 16.09, y: 13.39, z: -10}
   cameraMoveSpeed: 15
   cameraZoom: 20.5
   cameraZoomSpeed: 6
   DeactivateWhenLevelCompleteZoomOut: []
-  DeactivateWhenLevelCompleteZoomIn: []
-  ActivateWhenLevelComplete: []
-  cameraEndPosition2: {x: 0, y: 0, z: 0}
+  DeactivateWhenLevelCompleteZoomIn:
+  - {fileID: 1143419925}
+  - {fileID: 302274859}
+  - {fileID: 2029800706}
+  ActivateWhenLevelComplete:
+  - {fileID: 909980104}
+  - {fileID: 324286431}
+  cameraEndPosition2: {x: 0.22, y: 9.8, z: 0}
   cameraMoveSpeed2: 15
-  cameraZoom2: 5
+  cameraZoom2: 9
   cameraZoomSpeed2: 6
 --- !u!114 &505362162
 MonoBehaviour:
@@ -3228,13 +3322,14 @@ GameObject:
   m_Component:
   - component: {fileID: 909980106}
   - component: {fileID: 909980105}
+  - component: {fileID: 909980107}
   m_Layer: 0
-  m_Name: Angler Fish_3
+  m_Name: Angler Fish Toss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &909980105
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3267,7 +3362,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300006, guid: b7ca6c44e9ff8834ab919de34d5b1cce, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 5c4590da0d9087546a92da9e037ac3e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3290,6 +3385,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &909980107
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 909980104}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b6a82787a80a8f9498a58edaff0aab15, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &912919332 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114459674132474894, guid: 0c43fd3db08336a4fa59cfa81fe2ae13,
@@ -3658,6 +3770,11 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1143419925 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1332816115503774, guid: 304048deb13e3b34f9fd37972d244a61,
+    type: 2}
+  m_PrefabInternal: {fileID: 848087436}
 --- !u!1001 &1155787583
 Prefab:
   m_ObjectHideFlags: 0
@@ -6063,6 +6180,73 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1823240841
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1823240844}
+  - component: {fileID: 1823240843}
+  - component: {fileID: 1823240842}
+  m_Layer: 0
+  m_Name: Timeline
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!95 &1823240842
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1823240841}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!320 &1823240843
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1823240841}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 0a97da660fce8e446b19dd2c9e8dcd31, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 114542838790303918, guid: 0a97da660fce8e446b19dd2c9e8dcd31, type: 2}
+    value: {fileID: 909980104}
+  - key: {fileID: 114914791758012070, guid: 0a97da660fce8e446b19dd2c9e8dcd31, type: 2}
+    value: {fileID: 324286431}
+  m_ExposedReferences:
+    m_References: []
+--- !u!4 &1823240844
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1823240841}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.1091533, y: 6.256853, z: -1.0898438}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1828206873
 GameObject:
   m_ObjectHideFlags: 0
@@ -6407,7 +6591,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1867393397
 Transform:
   m_ObjectHideFlags: 0
@@ -6415,7 +6599,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1867393396}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.27, y: 8.3, z: -10}
+  m_LocalPosition: {x: 0.22, y: 9.8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6455,7 +6639,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.15
+  orthographic size: 9.027483
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

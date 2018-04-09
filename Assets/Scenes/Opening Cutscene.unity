@@ -2656,7 +2656,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1325f78d4fa9e2742943712e178dbf27, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 80, y: 45}
@@ -8592,6 +8592,7 @@ MonoBehaviour:
   ambienceSlider: {fileID: 1097039032}
   musicSlider: {fileID: 258469808}
   cutsceneDebug: 0
+  saveGameDebug: 0
   loop: {fileID: 2115212693}
   cutscene: {fileID: 1492652363}
   mainMenu: {fileID: 364301821}
