@@ -19,6 +19,7 @@ public class MainMenu : MonoBehaviour {
     public GameObject cutscene;
 
     public GameObject mainMenu;
+	public AudioSource UIaudio;
 
 	void Start () {
 		PlayerPrefsManager.DefaultPlayerPrefs ();//sets prefs to default if they've never been set
@@ -31,6 +32,12 @@ public class MainMenu : MonoBehaviour {
 		GameObject.Find ("FireCrackleSounds").GetComponent<AudioSource> ().volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetSoundEffectVolume ();
 		GameObject.Find ("Misc Sounds").GetComponent<AudioSource> ().volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetSoundEffectVolume ();
 		if (saveGameDebug){PlayerPrefsManager.SetLastLevelPlayed (2); saveGameDebug = false;}
+
+		Component[] list = UIaudio.GetComponentsInChildren<AudioSource> ();
+		foreach (AudioSource source in list) {
+			source.volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetSoundEffectVolume ();
+		}
+
 
 	}
 
@@ -53,6 +60,11 @@ public class MainMenu : MonoBehaviour {
 		GameObject.Find ("WavesSounds").GetComponent<AudioSource> ().volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetAmbienceVolume ();
 		GameObject.Find ("FireCrackleSounds").GetComponent<AudioSource> ().volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetSoundEffectVolume ();
 		GameObject.Find ("Misc Sounds").GetComponent<AudioSource> ().volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetSoundEffectVolume ();
+
+		Component[] list = UIaudio.GetComponentsInChildren<AudioSource> ();
+		foreach (AudioSource source in list) {
+			source.volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetSoundEffectVolume ();
+		}
 
 	}
 	public void MMOpenCodex ()
