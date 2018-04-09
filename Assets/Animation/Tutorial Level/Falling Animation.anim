@@ -29,13 +29,13 @@ AnimationClip:
     - time: 0.76666665
       value: {fileID: 21300122, guid: a28432f2a79f8504bb6835acdcff98d3, type: 3}
     - time: 1.0166667
-      value: {fileID: 21300126, guid: a28432f2a79f8504bb6835acdcff98d3, type: 3}
+      value: {fileID: 21300008, guid: dc737a6edb70e96418c52fd37ca38847, type: 3}
     - time: 1.95
-      value: {fileID: 21300124, guid: a28432f2a79f8504bb6835acdcff98d3, type: 3}
+      value: {fileID: 21300008, guid: dc737a6edb70e96418c52fd37ca38847, type: 3}
     - time: 2.2666667
-      value: {fileID: 21300126, guid: a28432f2a79f8504bb6835acdcff98d3, type: 3}
+      value: {fileID: 21300010, guid: dc737a6edb70e96418c52fd37ca38847, type: 3}
     - time: 2.5333333
-      value: {fileID: 21300124, guid: a28432f2a79f8504bb6835acdcff98d3, type: 3}
+      value: {fileID: 21300008, guid: dc737a6edb70e96418c52fd37ca38847, type: 3}
     - time: 3.1166666
       value: {fileID: 21300080, guid: a28432f2a79f8504bb6835acdcff98d3, type: 3}
     - time: 3.4333334
@@ -68,10 +68,10 @@ AnimationClip:
     - {fileID: 21300092, guid: a28432f2a79f8504bb6835acdcff98d3, type: 3}
     - {fileID: 21300094, guid: a28432f2a79f8504bb6835acdcff98d3, type: 3}
     - {fileID: 21300122, guid: a28432f2a79f8504bb6835acdcff98d3, type: 3}
-    - {fileID: 21300126, guid: a28432f2a79f8504bb6835acdcff98d3, type: 3}
-    - {fileID: 21300124, guid: a28432f2a79f8504bb6835acdcff98d3, type: 3}
-    - {fileID: 21300126, guid: a28432f2a79f8504bb6835acdcff98d3, type: 3}
-    - {fileID: 21300124, guid: a28432f2a79f8504bb6835acdcff98d3, type: 3}
+    - {fileID: 21300008, guid: dc737a6edb70e96418c52fd37ca38847, type: 3}
+    - {fileID: 21300008, guid: dc737a6edb70e96418c52fd37ca38847, type: 3}
+    - {fileID: 21300010, guid: dc737a6edb70e96418c52fd37ca38847, type: 3}
+    - {fileID: 21300008, guid: dc737a6edb70e96418c52fd37ca38847, type: 3}
     - {fileID: 21300080, guid: a28432f2a79f8504bb6835acdcff98d3, type: 3}
     - {fileID: 21300002, guid: a28432f2a79f8504bb6835acdcff98d3, type: 3}
     - {fileID: 21300004, guid: a28432f2a79f8504bb6835acdcff98d3, type: 3}
