@@ -10,13 +10,23 @@ public class CodexManager : MonoBehaviour {
 	public GameObject selectionMenu;
 	public GameObject entry;
 	public GameObject button;
+	public GameObject UIaudio;
+	public AudioSource audioSource;
 	public int levelNumber;
+	private bool paused = false;
 
 	public void Start(){
-		if (PlayerPrefsManager.GetLastLevelPlayed () < levelNumber) {
+		if (PlayerPrefsManager.GetLastLevelPlayed () <= levelNumber) {
 			button.SetActive (false);
 		}
+		audioSource.Pause();
 		entry.SetActive (false);
+
+		Component[] list = UIaudio.GetComponentsInChildren<AudioSource> ();
+		foreach (AudioSource source in list) {
+			source.volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetSoundEffectVolume ();
+		}
+
 	}
 
 	public void LoadEntry()
@@ -34,5 +44,26 @@ public class CodexManager : MonoBehaviour {
 		selectionMenu.SetActive(true);
 		entry.SetActive(false);
 		SceneManager.LoadScene (scene);
+	}
+
+	public void PauseVoice()
+	{
+		if (audioSource != null) {
+			audioSource.Pause ();
+			paused = true;
+		}
+	}
+
+	public void UnPauseVoice()
+	{
+		if (audioSource != null) {
+			if (audioSource.isPlaying && !paused) {
+				audioSource.time = 0.0f;
+				paused = false;
+			} else {
+				audioSource.Play ();
+				paused = false;
+			}
+		}
 	}
 }
