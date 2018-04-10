@@ -6917,11 +6917,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4299189427600838, guid: 304048deb13e3b34f9fd37972d244a61, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -11.8
+      value: -13.16
       objectReference: {fileID: 0}
     - target: {fileID: 4299189427600838, guid: 304048deb13e3b34f9fd37972d244a61, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.87
+      value: -1.21
       objectReference: {fileID: 0}
     - target: {fileID: 4299189427600838, guid: 304048deb13e3b34f9fd37972d244a61, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6960,6 +6960,26 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114889907781129730, guid: 304048deb13e3b34f9fd37972d244a61,
+        type: 2}
+      propertyPath: directionInput
+      value: 
+      objectReference: {fileID: 1143419926}
+    - target: {fileID: 114889907781129730, guid: 304048deb13e3b34f9fd37972d244a61,
+        type: 2}
+      propertyPath: delay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114889907781129730, guid: 304048deb13e3b34f9fd37972d244a61,
+        type: 2}
+      propertyPath: direction.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114889907781129730, guid: 304048deb13e3b34f9fd37972d244a61,
+        type: 2}
+      propertyPath: trigger
+      value: Elephant Start
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 304048deb13e3b34f9fd37972d244a61, type: 2}
@@ -8696,6 +8716,12 @@ GameObject:
   m_PrefabParentObject: {fileID: 1332816115503774, guid: 304048deb13e3b34f9fd37972d244a61,
     type: 2}
   m_PrefabInternal: {fileID: 848087436}
+--- !u!114 &1143419926 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114772000453174914, guid: 304048deb13e3b34f9fd37972d244a61,
+    type: 2}
+  m_PrefabInternal: {fileID: 848087436}
+  m_Script: {fileID: 11500000, guid: ec6e6eca6acd29b4783a95f34128bb7b, type: 3}
 --- !u!1 &1165302069
 GameObject:
   m_ObjectHideFlags: 0
@@ -9250,7 +9276,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bfe97c8b303969a45b25b2acfcc22f04, type: 3}
-  m_Color: {r: 0.5372549, g: 0.49411765, b: 0.5647059, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -14821,7 +14847,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1839245534}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.81, y: 3.81, z: 0}
+  m_LocalPosition: {x: -13.139999, y: -0.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 245664511}
