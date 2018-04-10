@@ -1,5 +1,5 @@
 ﻿// This code activates tutorial messages when trigger volumes are entered
-// reference https://www.youtube.com/watch?v=_Xrw2EEhzI4
+// reference https://answers.unity.com/questions/1315037/object-appear-and-disappear-code.html
 // reference Andrew Crowe for guidance
 // reference Other team members' scripts
 using System.Collections;
