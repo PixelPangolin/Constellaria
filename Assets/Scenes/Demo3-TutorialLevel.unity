@@ -9629,7 +9629,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 18.000025, y: 0}
+  m_AnchoredPosition: {x: 18.000027, y: 0}
   m_SizeDelta: {x: -18, y: 1243.9}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &431658417
@@ -11792,6 +11792,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4299189427600838, guid: 304048deb13e3b34f9fd37972d244a61,
     type: 2}
   m_PrefabInternal: {fileID: 1309767160}
+--- !u!114 &787710692 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114772000453174914, guid: 304048deb13e3b34f9fd37972d244a61,
+    type: 2}
+  m_PrefabInternal: {fileID: 1309767160}
+  m_Script: {fileID: 11500000, guid: ec6e6eca6acd29b4783a95f34128bb7b, type: 3}
 --- !u!1 &800643132
 GameObject:
   m_ObjectHideFlags: 0
@@ -15285,6 +15291,21 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50642194262189428, guid: 304048deb13e3b34f9fd37972d244a61,
+        type: 2}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114889907781129730, guid: 304048deb13e3b34f9fd37972d244a61,
+        type: 2}
+      propertyPath: directionInput
+      value: 
+      objectReference: {fileID: 787710692}
+    - target: {fileID: 114889907781129730, guid: 304048deb13e3b34f9fd37972d244a61,
+        type: 2}
+      propertyPath: direction.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 304048deb13e3b34f9fd37972d244a61, type: 2}
@@ -21367,6 +21388,8 @@ MonoBehaviour:
   player: {fileID: 0}
   trigger: 
   delay: 0
+  directionInput: {fileID: 0}
+  direction: {x: 0, y: 0}
 --- !u!1001 &1706380203
 Prefab:
   m_ObjectHideFlags: 0

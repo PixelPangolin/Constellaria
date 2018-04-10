@@ -6418,7 +6418,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4299189427600838, guid: 304048deb13e3b34f9fd37972d244a61, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -11.8
+      value: -19.15
       objectReference: {fileID: 0}
     - target: {fileID: 4299189427600838, guid: 304048deb13e3b34f9fd37972d244a61, type: 2}
       propertyPath: m_LocalPosition.y
@@ -6470,12 +6470,22 @@ Prefab:
     - target: {fileID: 114889907781129730, guid: 304048deb13e3b34f9fd37972d244a61,
         type: 2}
       propertyPath: delay
-      value: 2.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 95228635359957800, guid: 304048deb13e3b34f9fd37972d244a61,
         type: 2}
       propertyPath: m_ApplyRootMotion
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114889907781129730, guid: 304048deb13e3b34f9fd37972d244a61,
+        type: 2}
+      propertyPath: directionInput
+      value: 
+      objectReference: {fileID: 1976319306}
+    - target: {fileID: 114889907781129730, guid: 304048deb13e3b34f9fd37972d244a61,
+        type: 2}
+      propertyPath: direction.x
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 304048deb13e3b34f9fd37972d244a61, type: 2}
@@ -12332,6 +12342,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1976319306 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114772000453174914, guid: 304048deb13e3b34f9fd37972d244a61,
+    type: 2}
+  m_PrefabInternal: {fileID: 848087436}
+  m_Script: {fileID: 11500000, guid: ec6e6eca6acd29b4783a95f34128bb7b, type: 3}
 --- !u!1 &1979609662
 GameObject:
   m_ObjectHideFlags: 0
