@@ -31,7 +31,7 @@ public class MainMenu : MonoBehaviour {
 		GameObject.Find ("WavesSounds").GetComponent<AudioSource> ().volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetAmbienceVolume ();
 		GameObject.Find ("FireCrackleSounds").GetComponent<AudioSource> ().volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetSoundEffectVolume ();
 		GameObject.Find ("Misc Sounds").GetComponent<AudioSource> ().volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetSoundEffectVolume ();
-		if (saveGameDebug){PlayerPrefsManager.SetLastLevelPlayed (2); saveGameDebug = false;}
+		if (saveGameDebug){PlayerPrefsManager.SetLastLevelPlayed (3); saveGameDebug = false;}
 
 		Component[] list = UIaudio.GetComponentsInChildren<AudioSource> ();
 		foreach (AudioSource source in list) {
@@ -43,8 +43,8 @@ public class MainMenu : MonoBehaviour {
 
 	public void MMStartGame ()//TODO should be set via savefile, and default to a level by string name
 	{
-		if (saveGameDebug){PlayerPrefsManager.SetLastLevelPlayed (2); saveGameDebug = false;}
-		if (cutsceneDebug || PlayerPrefsManager.GetLastLevelPlayed() > 2)
+		if (saveGameDebug){PlayerPrefsManager.SetLastLevelPlayed (3); saveGameDebug = false;}
+		if (cutsceneDebug || PlayerPrefsManager.GetLastLevelPlayed() > 3)
 			SceneManager.LoadScene (PlayerPrefsManager.GetLastLevelPlayed());
 		else {
 			cutscene.SetActive (true);

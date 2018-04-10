@@ -11,6 +11,7 @@ public class CodexManager : MonoBehaviour {
 	public GameObject entry;
 	public GameObject button;
 	public GameObject UIaudio;
+	public AudioSource ambience;
 	public AudioSource audioSource;
 	public int levelNumber;
 	private bool paused = false;
@@ -21,7 +22,8 @@ public class CodexManager : MonoBehaviour {
 		}
 		audioSource.Pause();
 		entry.SetActive (false);
-
+		audioSource.volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetSoundEffectVolume ();
+		ambience.volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetAmbienceVolume ();
 		Component[] list = UIaudio.GetComponentsInChildren<AudioSource> ();
 		foreach (AudioSource source in list) {
 			source.volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetSoundEffectVolume ();
