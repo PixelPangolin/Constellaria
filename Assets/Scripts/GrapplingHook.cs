@@ -22,7 +22,7 @@ public class GrapplingHook : MonoBehaviour {
 	public Rigidbody2D ropeRigidBody;
 	public float ropeDistance;
 
-	public float pullRopeDelay = 0.5f;
+	public float pullRopeDelay = 1000f;
 	private float pullRopeTimer = 0f;
 	public List<Vector2> ropePositions = new List<Vector2>();
 	private bool distanceSet;
@@ -54,6 +54,7 @@ public class GrapplingHook : MonoBehaviour {
 		if (Input.GetButtonUp ("Shift")&&connected) {
 			isSwinging = false;
             hanging = false;
+			pullRopeTimer = 0.0f;
             //hook.distance = Vector3.Distance(transform.position,ropePositions.Last());
             hook.enabled=false;
 		}
