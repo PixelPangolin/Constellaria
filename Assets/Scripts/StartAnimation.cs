@@ -9,6 +9,7 @@ public class StartAnimation : MonoBehaviour {
 	public float delay;
 	// Use this for initialization
 	void Start () {
+		player.GetComponent<Animator> ().applyRootMotion = false;
 		player.GetComponent<Animator>().SetTrigger(trigger);
 		StartCoroutine(WaitThenControl(delay));
 	}
@@ -17,6 +18,7 @@ public class StartAnimation : MonoBehaviour {
 		player.GetComponent<GrapplingHook> ().enabled = false;
 		player.GetComponent<PlayerInput> ().enabled = false;
 		yield return new WaitForSeconds (t);
+		player.GetComponent<Animator> ().applyRootMotion = true;
 		player.GetComponent<GrapplingHook> ().enabled = true;
 		player.GetComponent<PlayerInput> ().enabled = true;
 

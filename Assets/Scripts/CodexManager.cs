@@ -20,6 +20,7 @@ public class CodexManager : MonoBehaviour {
 		if (PlayerPrefsManager.GetLastLevelPlayed () <= levelNumber) {
 			button.SetActive (false);
 		}
+		print (PlayerPrefsManager.GetLastLevelPlayed ());
 		audioSource.Pause();
 		entry.SetActive (false);
 		audioSource.volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetSoundEffectVolume ();

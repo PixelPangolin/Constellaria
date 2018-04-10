@@ -19,7 +19,10 @@ public class MainMenu : MonoBehaviour {
     public GameObject cutscene;
 
     public GameObject mainMenu;
-	public AudioSource UIaudio;
+	public GameObject UIaudio;
+	public AudioSource[] SEaudioList;
+	public AudioSource[] AMBaudioList;
+	public AudioSource[] MUSaudioList;
 
 	void Start () {
 		PlayerPrefsManager.DefaultPlayerPrefs ();//sets prefs to default if they've never been set
@@ -53,17 +56,30 @@ public class MainMenu : MonoBehaviour {
 			Destroy (mainMenu);
 		}
 	}
+
+	public void InGameReset(){
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+	}
 	public void MMUpdateSound ()
 	{
 		PlayerPrefs.Save ();
-		GameObject.FindGameObjectWithTag ("GameController").GetComponent<AudioSource> ().volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetMusicVolume ();
-		GameObject.Find ("WavesSounds").GetComponent<AudioSource> ().volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetAmbienceVolume ();
-		GameObject.Find ("FireCrackleSounds").GetComponent<AudioSource> ().volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetSoundEffectVolume ();
-		GameObject.Find ("Misc Sounds").GetComponent<AudioSource> ().volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetSoundEffectVolume ();
+		//GameObject.FindGameObjectWithTag ("GameController").GetComponent<AudioSource> ().volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetMusicVolume ();
+		//GameObject.Find ("WavesSounds").GetComponent<AudioSource> ().volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetAmbienceVolume ();
+		//GameObject.Find ("FireCrackleSounds").GetComponent<AudioSource> ().volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetSoundEffectVolume ();
+		//GameObject.Find ("Misc Sounds").GetComponent<AudioSource> ().volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetSoundEffectVolume ();
 
 		Component[] list = UIaudio.GetComponentsInChildren<AudioSource> ();
 		foreach (AudioSource source in list) {
 			source.volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetSoundEffectVolume ();
+		}
+		foreach (AudioSource source in SEaudioList) {
+			source.volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetSoundEffectVolume ();
+		}
+		foreach (AudioSource source in AMBaudioList) {
+			source.volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetAmbienceVolume ();
+		}
+		foreach (AudioSource source in MUSaudioList) {
+			source.volume = PlayerPrefsManager.GetMasterVolume () * PlayerPrefsManager.GetMusicVolume ();
 		}
 
 	}

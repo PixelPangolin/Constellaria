@@ -3,7 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class UIManager : MonoBehaviour {
+	public GameObject OptionsMenu;
+	public GameObject Codex;
 	GameObject[] pauseObjects;
 
 	// Use this for initialization
@@ -26,7 +30,10 @@ public class UIManager : MonoBehaviour {
 			} else if (Time.timeScale == 0){
 				Debug.Log ("high");
 				Time.timeScale = 1;
+				OptionsMenu.SetActive (false);
+				Codex.SetActive (false);
 				hidePaused();
+
 			}
 		}
 	}
