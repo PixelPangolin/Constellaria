@@ -13,7 +13,7 @@ public class CameraFollow: MonoBehaviour {
     [HideInInspector] public bool control = true;
 
     // Sets how our camera moves and the smoothing
-    private float verticalOffset = 0;
+    private float verticalOffset = 1;
     private float lookAheadDistanceX = 2;
     private  float lookSmoothTimeX = 0.5f;
     private float verticalSmoothTime = 0.1f;
