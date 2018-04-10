@@ -50,37 +50,37 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: {x: 62.2, y: -30.85, z: 0}
+        value: {x: 62.2, y: -30.85, z: -3.95}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
       - serializedVersion: 2
         time: 1
-        value: {x: 62.2, y: -30.85, z: 0}
+        value: {x: 62.2, y: -30.85, z: -3.95}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
       - serializedVersion: 2
         time: 2.2333333
-        value: {x: 23.013588, y: 8.039067, z: 0}
+        value: {x: 23.013588, y: 8.039067, z: -3.95}
         inSlope: {x: -52.930695, y: 12.378671, z: 0}
         outSlope: {x: -52.930695, y: 12.378671, z: 0}
         tangentMode: 0
       - serializedVersion: 2
         time: 2.7
-        value: {x: -2.8398638, y: 13.3, z: 0}
+        value: {x: -2.8398638, y: 13.3, z: -3.95}
         inSlope: {x: -56.35008, y: 0, z: 0}
         outSlope: {x: -56.35008, y: 0, z: 0}
         tangentMode: 0
       - serializedVersion: 2
         time: 3.2
-        value: {x: -29.837307, y: 8.064077, z: 0}
+        value: {x: -29.837307, y: 8.064077, z: -3.95}
         inSlope: {x: -49.89512, y: -13.227594, z: 0}
         outSlope: {x: -49.89512, y: -13.227594, z: 0}
         tangentMode: 0
       - serializedVersion: 2
         time: 4.2833333
-        value: {x: -61.3, y: -30.7, z: 0}
+        value: {x: -61.3, y: -30.7, z: -3.95}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -337,6 +337,22 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
+    path: 
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -3.95
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.z
     path: 
     classID: 4
     script: {fileID: 0}

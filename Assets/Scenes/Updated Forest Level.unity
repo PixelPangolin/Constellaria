@@ -3086,7 +3086,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 55843161}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.2677064
+  m_Size: 0.26770636
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7460,7 +7460,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4169990611436694, guid: a2b807563629a93468b277582470353c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.43
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4169990611436694, guid: a2b807563629a93468b277582470353c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -7534,17 +7534,17 @@ Prefab:
     - target: {fileID: 212680601210329638, guid: a2b807563629a93468b277582470353c,
         type: 2}
       propertyPath: m_Color.r
-      value: 0.8161765
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212680601210329638, guid: a2b807563629a93468b277582470353c,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.8161765
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212680601210329638, guid: a2b807563629a93468b277582470353c,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.8161765
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a2b807563629a93468b277582470353c, type: 2}
