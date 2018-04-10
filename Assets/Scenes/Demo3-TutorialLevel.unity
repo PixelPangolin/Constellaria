@@ -8489,7 +8489,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Move
+  m_Text: move
 --- !u!222 &255519325
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9532,7 +9532,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Pause
+  m_Text: 'pause
 
 '
 --- !u!222 &387418715
@@ -10067,7 +10067,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 17.99999, y: 0}
+  m_AnchoredPosition: {x: 18.000027, y: 0}
   m_SizeDelta: {x: -18, y: 1243.9}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &431658417
@@ -11747,7 +11747,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -311.28, y: -127.09999}
-  m_SizeDelta: {x: 41.35, y: 16.21}
+  m_SizeDelta: {x: 39.43, y: 16.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &674624528
 MonoBehaviour:
@@ -11781,7 +11781,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Grapple
+  m_Text: grapple
 --- !u!222 &674624529
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11958,7 +11958,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Back to Menu
+  m_Text: back to codex
 --- !u!222 &686221313
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12399,7 +12399,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Music Volume
+  m_Text: music volume
 --- !u!222 &751777065
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14031,7 +14031,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Ambience Volume
+  m_Text: ambience volume
 --- !u!222 &983609106
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16128,7 +16128,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Effects Volume
+  m_Text: effects volume
 --- !u!222 &1302334257
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16422,7 +16422,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Controls:'
+  m_Text: 'controls:'
 --- !u!222 &1336400605
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17668,7 +17668,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Return
+  m_Text: return
 --- !u!222 &1478446163
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22457,7 +22457,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Jump
+  m_Text: jump
 --- !u!222 &1714072252
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23218,7 +23218,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Quit Game '
+  m_Text: 'quit game '
 --- !u!222 &1835352594
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -31618,7 +31618,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Master Volume
+  m_Text: master volume
 --- !u!222 &2027197731
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -31824,7 +31824,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Options
+  m_Text: options
 --- !u!222 &2069645916
 CanvasRenderer:
   m_ObjectHideFlags: 0
