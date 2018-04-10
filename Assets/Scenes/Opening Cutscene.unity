@@ -9054,6 +9054,9 @@ MonoBehaviour:
   cutscene: {fileID: 1492652363}
   mainMenu: {fileID: 364301821}
   UIaudio: {fileID: 0}
+  SEaudioList: []
+  AMBaudioList: []
+  MUSaudioList: []
 --- !u!224 &1353070429
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9733,6 +9736,10 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: 114644140042712276, guid: fb878f116c08f0b46828eb2a6493e491, type: 2}
     value: {fileID: 307829934}
+  - key: {fileID: 114974343510099328, guid: fb878f116c08f0b46828eb2a6493e491, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 114141284867755762, guid: fb878f116c08f0b46828eb2a6493e491, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1492652366
