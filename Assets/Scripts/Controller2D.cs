@@ -263,12 +263,24 @@ public class Controller2D : RaycastController {
                     // Play walking on ground sound
                     if (collisions.below && Mathf.Abs(moveAmount.x) > 0.01)
                     {
-                        if (Time.time > timeSinceFootStep)
-                        { 
-                            // Delays footstep sounds
-                            audioController.playWalkCave();
-                            timeSinceFootStep = Time.time + footStepSoundDelay;
-                        }
+						if (Time.time > timeSinceFootStep) { 
+							int layer = hit.collider.gameObject.layer;
+							if (layer == 12) {//ground
+								// Delays footstep sounds
+								audioController.playWalkCave ();
+								timeSinceFootStep = Time.time + footStepSoundDelay;
+							}
+							if (layer == 15) {//floortype2
+								// Delays footstep sounds
+								audioController.playWalkFloor2 ();
+								timeSinceFootStep = Time.time + footStepSoundDelay;
+							}
+							if (layer == 16) {//floortype3
+								// Delays footstep sounds
+								audioController.playWalkFloor3 ();
+								timeSinceFootStep = Time.time + footStepSoundDelay;
+							}
+						}
                     }
 
                     // SOUND BUG HERE

@@ -22,7 +22,7 @@ public class GrapplingHook : MonoBehaviour {
 	public Rigidbody2D ropeRigidBody;
 	public float ropeDistance;
 
-	public float pullRopeDelay = 1000f;
+	public float pullRopeDelay = 1.1f;
 	private float pullRopeTimer = 0f;
 	public List<Vector2> ropePositions = new List<Vector2>();
 	private bool distanceSet;

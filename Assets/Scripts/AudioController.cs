@@ -36,6 +36,10 @@ public class AudioController : MonoBehaviour {
     public float endLevelVolume= 1;
 	public AudioClip walkingOnCave;
     public float walkCaveVolume = 1;
+	public AudioClip walkingOnFloor2;
+	public float walkFloor2Volume = 1;
+	public AudioClip walkingOnFloor3;
+	public float walkFloor3Volume = 1;
 	public AudioClip walkingOnLine;
     public float walkLineVolume = 1;
 	public AudioClip jumpSound;
@@ -113,6 +117,15 @@ public class AudioController : MonoBehaviour {
 	public void playWalkCave(){
         playerAudio.PlayOneShot(walkingOnCave ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume()*walkCaveVolume);
 	}
+
+	public void playWalkFloor2(){
+		playerAudio.PlayOneShot(walkingOnFloor2 ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume()*walkFloor2Volume);
+	}
+
+	public void playWalkFloor3(){
+		playerAudio.PlayOneShot(walkingOnFloor3 ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume()*walkFloor3Volume);
+	}
+
 
 	public void playWalkLine(){
         playerAudio.PlayOneShot(walkingOnLine ,PlayerPrefsManager.GetMasterVolume()*PlayerPrefsManager.GetSoundEffectVolume()*walkLineVolume);
