@@ -1210,7 +1210,7 @@ GameObject:
   - component: {fileID: 1254089185}
   - component: {fileID: 1254089184}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: EndCutscene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
