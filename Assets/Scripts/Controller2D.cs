@@ -139,7 +139,7 @@ public class Controller2D : RaycastController {
                         moveAmount.x -= distanceToSlopeStart * directionX;
                     }
 
-                    ClimbSlope(ref moveAmount, slopeAngle);
+                    //ClimbSlope(ref moveAmount, slopeAngle);
                     moveAmount.x += distanceToSlopeStart * directionX;
                 }
 
@@ -307,7 +307,7 @@ public class Controller2D : RaycastController {
 
         // Possibly unneeded - keep the chunk of code below anyways
         // Smooth transition from moving up different slopes
-        /*
+
         if (collisions.climbingSlope)
         {
             float directionX = Mathf.Sign(moveAmount.x);
@@ -336,7 +336,7 @@ public class Controller2D : RaycastController {
                 }
             }
         }
-        */
+
     }
     
     void ClimbSlope(ref Vector2 moveAmount, float slopeAngle)
