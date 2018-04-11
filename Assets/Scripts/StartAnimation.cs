@@ -20,11 +20,13 @@ public class StartAnimation : MonoBehaviour {
 
 	IEnumerator WaitThenControl(float t){
 		inControl = false;
-		player.GetComponent<GrapplingHook> ().enabled = false;
+		//player.GetComponent<GrapplingHook> ().enabled = false;
+		transform.GetComponent<GrapplingHook> ().disabled = true;
 		player.GetComponent<PlayerInput> ().enabled = false;
 		yield return new WaitForSeconds (t);
 	//	player.GetComponent<Animator> ().applyRootMotion = false;
-		player.GetComponent<GrapplingHook> ().enabled = true;
+		//player.GetComponent<GrapplingHook> ().enabled = true;
+		transform.GetComponent<GrapplingHook> ().disabled = false;
 		player.GetComponent<PlayerInput> ().enabled = true;
 		inControl = true;
 

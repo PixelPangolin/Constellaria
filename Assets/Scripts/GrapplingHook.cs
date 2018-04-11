@@ -17,6 +17,7 @@ public class GrapplingHook : MonoBehaviour {
     public bool connected = false;
 	public bool isSwinging = false;
     public bool hanging = false;
+	public bool disabled = false;
 	public Rope rope;
 	public Rigidbody2D playerRigidBody;
 	public Rigidbody2D ropeRigidBody;
@@ -44,7 +45,7 @@ public class GrapplingHook : MonoBehaviour {
 
 	void Update(){
 		
-		if (Input.GetButtonDown ("Shift")&&connected) {
+		if (Input.GetButtonDown ("Shift")&&connected&&!disabled) {
 			isSwinging = true;
             hanging = true;
             hook.distance = Vector3.Distance(transform.position,ropePositions.Last());

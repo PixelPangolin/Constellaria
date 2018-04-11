@@ -43,7 +43,8 @@ public class KillPlayer : MonoBehaviour {
 			audioController.playDeathSound();
 			GetComponent<GrapplingHook>().ResetLine();
 			//XenoTeleportPlayerToCheckpoint();
-			transform.GetComponent<GrapplingHook> ().enabled = false;
+		//	transform.GetComponent<GrapplingHook> ().enabled = false;
+			transform.GetComponent<GrapplingHook> ().disabled = true;
 			transform.GetComponent<PlayerInput> ().enabled = false;
         }
         else
@@ -64,7 +65,8 @@ public class KillPlayer : MonoBehaviour {
 
 		if (distance < 3) {
 
-			transform.GetComponent<GrapplingHook> ().enabled = true;
+			//transform.GetComponent<GrapplingHook> ().enabled = true;
+			transform.GetComponent<GrapplingHook> ().disabled = false;
 			transform.GetComponent<PlayerInput> ().enabled = true;
 			controller.playerDeath = false;
 			animating = false;
