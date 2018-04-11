@@ -28,7 +28,8 @@ public class LevelComplete : MonoBehaviour {
 	public float cameraZoom = 5.0f;
 	public float cameraZoomSpeed = 6.0f;
     public List<GameObject> DeactivateWhenLevelCompleteZoomOut; // wanted to deactivate toturial stuff when you complete the level
-	public List<GameObject> DeactivateWhenLevelCompleteZoomIn;
+    public List<GameObject> ActivateWhenLevelCompleteZoomOut;
+    public List<GameObject> DeactivateWhenLevelCompleteZoomIn;
     public List<GameObject> ActivateWhenLevelComplete; // wanted to activate toturial stuff when you complete the level
 	public Vector3 cameraEndPosition2;
 	public float cameraMoveSpeed2 = 15.0f;
@@ -131,7 +132,10 @@ public class LevelComplete : MonoBehaviour {
         {
             each.SetActive(false);
         }
-
+        foreach (GameObject each in ActivateWhenLevelCompleteZoomOut) //added to deactivate tutorial stuff
+        {
+            each.SetActive(true);
+        }
 
         cameraFocus.GetComponent<CameraFollow>().control = false; //stop the camera from following the player
 		zoomOut = true;
