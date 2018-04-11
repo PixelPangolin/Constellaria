@@ -24,7 +24,7 @@ public class Player : MonoBehaviour {
     private float maxJumpVelocity;
 
     private Vector2 directionalInput;
-    private Vector3 velocity;
+    public Vector3 velocity;
     private float velocityXSmoothing;
 
     private Controller2D controller;
