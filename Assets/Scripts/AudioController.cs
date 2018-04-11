@@ -17,7 +17,7 @@ public class AudioController : MonoBehaviour {
 
 	//Level Music
 	public AudioClip backgroundTrack;
-
+	public float musicVolume = 1;
     //Level Ambience
     public AudioClip ambienceTrack;
 
@@ -61,7 +61,7 @@ public class AudioController : MonoBehaviour {
         //PlayerPrefsManager.SetAmbienceVolume(defaultAmbience);
 
 
-        cameraAudio.volume = PlayerPrefsManager.GetMasterVolume() * PlayerPrefsManager.GetMusicVolume();
+		cameraAudio.volume = PlayerPrefsManager.GetMasterVolume() * PlayerPrefsManager.GetMusicVolume()*musicVolume;
 		cameraAudio.clip = backgroundTrack;
         cameraAudio.loop = true;
 		cameraAudio.Play ();
@@ -81,7 +81,7 @@ public class AudioController : MonoBehaviour {
 		//PlayerPrefsManager.SetMusicVolume (defaultMusicVolume);
 		//PlayerPrefsManager.SetSoundEffectVolume (defaultSXVolume);
 
-        cameraAudio.volume = PlayerPrefsManager.GetMasterVolume() * PlayerPrefsManager.GetMusicVolume();
+		cameraAudio.volume = PlayerPrefsManager.GetMasterVolume() * PlayerPrefsManager.GetMusicVolume()*musicVolume;
         ambienceAudio.volume = PlayerPrefsManager.GetMasterVolume() * PlayerPrefsManager.GetAmbienceVolume();
 		playerAudio.volume = PlayerPrefsManager.GetMasterVolume() * PlayerPrefsManager.GetSoundEffectVolume();
 	}
