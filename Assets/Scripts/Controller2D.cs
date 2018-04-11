@@ -6,7 +6,7 @@ using UnityEngine;
 public class Controller2D : RaycastController {
 
     // Maximum slope the player can climb in degrees
-    private float maxSlopeAngle = 80;
+    private float maxSlopeAngle = 60;
     private float timeSinceFootStep = 0.0f;
     private float footStepSoundDelay = 0.3f;
 
