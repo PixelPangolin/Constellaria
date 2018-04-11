@@ -43,10 +43,10 @@ public class CodexManager : MonoBehaviour {
 		entry.SetActive(false);
 	}
 
-	public void LoadLevel(string scene){
+	public void LoadLevel(){
 		selectionMenu.SetActive(true);
 		entry.SetActive(false);
-		SceneManager.LoadScene (scene);
+		SceneManager.LoadScene (levelNumber);
 	}
 
 	public void PauseVoice()

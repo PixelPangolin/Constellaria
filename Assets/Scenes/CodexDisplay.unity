@@ -1982,7 +1982,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1651677226}
         m_MethodName: LoadLevel
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2372,8 +2372,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1713508116}
   m_HandleRect: {fileID: 1713508115}
   m_Direction: 2
-  m_Value: 0.99999994
-  m_Size: 0
+  m_Value: 0.9999999
+  m_Size: 0.41786924
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3843,7 +3843,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1987328789}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7224,7 +7224,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 945400005}
         m_MethodName: LoadLevel
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7565,7 +7565,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 206007528}
         m_MethodName: LoadLevel
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
